@@ -5,3 +5,25 @@ export const ROOT_BREADCRUMBS = Object.freeze({
     }
   });
   
+  export const USERS_TABLE_COLUMNS = Object.freeze({
+    name: {
+      label: t('Name'),
+      id: 'name',
+    },
+    organisation: {
+      label: t('Organisation'),
+      id: 'organisation',
+    },
+    sector: {
+      label: t('Sector'),
+      id: 'sector',
+    },
+    country: {
+      label: t('Country'),
+      id: 'country',
+    },
+    status: {
+      label: t('Status'),
+      id: 'status',
+    },
+  });
