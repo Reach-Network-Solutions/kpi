@@ -525,6 +525,13 @@ export var dataInterface;
         method: 'GET'
       });
     },
+    searchMyUsers() {
+      return $ajax({
+        url: `${ROOT_URL}/api/v2/users/`,
+        dataType: 'json',
+        method: 'GET'
+      });
+    },
     createResource (details) {
       return $ajax({
         method: 'POST',
