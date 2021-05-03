@@ -92,12 +92,12 @@ export const update_states = {
 };
 
 export const AVAILABLE_FORM_STYLES = [
-  {value: '', label: t('Default - single page')},
-  {value: 'theme-grid no-text-transform', label: t('Grid theme')},
-  {value: 'theme-grid', label: t('Grid theme with headings in ALL CAPS')},
-  {value: 'pages', label: t('Multiple pages')},
-  {value: 'theme-grid pages no-text-transform', label: t('Grid theme + Multiple pages')},
-  {value: 'theme-grid pages', label: t('Grid theme + Multiple pages + headings in ALL CAPS')},
+  {value: '', label: 'Default - single page'},
+  {value: 'theme-grid no-text-transform', label: 'Grid theme'},
+  {value: 'theme-grid', label: 'Grid theme with headings in ALL CAPS'},
+  {value: 'pages', label: 'Multiple pages'},
+  {value: 'theme-grid pages no-text-transform', label: 'Grid theme + Multiple pages'},
+  {value: 'theme-grid pages', label: 'Grid theme + Multiple pages + headings in ALL CAPS'},
 ];
 
 export const VALIDATION_STATUSES = {
@@ -107,15 +107,15 @@ export const VALIDATION_STATUSES = {
   },
   validation_status_not_approved: {
     value: 'validation_status_not_approved',
-    label: t('Not Approved'),
+    label: 'Not Approved',
   },
   validation_status_approved: {
     value: 'validation_status_approved',
-    label: t('Approved'),
+    label: 'Approved',
   },
   validation_status_on_hold: {
     value: 'validation_status_on_hold',
-    label: t('On Hold'),
+    label: 'On Hold',
   },
 };
 
@@ -129,144 +129,144 @@ export const VALIDATION_STATUSES_LIST = [
 export const ASSET_TYPES = {
   question: {
     id: 'question',
-    label: t('question'),
+    label: 'question',
   },
   block: {
     id: 'block',
-    label: t('block'),
+    label: 'block',
   },
   template: {
     id: 'template',
-    label: t('template'),
+    label: 'template',
   },
   survey: {
     id: 'survey',
-    label: t('project'),
+    label: 'project',
   },
   collection: {
     id: 'collection',
-    label: t('collection'),
+    label: 'collection',
   },
 };
 
 export const QUESTION_TYPES = Object.freeze({
   select_one: {
-    label: t('Select One'),
+    label: 'Select One',
     faIcon: 'fa-dot-circle-o',
     id: 'select_one',
   },
   select_multiple: {
-    label: t('Select Many'),
+    label: 'Select Many',
     faIcon: 'fa-list-ul',
     id: 'select_multiple',
   },
   text: {
-    label: t('Text'),
+    label: 'Text',
     faIcon: 'fa-lato-text',
     id: 'text',
   },
   integer: {
-    label: t('Number'),
+    label: 'Number',
     faIcon: 'fa-lato-integer',
     id: 'integer',
   },
   decimal: {
-    label: t('Decimal'),
+    label: 'Decimal',
     faIcon: 'fa-lato-decimal',
     id: 'decimal',
   },
   date: {
-    label: t('Date'),
+    label: 'Date',
     faIcon: 'fa-calendar',
     id: 'date',
   },
   time: {
-    label: t('Time'),
+    label: 'Time',
     faIcon: 'fa-clock-o',
     id: 'time',
   },
   datetime: {
-    label: t('Date & time'),
+    label: 'Date & time',
     faIcon: 'fa-calendar clock-over',
     id: 'datetime',
   },
   geopoint: {
-    label: t('Point'),
+    label: 'Point',
     faIcon: 'fa-map-marker',
     id: 'geopoint',
   },
   image: {
-    label: t('Photo'),
+    label: 'Photo',
     faIcon: 'fa-picture-o',
     id: 'image',
   },
   audio: {
-    label: t('Audio'),
+    label: 'Audio',
     faIcon: 'fa-volume-up',
     id: 'audio',
   },
   video: {
-    label: t('Video'),
+    label: 'Video',
     faIcon: 'fa-video-camera',
     id: 'video',
   },
   geotrace: {
-    label: t('Line'),
+    label: 'Line',
     faIcon: 'fa-share-alt',
     id: 'geotrace',
   },
   note: {
-    label: t('Note'),
+    label: 'Note',
     faIcon: 'fa-bars',
     id: 'note',
   },
   barcode: {
-    label: t('Barcode / QR Code'),
+    label: 'Barcode / QR Code',
     faIcon: 'fa-qrcode',
     id: 'barcode',
   },
   acknowledge: {
-    label: t('Acknowledge'),
+    label: 'Acknowledge',
     faIcon: 'fa-check-square-o',
     id: 'acknowledge',
   },
   geoshape: {
-    label: t('Area'),
+    label: 'Area',
     faIcon: 'fa-square',
     id: 'geoshape',
   },
   score: {
-    label: t('Rating'),
+    label: 'Rating',
     faIcon: 'fa-server',
     id: 'score',
   },
   kobomatrix: {
-    label: t('Question Matrix'),
+    label: 'Question Matrix',
     faIcon: 'fa-table',
     id: 'kobomatrix',
   },
   rank: {
-    label: t('Ranking'),
+    label: 'Ranking',
     faIcon: 'fa-sort-amount-desc',
     id: 'rank',
   },
   calculate: {
-    label: t('Calculate'),
+    label: 'Calculate',
     faIcon: 'fa-lato-calculate',
     id: 'calculate',
   },
   hidden: {
-    label: t('Hidden'),
+    label: 'Hidden',
     faIcon: 'fa-eye-slash',
     id: 'hidden',
   },
   file: {
-    label: t('File'),
+    label: 'File',
     faIcon: 'fa-file',
     id: 'file',
   },
   range: {
-    label: t('Range'),
+    label: 'Range',
     faIcon: 'fa-lato-range',
     id: 'range',
   },
@@ -368,18 +368,18 @@ export const MATRIX_PAIR_PROPS = {
 };
 
 export const DEPLOYMENT_CATEGORIES = Object.freeze({
-  Deployed: {id: 'Deployed', label: t('Deployed')},
-  Draft: {id: 'Draft', label: t('Draft')},
-  Archived: {id: 'Archived', label: t('Archived')},
+  Deployed: {id: 'Deployed', label: 'Deployed'},
+  Draft: {id: 'Draft', label: 'Draft'},
+  Archived: {id: 'Archived', label: 'Archived'},
 });
 
 export const REPORT_STYLES = Object.freeze({
-  vertical: {value: 'vertical', label: t('Vertical')},
-  donut: {value: 'donut', label: t('Donut')},
-  area: {value: 'area', label: t('Area')},
-  horizontal: {value: 'horizontal', label: t('Horizontal')},
-  pie: {value: 'pie', label: t('Pie')},
-  line: {value: 'line', label: t('Line')},
+  vertical: {value: 'vertical', label: 'Vertical'},
+  donut: {value: 'donut', label: 'Donut'},
+  area: {value: 'area', label: 'Area'},
+  horizontal: {value: 'horizontal', label: 'Horizontal'},
+  pie: {value: 'pie', label: 'Pie'},
+  line: {value: 'line', label: 'Line'},
 });
 
 export const QUERY_LIMIT_DEFAULT = 5000;

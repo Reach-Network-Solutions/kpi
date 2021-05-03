@@ -46,7 +46,7 @@ module.exports = WebpackCommon({
       filename: '[file].map',
       exclude: /vendors.*.*/
     }),
-    new webpack.NamedModulesPlugin(),
+    // new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CircularDependencyPlugin({
       exclude: /a\.js|node_modules/,
