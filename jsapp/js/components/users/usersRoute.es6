@@ -18,7 +18,7 @@ class usersRoute extends React.Component {
   render() {
 
     return (
-      <DocumentTitle title={`${t("Users")} | KoboToolbox`}>
+      <DocumentTitle title={`${t("Users")} | Nexus Forms`}>
         <bem.Breadcrumbs m="gray-wrapper">
           <bem.Breadcrumbs__crumb>
             {ROOT_BREADCRUMBS.USERS.label}
