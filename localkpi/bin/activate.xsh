@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/media/od/527572B33774B8B1/Projects/REACH/Nexus Forms Web/nexusforms-kpi/localkpi"
+$VIRTUAL_ENV = r"/media/od/527572B33774B8B1/Projects/REACH/nexus forms web/web inplimentation/nexusforms-kpi/localkpi"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-<form action="{% url 'set_language' %}" method="post" class="language-switcher">
+<!-- <form action="{% url 'set_language' %}" method="post" class="language-switcher">
   {% csrf_token %}
     <input name="next" type="hidden" value="{{ redirect_to }}" />
     <select name="language" onchange="this.form.submit()">
@@ -16,7 +16,7 @@
         {% endfor %}
     </select>
     <input type="submit" value="Go" class="hidden" />
-</form>
+</form> -->
 
 <form action="." method="post" class="registration registration--register">
   <div class="registration--logo">
@@ -25,7 +25,8 @@
     </a>
   </div>
   <div class="registration__first-half">
-    <h1>{% trans "Create an account" %}</h1>
+    <h1>{% trans "Register" %}</h1>
+    <p class="registration__tagline">Collect forms easily with Nexus</p>
       {% csrf_token %}
       {% for field in form %}
           <div class="field {{ field.name }}">
@@ -47,15 +48,8 @@
       {% endfor %}
       <input type="submit" value="{% trans 'Create Account' %}" class="registration__action" />
       <div class="registration__orlogin">
-        {% trans "or" %} <a href="{% url 'auth_login' %}">{% trans "login" %}</a>
+        {% trans "Already Registered?" %} <a href="{% url 'auth_login' %}">{% trans "login" %}</a>
       </div>
-  </div>
-
-  <div class="registration__second-half">
-      {% if welcome_message %} {{ welcome_message|safe }} {% else %}
-      <p>KoBoToolbox is an integrated set of tools for building forms and collecting interview responses. It is built by the Harvard Humanitarian Initiative for easy and reliable use in difficult field settings, such as humanitarian emergencies or
-          post-conflict environments. <a href="http://www.kobotoolbox.org">Read more</a></p>
-      {% endif %}
   </div>
   <div style="clear:both;"></div>
 </form>

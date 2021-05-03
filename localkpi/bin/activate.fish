@@ -57,7 +57,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV '/media/od/527572B33774B8B1/Projects/REACH/Nexus Forms Web/nexusforms-kpi/localkpi'
+set -gx VIRTUAL_ENV '/media/od/527572B33774B8B1/Projects/REACH/nexus forms web/web inplimentation/nexusforms-kpi/localkpi'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | head -c 1) -lt 3

@@ -119,7 +119,7 @@ class App extends React.Component {
     }
 
     return (
-      <DocumentTitle title='KoBoToolbox'>
+      <DocumentTitle title='Nexus Forms'>
         <React.Fragment>
           <PermValidator/>
           <IntercomHandler/>

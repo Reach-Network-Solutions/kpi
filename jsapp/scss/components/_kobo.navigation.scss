@@ -32,7 +32,7 @@
   .header__logo {
     width: 175px;
     height: 40px;
-    background: url("../img/kobologo.svg") no-repeat left bottom;
+    background: url("../img/nexuslogo.svg") no-repeat left bottom;
     background-size: contain;
     display: block;
   }
@@ -84,12 +84,12 @@
     }
 
     .k-search__input {
-      color: $kobo-white;
+      // color: $kobo-white;
       border: none;
       border-radius: 0px;
       padding: 10px 12px;
       padding-left: 42px;
-      background-color: rgba($kobo-white, 0.1);
+      background-color: $kobo-white;
       font-size: 16px;
       position: relative;
       width: 99%;
@@ -99,7 +99,7 @@
     .search__cancel {
       position: absolute;
       top: 11px;
-      color: $kobo-white;
+      color: $nexus-dark;
 
       &::before {
         font-size: 18px;
@@ -358,7 +358,7 @@
     }
 
     .header__logo {
-      background: url("../img/kobologoS.svg") no-repeat left center;
+      background: url("../img/nexuslogo.svg") no-repeat left center;
       background-size: 125%;
       width: 40px;
     }

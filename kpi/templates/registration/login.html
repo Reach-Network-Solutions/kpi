@@ -6,17 +6,21 @@
     <div class="registration--logo"><a href="/">
     {% block logo %}{{ block.super }}{% endblock %}
     </a></div>
+    <div class="registration--header">
+      <h1>Login</h1>
+      <p>Collect forms easily with Nexus.</p>
+    </div>
     {% csrf_token %}
     {{ form.as_p }}
     <a href="{% url 'auth_password_reset' %}" class="registration__forgot">
-      {% trans "Forgot?" %}
+      {% trans "Forgot Password?" %}
     </a>
     <input type="submit" value="Login" class="registration__action" />
     <input type="hidden" name="next" value="{{ next }}" />
 
     {% if config.REGISTRATION_OPEN %}
       <div class="registration__footer">
-        {% trans "or" %} <a href="{% url 'registration_register' %}">{% trans "create an account" %}</a>
+        {% trans "Not yet registered?" %} <a href="{% url 'registration_register' %}">{% trans "Create an account" %}</a>
       </div>
     {% endif %}
   </form>

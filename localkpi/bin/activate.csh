@@ -10,7 +10,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV '/media/od/527572B33774B8B1/Projects/REACH/Nexus Forms Web/nexusforms-kpi/localkpi'
+setenv VIRTUAL_ENV '/media/od/527572B33774B8B1/Projects/REACH/nexus forms web/web inplimentation/nexusforms-kpi/localkpi'
 
 set _OLD_VIRTUAL_PATH="$PATH:q"
 setenv PATH "$VIRTUAL_ENV:q/bin:$PATH:q"
