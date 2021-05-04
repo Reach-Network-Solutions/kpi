@@ -100,7 +100,7 @@ class MainHeader extends Reflux.Component {
         if ('reload' in window.location) {
           window.location.reload();
         } else {
-          window.alert(t('Please refresh the page'));
+          window.alert(('Please refresh the page'));
         }
       });
     }
@@ -160,7 +160,7 @@ class MainHeader extends Reflux.Component {
                   </bem.AccountBox__menuItem>
                   <bem.AccountBox__menuItem m={'settings'}>
                     <bem.KoboButton onClick={this.accountSettings} m={['blue', 'fullwidth']}>
-                      {t('Account Settings')}
+                      {('Account Settings')}
                     </bem.KoboButton>
                   </bem.AccountBox__menuItem>
                 </bem.AccountBox__menuLI>
@@ -168,12 +168,12 @@ class MainHeader extends Reflux.Component {
                   <bem.AccountBox__menuLI key='2' className='environment-links'>
                     {stores.session.environment.terms_of_service_url &&
                       <a href={stores.session.environment.terms_of_service_url} target='_blank'>
-                        {t('Terms of Service')}
+                        {('Terms of Service')}
                       </a>
                     }
                     {stores.session.environment.privacy_policy_url &&
                       <a href={stores.session.environment.privacy_policy_url} target='_blank'>
-                        {t('Privacy Policy')}
+                        {('Privacy Policy')}
                       </a>
                     }
                   </bem.AccountBox__menuLI>
@@ -181,7 +181,7 @@ class MainHeader extends Reflux.Component {
                 <bem.AccountBox__menuLI m={'lang'} key='3'>
                   <bem.AccountBox__menuLink onClick={this.toggleLanguageSelector} data-popover-menu-stop-blur tabIndex='0'>
                     <i className='k-icon-language' />
-                    {t('Language')}
+                    {('Language')}
                   </bem.AccountBox__menuLink>
 
                   {this.state.isLanguageSelectorVisible &&
@@ -193,7 +193,7 @@ class MainHeader extends Reflux.Component {
                 <bem.AccountBox__menuLI m={'logout'} key='4'>
                   <bem.AccountBox__menuLink onClick={this.logout}>
                     <i className='k-icon-logout' />
-                    {t('Logout')}
+                    {('Logout')}
                   </bem.AccountBox__menuLink>
                 </bem.AccountBox__menuLI>
               </bem.AccountBox__menu>
@@ -236,9 +236,9 @@ class MainHeader extends Reflux.Component {
       iconClassName = getAssetIcon(this.state.asset);
     }
 
-    let librarySearchBoxPlaceholder = t('Search My Library');
+    let librarySearchBoxPlaceholder = ('Search My Library');
     if (this.isPublicCollections()) {
-      librarySearchBoxPlaceholder = t('Search Public Collections');
+      librarySearchBoxPlaceholder = ('Search Public Collections');
     }
 
     return (
@@ -254,7 +254,7 @@ class MainHeader extends Reflux.Component {
             </span>
             { this.isFormList() &&
               <div className='mdl-layout__header-searchers'>
-                <ListSearch searchContext={this.state.formFiltersContext} placeholderText={t('Search Projects')} />
+                <ListSearch searchContext={this.state.formFiltersContext} placeholderText={('Search Projects')} />
               </div>
             }
             { (this.isMyLibrary() || this.isPublicCollections()) &&
@@ -276,7 +276,7 @@ class MainHeader extends Reflux.Component {
 
                 { this.isFormSingle() && this.state.asset.has_deployment &&
                   <bem.MainHeader__counter>
-                    {this.state.asset.deployment__submission_count} {t('submissions')}
+                    {this.state.asset.deployment__submission_count} {('submissions')}
                   </bem.MainHeader__counter>
                 }
               </React.Fragment>

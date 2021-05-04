@@ -92,7 +92,7 @@ class App extends React.Component {
         <bem.Loading>
           <bem.Loading__inner>
             <i />
-            {t('loading...')}
+            {'loading...'}
           </bem.Loading__inner>
         </bem.Loading>
       );
@@ -235,7 +235,7 @@ class FormNotFound extends React.Component {
         <ui.Panel>
           <bem.Loading>
             <bem.Loading__inner>
-              {t('path not found / recognized')}
+              {'path not found / recognized'}
             </bem.Loading__inner>
           </bem.Loading>
         </ui.Panel>

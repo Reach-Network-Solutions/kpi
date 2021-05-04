@@ -82,7 +82,7 @@ export default class MetadataEditor extends React.Component {
   renderAuditInputLabel() {
     return (
       <React.Fragment>
-        {t('Audit settings')}
+        {('Audit settings')}
 
         { stores.serverEnvironment &&
           stores.serverEnvironment.state.support_url &&

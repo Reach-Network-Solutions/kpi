@@ -49,7 +49,7 @@ exportsActions.createExport.listen((assetUid, data) => {
     .fail(exportsActions.createExport.failed);
 });
 exportsActions.createExport.failed.listen(() => {
-  notify(t('Failed to create export'), 'error');
+  notify(('Failed to create export'), 'error');
 });
 
 /**
@@ -62,7 +62,7 @@ exportsActions.deleteExport.listen((assetUid, exportUid) => {
     .fail(exportsActions.deleteExport.failed);
 });
 exportsActions.deleteExport.failed.listen(() => {
-  notify(t('Failed to delete export'), 'error');
+  notify(('Failed to delete export'), 'error');
 });
 
 /**
@@ -103,7 +103,7 @@ exportsActions.updateExportSetting.listen((assetUid, settingUid, data) => {
     .fail(exportsActions.updateExportSetting.failed);
 });
 exportsActions.updateExportSetting.failed.listen(() => {
-  notify(t('Failed to update export setting'), 'error');
+  notify(('Failed to update export setting'), 'error');
 });
 
 /**
@@ -120,7 +120,7 @@ exportsActions.createExportSetting.listen((assetUid, data) => {
     .fail(exportsActions.createExportSetting.failed);
 });
 exportsActions.createExportSetting.failed.listen(() => {
-  notify(t('Failed to create export setting'), 'error');
+  notify(('Failed to create export setting'), 'error');
 });
 
 /**
@@ -133,7 +133,7 @@ exportsActions.deleteExportSetting.listen((assetUid, settingUid) => {
     .fail(exportsActions.deleteExportSetting.failed);
 });
 exportsActions.deleteExportSetting.failed.listen(() => {
-  notify(t('Failed to delete export setting'), 'error');
+  notify(('Failed to delete export setting'), 'error');
 });
 
 export default exportsActions;

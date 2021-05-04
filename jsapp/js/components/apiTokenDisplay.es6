@@ -53,7 +53,7 @@ class ApiTokenDisplay extends React.Component {
   render() {
     return (
       <bem.FormModal__item m='api-token'>
-        <label>{t('API token')}</label>
+        <label>{('API token')}</label>
 
         <input
           type={this.state.isTokenVisible && !this.state.isLoadingToken ? 'text' : 'password'}

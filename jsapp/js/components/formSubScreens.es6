@@ -103,7 +103,7 @@ export class FormSubScreens extends React.Component {
       }
     }
 
-    var docTitle = this.state.name || t('Untitled');
+    var docTitle = this.state.name || ('Untitled');
 
     return (
         <DocumentTitle title={`${docTitle} | KoboToolbox`}>
@@ -116,7 +116,7 @@ export class FormSubScreens extends React.Component {
       );
   }
   renderSettingsEditor() {
-    var docTitle = this.state.name || t('Untitled');
+    var docTitle = this.state.name || ('Untitled');
     return (
         <DocumentTitle title={`${docTitle} | KoboToolbox`}>
           <bem.FormView m='form-settings'>
@@ -129,7 +129,7 @@ export class FormSubScreens extends React.Component {
     );
   }
   renderProjectDownloads() {
-    var docTitle = this.state.name || t('Untitled');
+    var docTitle = this.state.name || ('Untitled');
     return (
       <DocumentTitle title={`${docTitle} | KoboToolbox`}>
         <bem.FormView className='project-downloads'>
@@ -152,7 +152,7 @@ export class FormSubScreens extends React.Component {
       <bem.Loading>
         <bem.Loading__inner>
           <i />
-          {t('loading...')}
+          {('loading...')}
         </bem.Loading__inner>
       </bem.Loading>
     );

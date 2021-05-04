@@ -19,7 +19,7 @@ submissionsActions.bulkDeleteStatus.listen((uid, data) => {
     .fail(submissionsActions.bulkDeleteStatus.failed);
 });
 submissionsActions.bulkDeleteStatus.failed.listen(() => {
-  notify(t('Failed to update submissions.'), 'error');
+  notify(('Failed to update submissions.'), 'error');
 });
 
 submissionsActions.bulkPatchStatus.listen((uid, data) => {
@@ -28,7 +28,7 @@ submissionsActions.bulkPatchStatus.listen((uid, data) => {
     .fail(submissionsActions.bulkPatchStatus.failed);
 });
 submissionsActions.bulkPatchStatus.failed.listen(() => {
-  notify(t('Failed to update submissions.'), 'error');
+  notify(('Failed to update submissions.'), 'error');
 });
 
 /**
@@ -44,11 +44,11 @@ submissionsActions.bulkPatchValues.listen((uid, submissionIds, data) => {
 });
 submissionsActions.bulkPatchValues.completed.listen((response) => {
   if (response.failures !== 0) {
-    notify(t('Failed to update some submissions values.'), 'error');
+    notify(('Failed to update some submissions values.'), 'error');
   }
 });
 submissionsActions.bulkPatchValues.failed.listen(() => {
-  notify(t('Failed to update submissions values.'), 'error');
+  notify(('Failed to update submissions values.'), 'error');
 });
 
 submissionsActions.bulkDelete.listen((uid, data) => {
@@ -57,7 +57,7 @@ submissionsActions.bulkDelete.listen((uid, data) => {
     .fail(submissionsActions.bulkDelete.failed);
 });
 submissionsActions.bulkDelete.failed.listen(() => {
-  notify(t('Failed to delete submissions.'), 'error');
+  notify(('Failed to delete submissions.'), 'error');
 });
 
 export default submissionsActions;

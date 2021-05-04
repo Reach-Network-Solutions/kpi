@@ -99,13 +99,13 @@ actions.misc = Reflux.createActions({
 // TODO move these callbacks to `actions/permissions.es6` after moving
 // `actions.resources` to separate file (circular dependency issue)
 permissionsActions.assignAssetPermission.failed.listen(() => {
-  notify(t('Failed to update permissions'), 'error');
+  notify('Failed to update permissions', 'error');
 });
 permissionsActions.removeAssetPermission.failed.listen(() => {
-  notify(t('Failed to remove permissions'), 'error');
+  notify('Failed to remove permissions', 'error');
 });
 permissionsActions.bulkSetAssetPermissions.failed.listen(() => {
-  notify(t('Failed to update permissions'), 'error');
+  notify('Failed to update permissions', 'error');
 });
 permissionsActions.assignAssetPermission.completed.listen((uid) => {
   // needed to update publicShareSettings after enabling link sharing
@@ -150,7 +150,7 @@ actions.misc.updateProfile.listen(function(data, callbacks={}){
     });
 });
 actions.misc.updateProfile.completed.listen(function(){
-  notify(t('updated profile successfully'));
+  notify('updated profile successfully');
 });
 actions.misc.updateProfile.failed.listen(function(data) {
   let hadFieldsErrors = false;
@@ -161,9 +161,9 @@ actions.misc.updateProfile.failed.listen(function(data) {
   }
 
   if (hadFieldsErrors) {
-    notify(t('Some fields contain errors'), 'error');
+    notify('Some fields contain errors', 'error');
   } else {
-    notify(t('failed to update profile'), 'error');
+    notify('failed to update profile', 'error');
   }
 });
 
@@ -210,7 +210,7 @@ actions.resources.updateAsset.listen(function(uid, values, params={}) {
       if (typeof params.onComplete === 'function') {
         params.onComplete(asset, uid, values);
       }
-      notify(t('successfully updated'));
+      notify('successfully updated');
     })
     .fail(function(resp){
       actions.resources.updateAsset.failed(resp);
@@ -250,27 +250,27 @@ actions.resources.deployAsset.failed.listen(function(data, redeployment){
     } else if (data.status == 500 && data.responseText) {
       msg = `<pre>${data.responseText}</pre>`;
     } else {
-      msg = t('please check your connection and try again.');
+      msg = 'please check your connection and try again.';
     }
     failure_message = `
-      <p>${replaceSupportEmail(t('if this problem persists, contact help@kobotoolbox.org'))}</p>
+      <p>${replaceSupportEmail('if this problem persists, contact help@kobotoolbox.org')}</p>
       <p>${msg}</p>
     `;
   } else if(!!data.responseJSON.xform_id_string){
     // TODO: now that the id_string is automatically generated, this failure
     // mode probably doesn't need special handling
     failure_message = `
-      <p>${t('your form id was not valid:')}</p>
+      <p>${'your form id was not valid:'}</p>
       <p><pre>${data.responseJSON.xform_id_string}</pre></p>
-      <p>${replaceSupportEmail(t('if this problem persists, contact help@kobotoolbox.org'))}</p>
+      <p>${replaceSupportEmail('if this problem persists, contact help@kobotoolbox.org')}</p>
     `;
   } else if(!!data.responseJSON.detail) {
     failure_message = `
-      <p>${t('your form cannot be deployed because it contains errors:')}</p>
+      <p>${'your form cannot be deployed because it contains errors:'}</p>
       <p><pre>${data.responseJSON.detail}</pre></p>
     `;
   }
-  alertify.alert(t('unable to deploy'), failure_message);
+  alertify.alert('unable to deploy', failure_message);
 });
 
 actions.resources.setDeploymentActive.listen(function(details) {
@@ -282,9 +282,9 @@ actions.resources.setDeploymentActive.listen(function(details) {
 });
 actions.resources.setDeploymentActive.completed.listen((result) => {
   if (result.deployment__active) {
-    notify(t('Project unarchived successfully'));
+    notify('Project unarchived successfully');
   } else {
-    notify(t('Project archived successfully'));
+    notify('Project archived successfully');
   }
 });
 
@@ -391,8 +391,8 @@ actions.resources.deleteAsset.listen(function(details, params={}){
     .fail((err) => {
       actions.resources.deleteAsset.failed(details);
       alertify.alert(
-        t('Unable to delete asset!'),
-        `<p>${t('Error details:')}</p><pre style='max-height: 200px;'>${err.responseText}</pre>`
+        'Unable to delete asset!',
+        `<p>${'Error details:'}</p><pre style='max-height: 200px;'>${err.responseText}</pre>`
       );
     });
 });
@@ -408,7 +408,7 @@ actions.resources.cloneAsset.listen(function(details, params={}){
     .fail(actions.resources.cloneAsset.failed);
 });
 actions.resources.cloneAsset.failed.listen(() => {
-  notify(t('Could not create project!'), 'error');
+  notify('Could not create project!', 'error');
 });
 
 actions.search.assets.listen(function(searchData, params = {}){
@@ -460,10 +460,10 @@ actions.auth.changePassword.listen((currentPassword, newPassword) => {
   .fail(actions.auth.changePassword.failed);
 });
 actions.auth.changePassword.completed.listen(() => {
-  notify(t('changed password successfully'));
+  notify('changed password successfully');
 });
 actions.auth.changePassword.failed.listen(() => {
-  notify(t('failed to change password'), 'error');
+  notify('failed to change password', 'error');
 });
 
 actions.auth.getEnvironment.listen(function(){
@@ -474,7 +474,7 @@ actions.auth.getEnvironment.listen(function(){
     .fail(actions.auth.getEnvironment.failed);
 });
 actions.auth.getEnvironment.failed.listen(() => {
-  notify(t('failed to load environment data'), 'error');
+  notify('failed to load environment data', 'error');
 });
 
 actions.auth.getApiToken.listen(() => {
@@ -485,7 +485,7 @@ actions.auth.getApiToken.listen(() => {
     .fail(actions.auth.getApiToken.failed);
 });
 actions.auth.getApiToken.failed.listen(() => {
-  notify(t('failed to load API token'), 'error');
+  notify('failed to load API token', 'error');
 });
 
 actions.resources.loadAsset.listen(function(params){
@@ -521,12 +521,12 @@ actions.resources.removeSubmissionValidationStatus.listen((uid, sid) => {
 actions.resources.deleteSubmission.listen((uid, sid) => {
   dataInterface.deleteSubmission(uid, sid)
     .done(() => {
-      notify(t('submission deleted'));
+      notify('submission deleted');
       actions.resources.deleteSubmission.completed();
       actions.resources.loadAsset({id: uid});
     })
     .fail(() => {
-      alertify.error(t('failed to delete submission'));
+      alertify.error('failed to delete submission');
       actions.resources.deleteSubmission.failed();
     });
 });
@@ -534,12 +534,12 @@ actions.resources.deleteSubmission.listen((uid, sid) => {
 actions.resources.duplicateSubmission.listen((uid, sid, duplicatedSubmission) => {
   dataInterface.duplicateSubmission(uid, sid)
     .done((response) => {
-      notify(t('Successfully duplicated submission'));
+      notify('Successfully duplicated submission');
       actions.resources.duplicateSubmission.completed(uid, response._id, duplicatedSubmission);
       actions.resources.loadAsset({id: uid});
     })
     .fail((response) => {
-      alertify.error(t('Failed to duplciate submisson'));
+      alertify.error('Failed to duplciate submisson');
       actions.resources.duplicateSubmission.failed(response);
     });
 });
@@ -577,10 +577,10 @@ actions.hooks.add.listen((assetUid, data, callbacks = {}) => {
     });
 });
 actions.hooks.add.completed.listen((response) => {
-  notify(t('REST Service added successfully'));
+  notify('REST Service added successfully');
 });
 actions.hooks.add.failed.listen((response) => {
-  notify(t('Failed adding REST Service'), 'error');
+  notify('Failed adding REST Service', 'error');
 });
 
 actions.hooks.update.listen((assetUid, hookUid, data, callbacks = {}) => {
@@ -600,10 +600,10 @@ actions.hooks.update.listen((assetUid, hookUid, data, callbacks = {}) => {
     });
 });
 actions.hooks.update.completed.listen(() => {
-  notify(t('REST Service updated successfully'));
+  notify('REST Service updated successfully');
 });
 actions.hooks.update.failed.listen(() => {
-  alertify.error(t('Failed saving REST Service'));
+  alertify.error('Failed saving REST Service');
 });
 
 actions.hooks.delete.listen((assetUid, hookUid, callbacks = {}) => {
@@ -623,10 +623,10 @@ actions.hooks.delete.listen((assetUid, hookUid, callbacks = {}) => {
     });
 });
 actions.hooks.delete.completed.listen((response) => {
-  notify(t('REST Service deleted permanently'));
+  notify('REST Service deleted permanently');
 });
 actions.hooks.delete.failed.listen((response) => {
-  notify(t('Could not delete REST Service'), 'error');
+  notify('Could not delete REST Service', 'error');
 });
 
 actions.hooks.getLogs.listen((assetUid, hookUid, callbacks = {}) => {
@@ -662,10 +662,10 @@ actions.hooks.retryLog.listen((assetUid, hookUid, lid, callbacks = {}) => {
     });
 });
 actions.hooks.retryLog.completed.listen((response) => {
-  notify(t('Submission retry requested successfully'));
+  notify('Submission retry requested successfully');
 });
 actions.hooks.retryLog.failed.listen((response) => {
-  notify(t('Submission retry request failed'), 'error');
+  notify('Submission retry request failed', 'error');
 });
 
 actions.hooks.retryLogs.listen((assetUid, hookUid, callbacks = {}) => {
@@ -688,5 +688,5 @@ actions.hooks.retryLogs.completed.listen((response) => {
   notify(response.detail, 'warning');
 });
 actions.hooks.retryLogs.failed.listen((response) => {
-  notify(t('Retrying all submissions failed'), 'error');
+  notify('Retrying all submissions failed', 'error');
 });

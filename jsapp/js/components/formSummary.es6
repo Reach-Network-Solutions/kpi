@@ -147,23 +147,23 @@ class FormSummary extends React.Component {
     return (
       <bem.FormView__row m='summary-submissions'>
         <bem.FormView__cell m={['label', 'first']}>
-          {t('Submissions')}
+          {('Submissions')}
         </bem.FormView__cell>
         <bem.FormView__cell m={['box']}>
           <bem.FormView__cell m='subs-graph'>
             <bem.FormView__cell m='subs-graph-toggle'>
               <a onClick={this.showGraphWeek} className={this.state.chartPeriod=='week' ? 'active' : ''}>
-                {t('Past 7 days')}
+                {('Past 7 days')}
               </a>
               <a onClick={this.showGraphMonth} className={this.state.chartPeriod=='month' ? 'active' : ''}>
-                {t('Past 31 days')}
+                {('Past 31 days')}
               </a>
             </bem.FormView__cell>
             <bem.FormView__cell m={'summary-chart'} className={this.state.subsCurrentPeriod ? 'active' : 'inactive'}>
               <canvas ref='canvas' className={this.state.chartVisible ? 'visible' : ''}/>
             </bem.FormView__cell>
             <bem.FormView__cell m={'chart-no-data'}>
-              <span>{t('No chart data available for current period.')}</span>
+              <span>{('No chart data available for current period.')}</span>
             </bem.FormView__cell>
           </bem.FormView__cell>
           <bem.FormView__group m={['submission-stats']}>
@@ -191,7 +191,7 @@ class FormSummary extends React.Component {
             </bem.FormView__cell>
             <bem.FormView__cell>
               <span className='subs-graph-number'>{this.state.deployment__submission_count}</span>
-              <bem.FormView__label>{t('Total')}</bem.FormView__label>
+              <bem.FormView__label>{('Total')}</bem.FormView__label>
             </bem.FormView__cell>
           </bem.FormView__group>
         </bem.FormView__cell>
@@ -214,13 +214,13 @@ class FormSummary extends React.Component {
           data-path={`/forms/${this.state.uid}/landing`}
           onClick={this.triggerRefresh}>
             <i className='k-icon-projects' />
-            {t('Collect data')}
+            {('Collect data')}
             <i className='fa fa-angle-right' />
         </Link>
         {this.userCan('change_asset', this.state) &&
           <bem.PopoverMenu__link onClick={this.sharingModal}>
             <i className='k-icon-user-share'/>
-            {t('Share project')}
+            {('Share project')}
             <i className='fa fa-angle-right' />
           </bem.PopoverMenu__link>
         }
@@ -232,13 +232,13 @@ class FormSummary extends React.Component {
             data-path={`/forms/${this.state.uid}/edit`}
             onClick={this.triggerRefresh}>
               <i className='k-icon-edit' />
-              {t('Edit form')}
+              {('Edit form')}
               <i className='fa fa-angle-right' />
           </Link>
         }
         <bem.PopoverMenu__link onClick={this.enketoPreviewModal}>
           <i className='k-icon-view' />
-          {t('Preview form')}
+          {('Preview form')}
           <i className='fa fa-angle-right' />
         </bem.PopoverMenu__link>
       </bem.FormView__cell>
@@ -246,11 +246,11 @@ class FormSummary extends React.Component {
   }
   renderDataTabs() {
     const sideTabs = [
-      {label: t('Reports'), icon: 'k-icon-report', path: `/forms/${this.state.uid}/data/report`},
-      {label: t('Table'), icon: 'k-icon-table', path: `/forms/${this.state.uid}/data/table`},
-      {label: t('Gallery'), icon: 'k-icon-photo-gallery', path: `/forms/${this.state.uid}/data/gallery`},
-      {label: t('Downloads'), icon: 'k-icon-download', path: `/forms/${this.state.uid}/data/downloads`},
-      {label: t('Map'), icon: 'k-icon-map-view', path: `/forms/${this.state.uid}/data/map`},
+      {label: ('Reports'), icon: 'k-icon-report', path: `/forms/${this.state.uid}/data/report`},
+      {label: ('Table'), icon: 'k-icon-table', path: `/forms/${this.state.uid}/data/table`},
+      {label: ('Gallery'), icon: 'k-icon-photo-gallery', path: `/forms/${this.state.uid}/data/gallery`},
+      {label: ('Downloads'), icon: 'k-icon-download', path: `/forms/${this.state.uid}/data/downloads`},
+      {label: ('Map'), icon: 'k-icon-map-view', path: `/forms/${this.state.uid}/data/map`},
     ];
 
     return (
@@ -299,7 +299,7 @@ class FormSummary extends React.Component {
     return (
       <bem.FormView__row m='team'>
         <bem.FormView__cell m={['label', 'first']}>
-          {t('Team members')}
+          {('Team members')}
         </bem.FormView__cell>
         {this.userCan('change_asset', this.state) &&
           <a onClick={this.sharingModal} className='team-sharing-button'>
@@ -321,7 +321,7 @@ class FormSummary extends React.Component {
     );
   }
   render () {
-    let docTitle = this.state.name || t('Untitled');
+    let docTitle = this.state.name || ('Untitled');
     let permAccess = this.userCan('view_submissions', this.state) || this.userCan('partial_submissions', this.state);
 
     if (!this.state.permissions) {
@@ -329,7 +329,7 @@ class FormSummary extends React.Component {
         <bem.Loading>
           <bem.Loading__inner>
             <i />
-            {t('loading...')}
+            {('loading...')}
           </bem.Loading__inner>
         </bem.Loading>
       );
@@ -346,20 +346,20 @@ class FormSummary extends React.Component {
             {(this.state.settings && (this.state.settings.country || this.state.settings.sector || this.state.settings.description)) &&
               <bem.FormView__row m='summary-description'>
                 <bem.FormView__cell m={['label', 'first']}>
-                  {t('Description')}
+                  {('Description')}
                 </bem.FormView__cell>
                 <bem.FormView__cell m={['box']}>
                   {(this.state.settings.country || this.state.settings.sector) &&
                     <bem.FormView__group m={['items', 'description-cols']}>
                       {this.state.settings.country &&
                         <bem.FormView__cell>
-                          <bem.FormView__label m='country'>{t('Project country')}</bem.FormView__label>
+                          <bem.FormView__label m='country'>{('Project country')}</bem.FormView__label>
                           {this.state.settings.country.label}
                         </bem.FormView__cell>
                       }
                       {this.state.settings.sector &&
                         <bem.FormView__cell>
-                          <bem.FormView__label m='sector'>{t('Sector')}</bem.FormView__label>
+                          <bem.FormView__label m='sector'>{('Sector')}</bem.FormView__label>
                           {this.state.settings.sector.label}
                         </bem.FormView__cell>
                       }
@@ -376,30 +376,30 @@ class FormSummary extends React.Component {
             {this.renderSubmissionsGraph()}
             <bem.FormView__row m='summary-details'>
               <bem.FormView__cell m={['label', 'first']}>
-                {t('Form details')}
+                {('Form details')}
               </bem.FormView__cell>
               <bem.FormView__cell m={['box']}>
                 <bem.FormView__group m='summary-details-cols'>
                   <bem.FormView__cell>
-                    <bem.FormView__label>{t('Last modified')}</bem.FormView__label>
+                    <bem.FormView__label>{('Last modified')}</bem.FormView__label>
                     {formatTime(this.state.date_modified)}
                   </bem.FormView__cell>
                   {this.state.lastSubmission &&
                     <bem.FormView__cell>
-                      <bem.FormView__label>{t('Latest submission')}</bem.FormView__label>
+                      <bem.FormView__label>{('Latest submission')}</bem.FormView__label>
                       {formatTime(this.state.lastSubmission)}
                     </bem.FormView__cell>
                   }
                   {this.state.summary &&
                     <bem.FormView__cell>
-                      <bem.FormView__label>{t('Questions')}</bem.FormView__label>
+                      <bem.FormView__label>{('Questions')}</bem.FormView__label>
                       {this.state.summary.row_count}
                     </bem.FormView__cell>
                   }
 
                   {this.state.summary && this.state.summary.languages && this.state.summary.languages.length > 1 &&
                     <bem.FormView__cell>
-                      <bem.FormView__label>{t('Languages')}</bem.FormView__label>
+                      <bem.FormView__label>{('Languages')}</bem.FormView__label>
                       {this.state.summary.languages.map((l, i)=>{
                         return (
                           <bem.FormView__cell key={`lang-${i}`} data-index={i}>
@@ -417,7 +417,7 @@ class FormSummary extends React.Component {
           <bem.FormView__column m='right'>
             <bem.FormView__row m='quick-links'>
               <bem.FormView__cell m={['label', 'first']}>
-                {t('Quick Links')}
+                {('Quick Links')}
               </bem.FormView__cell>
               <bem.FormView__cell m='box'>
                 {this.renderQuickLinks()}
@@ -427,7 +427,7 @@ class FormSummary extends React.Component {
             {this.state.deployment__submission_count > 0 &&
               <bem.FormView__row m='data-links'>
                 <bem.FormView__cell m={['label', 'first']}>
-                  {t('Data')}
+                  {('Data')}
                 </bem.FormView__cell>
                 <bem.FormView__cell m='box'>
                   {this.renderDataTabs()}

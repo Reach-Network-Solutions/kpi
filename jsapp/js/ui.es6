@@ -102,7 +102,7 @@ class Modal extends React.Component {
     if (this.props.isDuplicated) {
       return(
         <a className='modal__done' type='button' onClick={this.props.onClose}>
-          {t('DONE')}
+          {('DONE')}
         </a>
       );
     } else {
@@ -189,7 +189,7 @@ class SidebarAssetName extends React.Component {
   render () {
     return (
         <BemSidebarAssetName m={{noname: !this.props.name}}>
-          {this.props.name || t('No name')}
+          {this.props.name || ('No name')}
         </BemSidebarAssetName>
       );
   }
@@ -212,9 +212,9 @@ class AssetName extends React.Component {
       summary.row_count
     ) {
       if (summary.row_count === 2) {
-        extra = <small>{t('and one other question')}</small>;
+        extra = <small>{('and one other question')}</small>;
       } else if (summary.row_count > 2) {
-        extra = <small>{t('and ## other questions').replace('##', summary.row_count - 1)}</small>;
+        extra = <small>{('and ## other questions').replace('##', summary.row_count - 1)}</small>;
       }
     }
 
@@ -341,9 +341,9 @@ class AccessDeniedMessage extends React.Component {
         <bem.Loading>
           <bem.Loading__inner>
             <h3>
-              {t('Access Denied')}
+              {('Access Denied')}
             </h3>
-            {t('You do not have permission to view this page.')}
+            {('You do not have permission to view this page.')}
           </bem.Loading__inner>
         </bem.Loading>
       </bem.FormView>

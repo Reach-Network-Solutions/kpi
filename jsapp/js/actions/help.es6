@@ -33,7 +33,7 @@ helpActions.getInAppMessages.listen(() => {
     .fail(helpActions.getInAppMessages.failed);
 });
 helpActions.getInAppMessages.failed.listen(() => {
-  notify(t('Failed to get in app messages.'), 'error');
+  notify(('Failed to get in app messages.'), 'error');
 });
 
 helpActions.setMessageReadTime.listen((uid, readTime) => {
@@ -46,7 +46,7 @@ helpActions.setMessageReadTime.listen((uid, readTime) => {
     .fail(helpActions.setMessageReadTime.failed);
 });
 helpActions.setMessageReadTime.failed.listen(() => {
-  notify(t('Failed to set message readTime.'), 'error');
+  notify(('Failed to set message readTime.'), 'error');
 });
 
 helpActions.setMessageAcknowledged.listen((uid, isAcknowledged) => {
@@ -55,5 +55,5 @@ helpActions.setMessageAcknowledged.listen((uid, isAcknowledged) => {
     .fail(helpActions.setMessageAcknowledged.failed);
 });
 helpActions.setMessageAcknowledged.failed.listen(() => {
-  notify(t('Failed to set message acknowledged.'), 'error');
+  notify(('Failed to set message acknowledged.'), 'error');
 });

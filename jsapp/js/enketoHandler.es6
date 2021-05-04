@@ -60,7 +60,7 @@ const enketoHandler = {
               this._openEnketoUrl(aid, sid);
               resolve();
             } else {
-              let errorMsg = t('There was an error loading Enketo.');
+              let errorMsg = 'There was an error loading Enketo.';
               if (editData.detail) {
                 errorMsg += `<br><code>${editData.detail}</code>`;
               }
@@ -69,7 +69,7 @@ const enketoHandler = {
             }
           })
           .fail(() => {
-            notify(t('There was an error getting Enketo edit link'), 'error');
+            notify('There was an error getting Enketo edit link', 'error');
             reject();
           });
       }

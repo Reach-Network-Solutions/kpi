@@ -198,7 +198,7 @@ export class IntercomHelpBubble extends HelpBubble {
       <bem.HelpBubble m={modifiers}>
         <HelpBubbleTrigger
           icon='intercom'
-          tooltipLabel={t('Intercom')}
+          tooltipLabel={('Intercom')}
           onClick={this.toggle.bind(this)}
           htmlId='custom_intercom_launcher'
           counter={this.state.intercomUnreadCount}
@@ -366,7 +366,7 @@ export class SupportHelpBubble extends HelpBubble {
 
         <bem.HelpBubble__popupContent>
           <bem.HelpBubble__row m='header'>
-            {t('Help Resources')}
+            {('Help Resources')}
           </bem.HelpBubble__row>
 
           { stores.serverEnvironment &&
@@ -378,8 +378,8 @@ export class SupportHelpBubble extends HelpBubble {
               onClick={this.close.bind(this)}
             >
               <i className='k-icon k-icon-help-articles'/>
-              <header>{t('KoBoToolbox Help Center')}</header>
-              <p>{t('A vast collection of user support articles and tutorials related to KoBo')}</p>
+              <header>{('KoBoToolbox Help Center')}</header>
+              <p>{('A vast collection of user support articles and tutorials related to KoBo')}</p>
             </bem.HelpBubble__rowAnchor>
           }
 
@@ -392,14 +392,14 @@ export class SupportHelpBubble extends HelpBubble {
               onClick={this.close.bind(this)}
             >
               <i className='k-icon k-icon-forum'/>
-              <header>{t('KoBoToolbox Community Forum')}</header>
-              <p>{t('Post your questions to get answers from experienced KoBo users around the world')}</p>
+              <header>{('KoBoToolbox Community Forum')}</header>
+              <p>{('Post your questions to get answers from experienced KoBo users around the world')}</p>
             </bem.HelpBubble__rowAnchor>
           }
 
           {this.state.messages.length > 0 &&
             <bem.HelpBubble__row m='header'>
-              {t('Notifications')}
+              {('Notifications')}
             </bem.HelpBubble__row>
           }
 
@@ -486,7 +486,7 @@ export class SupportHelpBubble extends HelpBubble {
       <bem.HelpBubble m={modifiers}>
         <HelpBubbleTrigger
           icon='help'
-          tooltipLabel={t('Help')}
+          tooltipLabel={('Help')}
           onClick={this.toggle.bind(this)}
           counter={this.getUnreadMessagesCount()}
         />

@@ -193,18 +193,18 @@ libraryActions.getCollections.listen((params) => {
 
 libraryActions.moveToCollection.completed.listen((asset) => {
   if (asset.parent === null) {
-    notify(t('Successfuly removed from collection'));
+    notify(('Successfuly removed from collection'));
   } else {
-    notify(t('Successfuly moved to collection'));
+    notify(('Successfuly moved to collection'));
   }
 });
 libraryActions.moveToCollection.failed.listen(() => {
-  notify(t('Move to collection failed'), 'error');
+  notify(('Move to collection failed'), 'error');
 });
 
 const onAnySearchFailed = (response) => {
   if (response.statusText !== 'abort') {
-    notify((response.responseJSON.detail) || (t('Failed to get the results'), 'error'));
+    notify((response.responseJSON.detail) || (('Failed to get the results'), 'error'));
   }
 };
 

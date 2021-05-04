@@ -57,21 +57,21 @@ class FormViewTabs extends Reflux.Component {
             to={ROUTES.FORM_SUMMARY.replace(':uid', this.state.assetid)}
             className='form-view__tab'
             activeClassName='active'>
-            {t('Summary')}
+            {('Summary')}
           </Link>
         }
         <Link
           to={ROUTES.FORM_LANDING.replace(':uid', this.state.assetid)}
           className='form-view__tab'
           activeClassName='active'>
-          {t('Form')}
+          {('Form')}
         </Link>
         { a.deployment__identifier != undefined && a.has_deployment && a.deployment__submission_count > 0 && (this.userCan('view_submissions', a) || this.userCan('partial_submissions', a)) &&
           <Link
             to={ROUTES.FORM_DATA.replace(':uid', this.state.assetid)}
             className='form-view__tab'
             activeClassName='active'>
-            {t('Data')}
+            {('Data')}
           </Link>
         }
         {this.userCan('change_asset', a) &&
@@ -79,7 +79,7 @@ class FormViewTabs extends Reflux.Component {
             to={ROUTES.FORM_SETTINGS.replace(':uid', this.state.assetid)}
             className='form-view__tab'
             activeClassName='active'>
-            {t('Settings')}
+            {('Settings')}
           </Link>
         }
         <Link
@@ -96,32 +96,32 @@ class FormViewTabs extends Reflux.Component {
 
     if (this.state.asset && this.state.asset.has_deployment && this.isActiveRoute(`/forms/${this.state.assetid}/data`)) {
       sideTabs = [
-        {label: t('Reports'), icon: 'k-icon-report', path: `/forms/${this.state.assetid}/data/report`},
-        {label: t('Table'), icon: 'k-icon-table', path: `/forms/${this.state.assetid}/data/table`},
-        {label: t('Gallery'), icon: 'k-icon-photo-gallery', path: `/forms/${this.state.assetid}/data/gallery`},
-        {label: t('Downloads'), icon: 'k-icon-download', path: `/forms/${this.state.assetid}/data/downloads`},
-        {label: t('Map'), icon: 'k-icon-map-view', path: `/forms/${this.state.assetid}/data/map`},
+        {label: ('Reports'), icon: 'k-icon-report', path: `/forms/${this.state.assetid}/data/report`},
+        {label: ('Table'), icon: 'k-icon-table', path: `/forms/${this.state.assetid}/data/table`},
+        {label: ('Gallery'), icon: 'k-icon-photo-gallery', path: `/forms/${this.state.assetid}/data/gallery`},
+        {label: ('Downloads'), icon: 'k-icon-download', path: `/forms/${this.state.assetid}/data/downloads`},
+        {label: ('Map'), icon: 'k-icon-map-view', path: `/forms/${this.state.assetid}/data/map`},
       ];
     }
 
     if (this.state.asset && this.isActiveRoute(`/forms/${this.state.assetid}/settings`)) {
       sideTabs = [];
 
-      sideTabs.push({label: t('General'), icon: 'k-icon-settings', path: `/forms/${this.state.assetid}/settings`});
+      sideTabs.push({label: ('General'), icon: 'k-icon-settings', path: `/forms/${this.state.assetid}/settings`});
 
       //TODO:Remove owner only access to settings/media after we remove KC iframe: https://github.com/kobotoolbox/kpi/issues/2647#issuecomment-624301693
       if (this.state.asset.deployment__active && assetUtils.isSelfOwned(this.state.asset)) {
-        sideTabs.push({label: t('Media'), icon: 'k-icon-photo-gallery', path: `/forms/${this.state.assetid}/settings/media`});
+        sideTabs.push({label: ('Media'), icon: 'k-icon-photo-gallery', path: `/forms/${this.state.assetid}/settings/media`});
       }
 
-      sideTabs.push({label: t('Sharing'), icon: 'k-icon-user-share', path: `/forms/${this.state.assetid}/settings/sharing`});
+      sideTabs.push({label: ('Sharing'), icon: 'k-icon-user-share', path: `/forms/${this.state.assetid}/settings/sharing`});
 
       if (
         this.state.asset.deployment__active &&
         mixins.permissions.userCan(PERMISSIONS_CODENAMES.view_submissions, this.state.asset) &&
         mixins.permissions.userCan(PERMISSIONS_CODENAMES.change_asset, this.state.asset)
       ) {
-        sideTabs.push({label: t('REST Services'), icon: 'k-icon-data-sync', path: `/forms/${this.state.assetid}/settings/rest`});
+        sideTabs.push({label: ('REST Services'), icon: 'k-icon-data-sync', path: `/forms/${this.state.assetid}/settings/rest`});
       }
     }
 

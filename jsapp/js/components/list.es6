@@ -44,7 +44,7 @@ export class ListSearch extends React.Component {
 
 ListSearch.defaultProps = {
   searchContext: 'default',
-  placeholderText: t('Search...')
+  placeholderText: ('Search...')
 };
 
 reactMixin(ListSearch.prototype, searches.common);
@@ -104,9 +104,9 @@ export class ListTagFilter extends React.Component {
           name='tags'
           isMulti
           isLoading={!this.state.tagsLoaded}
-          loadingMessage={() => {return t('Tags are loading...')}}
-          placeholder={t('Search Tags')}
-          noOptionsMessage={() => {return t('No results found')}}
+          loadingMessage={() => {return ('Tags are loading...')}}
+          placeholder={('Search Tags')}
+          noOptionsMessage={() => {return ('No results found')}}
           options={this.state.availableTags}
           onChange={this.onTagsChange}
           className={[this.props.hidden ? 'hidden' : null, 'kobo-select'].join(' ')}
@@ -179,10 +179,10 @@ export class ListCollectionFilter extends React.Component {
       <bem.collectionFilter>
         <Select
           name='collections'
-          placeholder={t('Select Collection Name')}
+          placeholder={('Select Collection Name')}
           isClearable
           isLoading={!this.state.collectionsLoaded}
-          loadingMessage={() => {return t('Collections are loading...');}}
+          loadingMessage={() => {return ('Collections are loading...');}}
           options={this.state.availableCollections}
           onChange={this.onCollectionChange}
           value={this.state.selectedCollection}
@@ -229,13 +229,13 @@ export class ListExpandToggle extends React.Component {
     return (
       <bem.LibNav__expanded className={{hidden: this.props.hidden}}>
         <bem.LibNav__count>
-          {count} {t('assets found')}
+          {count} {('assets found')}
         </bem.LibNav__count>
         <bem.LibNav__expandedToggle>
           <Checkbox
             checked={this.state.assetNavExpanded}
             onChange={this.onExpandedToggleChange}
-            label={t('expand details')}
+            label={('expand details')}
           />
         </bem.LibNav__expandedToggle>
       </bem.LibNav__expanded>
@@ -272,11 +272,11 @@ export class ListSearchDebug extends React.Component {
               <bem.CollectionNav__searchcriterion m={{
                 success: searchResultsSuccess
                   }}>
-                {t('success')}
-                {this.state.searchResultsSuccess ? t('yes') : t('no')}
+                {('success')}
+                {this.state.searchResultsSuccess ? ('yes') : ('no')}
               </bem.CollectionNav__searchcriterion>
               <bem.CollectionNav__searchcriterion>
-                {t('count')}
+                {('count')}
                 {this.state.searchResultsCount}
               </bem.CollectionNav__searchcriterion>
               { searchDebugQuery ?

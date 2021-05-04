@@ -16,7 +16,7 @@ import {hashHistory} from 'react-router';
 import {stringToColor} from 'utils';
 import {ROUTES} from 'js/constants';
 
-const UNSAVED_CHANGES_WARNING = t('You have unsaved changes. Leave settings without saving?');
+const UNSAVED_CHANGES_WARNING = ('You have unsaved changes. Leave settings without saving?');
 
 export default class AccountSettings extends React.Component {
   constructor(props){
@@ -89,15 +89,15 @@ export default class AccountSettings extends React.Component {
       genderChoices: [
         {
           value: 'male',
-          label: t('Male')
+          label: ('Male')
         },
         {
           value: 'female',
-          label: t('Female')
+          label: ('Female')
         },
         {
           value: 'other',
-          label: t('Other')
+          label: ('Other')
         },
       ],
       fieldsErrors: {}
@@ -115,7 +115,7 @@ export default class AccountSettings extends React.Component {
       let opts = {
         title: UNSAVED_CHANGES_WARNING,
         message: '',
-        labels: {ok: t('Yes, leave settings'), cancel: t('Cancel')},
+        labels: {ok: ('Yes, leave settings'), cancel: ('Cancel')},
         onok: () => {
           this.setState({isPristine: true});
           this.unpreventClosingTab();
@@ -227,7 +227,7 @@ export default class AccountSettings extends React.Component {
             <bem.Loading>
               <bem.Loading__inner>
                 <i />
-                {t('loading...')}
+                {('loading...')}
               </bem.Loading__inner>
             </bem.Loading>
           </bem.AccountSettings__item>
@@ -248,7 +248,7 @@ export default class AccountSettings extends React.Component {
               onClick={this.updateProfile}
               m={['blue']}
             >
-              {t('Save Changes')}
+              {('Save Changes')}
               {!this.state.isPristine && ' *'}
             </bem.KoboButton>
 
@@ -273,30 +273,30 @@ export default class AccountSettings extends React.Component {
             <bem.AccountSettings__item m='fields'>
               <bem.AccountSettings__item>
                 <bem.AccountSettings__item>
-                  <label htmlFor='requireAuth'>{t('Privacy')}</label>
+                  <label htmlFor='requireAuth'>{('Privacy')}</label>
                 </bem.AccountSettings__item>
 
                 <Checkbox
                   id='requireAuth'
                   checked={this.state.requireAuth}
                   onChange={this.requireAuthChange}
-                  label={t('Require authentication to see forms and submit data')}
+                  label={('Require authentication to see forms and submit data')}
                 />
               </bem.AccountSettings__item>
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('Name')}
+                  label={('Name')}
                   errors={this.state.fieldsErrors.name}
                   value={this.state.name}
                   onChange={this.nameChange}
-                  description={t('Use this to display your real name to other users')}
+                  description={('Use this to display your real name to other users')}
                 />
               </bem.AccountSettings__item>
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('Email')}
+                  label={('Email')}
                   type='email'
                   errors={this.state.fieldsErrors.email}
                   value={this.state.email}
@@ -309,7 +309,7 @@ export default class AccountSettings extends React.Component {
                   href={`/#${ROUTES.CHANGE_PASSWORD}`}
                   className='kobo-button kobo-button--teal'
                 >
-                  {t('Modify Password')}
+                  {('Modify Password')}
                 </a>
               </bem.AccountSettings__item>
 
@@ -317,7 +317,7 @@ export default class AccountSettings extends React.Component {
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('Organization')}
+                  label={('Organization')}
                   errors={this.state.fieldsErrors.organization}
                   value={this.state.organization}
                   onChange={this.organizationChange}
@@ -326,7 +326,7 @@ export default class AccountSettings extends React.Component {
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('Organization Website')}
+                  label={('Organization Website')}
                   type='url'
                   errors={this.state.fieldsErrors.organizationWebsite}
                   value={this.state.organizationWebsite}
@@ -336,7 +336,7 @@ export default class AccountSettings extends React.Component {
 
               <bem.AccountSettings__item m='primary-sector'>
                 <label>
-                  {t('Primary Sector')}
+                  {('Primary Sector')}
 
                   <Select
                     value={this.state.primarySector}
@@ -349,13 +349,13 @@ export default class AccountSettings extends React.Component {
                 </label>
 
                 <bem.AccountSettings__desc>
-                  {t('Select the primary sector in which you work. ')}
+                  {('Select the primary sector in which you work. ')}
                 </bem.AccountSettings__desc>
               </bem.AccountSettings__item>
 
               <bem.AccountSettings__item m='gender'>
                 <label>
-                  {t('Gender')}
+                  {('Gender')}
 
                   <Select
                     value={this.state.gender}
@@ -370,7 +370,7 @@ export default class AccountSettings extends React.Component {
 
               <bem.AccountSettings__item m='bio'>
                 <label>
-                  {t('Bio')}
+                  {('Bio')}
 
                   <TextareaAutosize
                     onChange={this.bioChange}
@@ -382,7 +382,7 @@ export default class AccountSettings extends React.Component {
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('Phone Number')}
+                  label={('Phone Number')}
                   errors={this.state.fieldsErrors.phoneNumber}
                   value={this.state.phoneNumber}
                   onChange={this.phoneNumberChange}
@@ -391,7 +391,7 @@ export default class AccountSettings extends React.Component {
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('Address')}
+                  label={('Address')}
                   errors={this.state.fieldsErrors.address}
                   value={this.state.address}
                   onChange={this.addressChange}
@@ -400,7 +400,7 @@ export default class AccountSettings extends React.Component {
 
               <bem.AccountSettings__item m='city'>
                 <TextBox
-                  label={t('City')}
+                  label={('City')}
                   errors={this.state.fieldsErrors.city}
                   value={this.state.city}
                   onChange={this.cityChange}
@@ -409,7 +409,7 @@ export default class AccountSettings extends React.Component {
 
               <bem.AccountSettings__item m='country'>
                 <label>
-                  {t('Country')}
+                  {('Country')}
 
                   <Select
                     value={this.state.country}
@@ -423,7 +423,7 @@ export default class AccountSettings extends React.Component {
               </bem.AccountSettings__item>
 
               <bem.AccountSettings__item m='social'>
-                <label>{t('Social')}</label>
+                <label>{('Social')}</label>
 
                 <label>
                   <i className='fa fa-twitter' />
@@ -458,7 +458,7 @@ export default class AccountSettings extends React.Component {
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('Metadata')}
+                  label={('Metadata')}
                   errors={this.state.fieldsErrors.metadata}
                   value={this.state.metadata}
                   onChange={this.metadataChange}

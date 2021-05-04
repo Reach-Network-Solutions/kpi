@@ -130,7 +130,7 @@ export class FormMap extends React.Component {
     );
 
     if(this.props.asset.deployment__submission_count > QUERY_LIMIT_DEFAULT) {
-      notify(t('By default map is limited to the ##number##  most recent submissions for performance reasons. Go to map settings to increase this limit.').replace('##number##', QUERY_LIMIT_DEFAULT));
+      notify(('By default map is limited to the ##number##  most recent submissions for performance reasons. Go to map settings to increase this limit.').replace('##number##', QUERY_LIMIT_DEFAULT));
     }
 
     this.requestData(map, this.props.viewby);
@@ -292,7 +292,7 @@ export class FormMap extends React.Component {
       else if (error.statusText)
         this.setState({error: error.statusText, loading: false});
       else
-        this.setState({error: t('Error: could not load data.'), loading: false});
+        this.setState({error: ('Error: could not load data.'), loading: false});
     });
   }
   calculateClusterRadius(zoom) {
@@ -439,7 +439,7 @@ export class FormMap extends React.Component {
         }
       );
     } else {
-      this.setState({error: t('Error: could not load data.'), loading: false});
+      this.setState({error: ('Error: could not load data.'), loading: false});
     }
   }
 
@@ -671,18 +671,18 @@ export class FormMap extends React.Component {
           viewby = this.props.viewby;
 
     let colorSet = this.calcColorSet() || 'a';
-    var label = t('Disaggregate by survey responses');
+    var label = ('Disaggregate by survey responses');
 
     if (viewby) {
       fields.forEach(function(f){
         if(viewby === f.name || viewby === f.$autoname) {
-          label = `${t('Disaggregated using:')} ${f.label[langIndex]}`;
+          label = `${('Disaggregated using:')} ${f.label[langIndex]}`;
         }
       });
     } else if (this.state.noData && this.state.hasGeoPoint) {
-      label = `${t('No "geopoint" responses have been received')}`;
+      label = `${('No "geopoint" responses have been received')}`;
     } else if (!this.state.hasGeoPoint) {
-      label = `${t('The map does not show data because this form does not have a "geopoint" field.')}`
+      label = `${('The map does not show data because this form does not have a "geopoint" field.')}`
     }
 
     const formViewModifiers = ['map'];
@@ -694,31 +694,31 @@ export class FormMap extends React.Component {
       <bem.FormView m={formViewModifiers} className='right-tooltip'>
         <bem.FormView__mapButton m={'expand'}
           onClick={this.toggleFullscreen}
-          data-tip={t('Toggle Fullscreen')}
+          data-tip={('Toggle Fullscreen')}
           className={this.state.toggleFullscreen ? 'active': ''}>
           <i className='k-icon-expand' />
         </bem.FormView__mapButton>
         <bem.FormView__mapButton m={'markers'}
           onClick={this.showMarkers}
-          data-tip={t('Show as points')}
+          data-tip={('Show as points')}
           className={this.state.markersVisible ? 'active': ''}>
           <i className='k-icon-pins' />
         </bem.FormView__mapButton>
         <bem.FormView__mapButton m={'layers'}
           onClick={this.showLayerControls}
-          data-tip={t('Toggle layers')}>
+          data-tip={('Toggle layers')}>
           <i className='k-icon-layer' />
         </bem.FormView__mapButton>
         <bem.FormView__mapButton
           m={'map-settings'}
           onClick={this.toggleMapSettings}
-          data-tip={t('Map display settings')}>
+          data-tip={('Map display settings')}>
           <i className='k-icon-settings' />
         </bem.FormView__mapButton>
         {!viewby &&
           <bem.FormView__mapButton m={'heatmap'}
             onClick={this.showHeatmap}
-            data-tip={t('Show as heatmap')}
+            data-tip={('Show as heatmap')}
             className={!this.state.markersVisible ? 'active': ''}>
             <i className='k-icon-heatmap' />
           </bem.FormView__mapButton>
@@ -733,7 +733,7 @@ export class FormMap extends React.Component {
                         >
             {langs.length > 1 &&
               <bem.PopoverMenu__heading>
-                {t('Language')}
+                {('Language')}
               </bem.PopoverMenu__heading>
             }
             {langs.map((l,i)=> {
@@ -741,16 +741,16 @@ export class FormMap extends React.Component {
                   <bem.PopoverMenu__link
                     data-index={i} className={this.state.langIndex == i ? 'active': ''}
                     key={`l-${i}`} onClick={this.filterLanguage}>
-                    {l ? l : t('Default')}
+                    {l ? l : ('Default')}
                   </bem.PopoverMenu__link>
                 );
             })}
             <bem.PopoverMenu__link key={'all'} onClick={this.filterMap} className={!viewby ? 'active see-all': 'see-all'}>
-              {t('-- See all data --')}
+              {('-- See all data --')}
             </bem.PopoverMenu__link>
             {fields.map((f)=>{
               const name = f.name || f.$autoname;
-              const label = f.label ? f.label[langIndex] ? f.label[langIndex] : <em>{t('untranslated: ') + name}</em> : t('Question label not set');
+              const label = f.label ? f.label[langIndex] ? f.label[langIndex] : <em>{('untranslated: ') + name}</em> : ('Question label not set');
               return (
                   <bem.PopoverMenu__link
                     data-name={name} key={`f-${name}`}
@@ -768,7 +768,7 @@ export class FormMap extends React.Component {
          <div className="map-transparent-background">
            <div className="map-no-geopoint-wrapper">
             <p className="map-no-geopoint">
-              {t('The map does not show data because this form does not have a "geopoint" field.')}
+              {('The map does not show data because this form does not have a "geopoint" field.')}
             </p>
           </div>
          </div>
@@ -778,7 +778,7 @@ export class FormMap extends React.Component {
          <div className="map-transparent-background">
            <div className="map-no-geopoint-wrapper">
             <p className="map-no-geopoint">
-              {t('No "geopoint" responses have been received')}
+              {('No "geopoint" responses have been received')}
             </p>
           </div>
          </div>
@@ -789,14 +789,14 @@ export class FormMap extends React.Component {
             <div className='maplist-contents'>
               {this.state.filteredByMarker &&
                 <div key='m-reset' className='map-marker-item map-marker-reset' onClick={this.resetFilterByMarker}>
-                  {t('Reset')}
+                  {('Reset')}
                 </div>
               }
               {this.state.markerMap.map((m, i)=>{
                 var markerItemClass = 'map-marker-item ';
                 if (this.state.filteredByMarker)
                   markerItemClass += this.state.filteredByMarker.includes(m.id.toString()) ? 'selected' : 'unselected';
-                let label = m.labels ? m.labels[langIndex] : m.value ? m.value : t('not set');
+                let label = m.labels ? m.labels[langIndex] : m.value ? m.value : ('not set');
                 var index = i;
                 if (colorSet !== undefined && colorSet !== 'a') {
                   index = this.calculateIconIndex(index, this.state.markerMap);
@@ -816,7 +816,7 @@ export class FormMap extends React.Component {
               })}
             </div>
             <div className='maplist-legend' onClick={this.toggleLegend}>
-              <i className={classNames('fa', this.state.showExpandedLegend ? 'fa-angle-down' : 'fa-angle-up')} /> {t('Legend')}
+              <i className={classNames('fa', this.state.showExpandedLegend ? 'fa-angle-down' : 'fa-angle-up')} /> {('Legend')}
             </div>
           </bem.FormView__mapList>
         }
@@ -831,7 +831,7 @@ export class FormMap extends React.Component {
           <ui.Modal
             open
             onClose={this.toggleMapSettings}
-            title={t('Map Settings')}>
+            title={('Map Settings')}>
             <MapSettings
               asset={this.props.asset}
               toggleMapSettings={this.toggleMapSettings}

@@ -40,7 +40,7 @@ export function getAssetOwnerDisplayName(username) {
     stores.session.currentAccount.username &&
     stores.session.currentAccount.username === username
   ) {
-    return t('me');
+    return 'me';
   } else {
     return username;
   }
@@ -141,7 +141,7 @@ export function getAssetDisplayName(asset) {
     output.question = asset.summary.labels[0];
   }
   if (!output.original && !output.question) {
-    output.empty = t('untitled');
+    output.empty = 'untitled';
   }
   output.final = output.original || output.question || output.empty;
   return output;
@@ -163,7 +163,7 @@ export function getQuestionDisplayName(question, translationIndex = 0) {
   } else if (question.$autoname) {
     return question.$autoname;
   } else {
-    t('Unlabelled');
+    'Unlabelled';
   }
 }
 
@@ -480,13 +480,13 @@ export function isAssetPublicReady(asset) {
 
   if (asset.asset_type === ASSET_TYPES.collection.id) {
     if (!asset.name || !asset.settings.organization || !asset.settings.sector) {
-      errors.push(t('Name, organization and sector are required to make collection public.'));
+      errors.push('Name, organization and sector are required to make collection public.');
     }
     if (asset.children.count === 0) {
-      errors.push(t('Empty collection is not allowed to be made public.'));
+      errors.push('Empty collection is not allowed to be made public.');
     }
   } else {
-    errors.push(t('Only collections are allowed to be made public!'));
+    errors.push('Only collections are allowed to be made public!');
   }
 
   return errors;

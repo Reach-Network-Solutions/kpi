@@ -16,10 +16,10 @@ const COLOR_SETS = ['a', 'b', 'c', 'd', 'e'];
 const QUERY_LIMIT_MINIMUM = 1000;
 const QUERY_LIMIT_MAXIMUM = 30000;
 const TABS = new Map([
-  ['colors', {id: 'colors', label: t('Marker Colors')}],
-  ['querylimit', {id: 'querylimit', label: t('Query Limit')}],
-  ['geoquestion', {id: 'geoquestion', label: t('Geopoint question')}],
-  ['overlays', {id: 'overlays', label: t('Overlays')}]
+  ['colors', {id: 'colors', label: ('Marker Colors')}],
+  ['querylimit', {id: 'querylimit', label: ('Query Limit')}],
+  ['geoquestion', {id: 'geoquestion', label: ('Geopoint question')}],
+  ['overlays', {id: 'overlays', label: ('Overlays')}]
 ]);
 
 class MapColorPicker extends React.Component {
@@ -56,9 +56,9 @@ class MapColorPicker extends React.Component {
       var length = 10;
       var label = false;
       if (set === 'a') {length = 16;}
-      if (set === 'a') {label = t('Best for qualitative data');}
-      if (set === 'b') {label = t('Best for sequential data');}
-      if (set === 'd') {label = t('Best for diverging data');}
+      if (set === 'a') {label = ('Best for qualitative data');}
+      if (set === 'b') {label = ('Best for sequential data');}
+      if (set === 'd') {label = ('Best for diverging data');}
       return (
         <bem.FormModal__item m='map-color-item' key={index}>
           {label &&
@@ -195,7 +195,7 @@ class MapSettings extends React.Component {
       name = this.state.layerName;
 
     if (!name) {
-      alertify.error(t('Please add a name for your layer file.'));
+      alertify.error(('Please add a name for your layer file.'));
       return false;
     }
 
@@ -214,13 +214,13 @@ class MapSettings extends React.Component {
         _this.setState({ layerName: '' });
         actions.resources.getAssetFiles(this.props.asset.uid);
       }).fail((jqxhr) => {
-        var errMsg = t('Upload error: ##error_message##.').replace('##error_message##', jqxhr.statusText);
+        var errMsg = ('Upload error: ##error_message##.').replace('##error_message##', jqxhr.statusText);
         alertify.error(errMsg);
       });
     });
 
     rejectedFiles.map(() => {
-      var errMsg = t('Upload error: not a valid map overlay format.');
+      var errMsg = ('Upload error: not a valid map overlay format.');
       alertify.error(errMsg);
     });
   }
@@ -233,12 +233,12 @@ class MapSettings extends React.Component {
       dialog = alertify.dialog('confirm');
 
     let opts = {
-      title: t('Delete File'),
+      title: ('Delete File'),
       message: t(
         'Are you sure you want to delete this file? ' +
           '<br/><br/><strong>This action cannot be undone.</strong>'
       ),
-      labels: { ok: t('Delete'), cancel: t('Cancel') },
+      labels: { ok: ('Delete'), cancel: ('Cancel') },
       onok: () => {
         dataInterface.deleteAssetFile(this.props.asset.uid, uid).done(() => {
           actions.resources.getAssetFiles(this.props.asset.uid);
@@ -316,7 +316,7 @@ class MapSettings extends React.Component {
               <div className='map-settings__overlay'>
                 {this.state.files.length > 0 && (
                   <bem.FormModal__item m='list-files'>
-                    <label>{t('Uploaded layers')}</label>
+                    <label>{('Uploaded layers')}</label>
                     {this.state.files.map((file, i) => {
                       return (
                         <div className='list-file-row' key={i}>
@@ -327,7 +327,7 @@ class MapSettings extends React.Component {
                           <span
                             className='file-delete'
                             onClick={this.deleteFile}
-                            data-tip={t('Delete layer')}
+                            data-tip={('Delete layer')}
                             data-uid={file.uid}
                           >
                             <i className='k-icon-trash' />
@@ -339,12 +339,12 @@ class MapSettings extends React.Component {
                 )}
                 <bem.FormModal__item m='layer-upload'>
                   <label htmlFor='name'>
-                    {t('Use the form below to upload files with map data in one of these formats: CSV, KML, KMZ, WKT or GEOJSON. The data will be made available as layers for display on the map.')}
+                    {('Use the form below to upload files with map data in one of these formats: CSV, KML, KMZ, WKT or GEOJSON. The data will be made available as layers for display on the map.')}
                   </label>
                   <input
                     type='text'
                     id='name'
-                    placeholder={t('Layer name')}
+                    placeholder={('Layer name')}
                     value={this.state.layerName}
                     onChange={this.onLayerNameChange}
                   />
@@ -355,7 +355,7 @@ class MapSettings extends React.Component {
                     accept={'.csv,.kml,.geojson,.wkt,.json,.kmz'}
                   >
                     <bem.KoboButton m='blue'>
-                      {t('Upload')}
+                      {('Upload')}
                     </bem.KoboButton>
                   </Dropzone>
                 </bem.FormModal__item>
@@ -364,7 +364,7 @@ class MapSettings extends React.Component {
             {activeTab === TABS.get('colors').id && (
               <bem.FormModal__item>
                 <div className='map-settings__colors'>
-                  {t('Choose the color set for the disaggregated map markers.')}
+                  {('Choose the color set for the disaggregated map markers.')}
                   <MapColorPicker onChange={this.onColorChange} mapSettings={this.state.mapSettings}/>
                 </div>
               </bem.FormModal__item>
@@ -372,7 +372,7 @@ class MapSettings extends React.Component {
             {activeTab === TABS.get('querylimit').id && (
               <bem.FormModal__item>
                 <div className='map-settings__querylimit'>
-                  {t('By default the map is limited to the ##QUERY_LIMIT_DEFAULT## most recent submissions. You can temporarily increase this limit to a different value. Note that this is reset whenever you reopen the map.').replace('##QUERY_LIMIT_DEFAULT##', QUERY_LIMIT_DEFAULT)}
+                  {('By default the map is limited to the ##QUERY_LIMIT_DEFAULT## most recent submissions. You can temporarily increase this limit to a different value. Note that this is reset whenever you reopen the map.').replace('##QUERY_LIMIT_DEFAULT##', QUERY_LIMIT_DEFAULT)}
                   <p className='change-limit-warning'>Warning: Displaying a large number of points requires a lot of memory.</p>
                   <form>
                     <input
@@ -401,11 +401,11 @@ class MapSettings extends React.Component {
           <bem.Modal__footer>
             {this.userCan('change_asset', this.props.asset) && queryLimit !== QUERY_LIMIT_DEFAULT &&
               <bem.KoboButton m='whitegray' onClick={this.resetMapSettings}>
-                {t('Reset')}
+                {('Reset')}
               </bem.KoboButton>
             }
             <bem.KoboButton m='blue' onClick={this.onSave}>
-              {t('Save')}
+              {('Save')}
             </bem.KoboButton>
           </bem.Modal__footer>
         }

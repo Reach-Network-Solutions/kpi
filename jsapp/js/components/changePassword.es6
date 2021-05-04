@@ -32,7 +32,7 @@ export default class ChangePassword extends React.Component {
 
   validateRequired(what) {
     if (!this.state[what]) {
-      this.errors[what] = t('This field is required.');
+      this.errors[what] = ('This field is required.');
     }
   }
 
@@ -46,7 +46,7 @@ export default class ChangePassword extends React.Component {
     this.validateRequired('newPassword');
     this.validateRequired('verifyPassword');
     if (this.state.newPassword !== this.state.verifyPassword) {
-      this.errors['newPassword'] = t('This field must match the Verify Password field.');
+      this.errors['newPassword'] = ('This field must match the Verify Password field.');
     }
     if (Object.keys(this.errors).length === 0) {
       actions.auth.changePassword(this.state.currentPassword, this.state.newPassword);
@@ -88,7 +88,7 @@ export default class ChangePassword extends React.Component {
             <bem.Loading>
               <bem.Loading__inner>
                 <i />
-                {t('loading...')}
+                {('loading...')}
               </bem.Loading__inner>
             </bem.Loading>
           </bem.AccountSettings__item>
@@ -109,7 +109,7 @@ export default class ChangePassword extends React.Component {
               onClick={this.changePassword}
               m={['blue']}
             >
-              {t('Save Password')}
+              {('Save Password')}
             </bem.KoboButton>
 
             <button
@@ -130,12 +130,12 @@ export default class ChangePassword extends React.Component {
 
             <bem.AccountSettings__item m='fields'>
               <bem.AccountSettings__item>
-                <h4>{t('Reset Password')}</h4>
+                <h4>{('Reset Password')}</h4>
               </bem.AccountSettings__item>
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('Current Password')}
+                  label={('Current Password')}
                   type='password'
                   errors={this.state.errors.currentPassword}
                   value={this.state.currentPassword}
@@ -146,13 +146,13 @@ export default class ChangePassword extends React.Component {
                   className='account-settings-link'
                   href={`${ROOT_URL}/accounts/password/reset/`}
                 >
-                  {t('Forgot Password?')}
+                  {('Forgot Password?')}
                 </a>
               </bem.AccountSettings__item>
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('New Password')}
+                  label={('New Password')}
                   type='password'
                   errors={this.state.errors.newPassword}
                   value={this.state.newPassword}
@@ -169,7 +169,7 @@ export default class ChangePassword extends React.Component {
 
               <bem.AccountSettings__item>
                 <TextBox
-                  label={t('Verify Password')}
+                  label={('Verify Password')}
                   type='password'
                   errors={this.state.errors.verifyPassword}
                   value={this.state.verifyPassword}

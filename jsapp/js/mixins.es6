@@ -44,18 +44,18 @@ var mixins = {};
 
 mixins.dmix = {
   afterCopy() {
-    notify(t('copied to clipboard'));
+    notify('copied to clipboard');
   },
   saveCloneAs (evt) {
     let version_id = evt.currentTarget.dataset.versionId;
-    let name = `${t('Clone of')} ${this.state.name}`;
+    let name = `${('Clone of')} ${this.state.name}`;
 
     let dialog = alertify.dialog('prompt');
     let opts = {
-      title: `${t('Clone')} ${ASSET_TYPES.survey.label}`,
-      message: t('Enter the name of the cloned ##ASSET_TYPE##.').replace('##ASSET_TYPE##', ASSET_TYPES.survey.label),
+      title: `${('Clone')} ${ASSET_TYPES.survey.label}`,
+      message: ('Enter the name of the cloned ##ASSET_TYPE##.').replace('##ASSET_TYPE##', ASSET_TYPES.survey.label),
       value: name,
-      labels: {ok: t('Ok'), cancel: t('Cancel')},
+      labels: {ok: ('Ok'), cancel: ('Cancel')},
       onok: (evt, value) => {
         const uid = this.props.params.assetid || this.props.params.uid;
         actions.resources.cloneAsset({
@@ -85,15 +85,15 @@ mixins.dmix = {
       sourceUid: sourceUid,
       sourceName: sourceName,
       targetType: ASSET_TYPES.template.id,
-      promptTitle: t('Create new template from this project'),
-      promptMessage: t('Enter the name of the new template.')
+      promptTitle: ('Create new template from this project'),
+      promptMessage: ('Enter the name of the new template.')
     });
   },
   _deployAssetFirstTime (asset) {
-    let deployment_alert = alertify.warning(t('deploying to kobocat...'), 60);
+    let deployment_alert = alertify.warning(('deploying to kobocat...'), 60);
     actions.resources.deployAsset(asset, false, {
       onDone: () => {
-        notify(t('deployed form'));
+        notify(('deployed form'));
         actions.resources.loadAsset({id: asset.uid});
         hashHistory.push(`/forms/${asset.uid}`);
         if (deployment_alert && typeof deployment_alert.dismiss === 'function') {
@@ -110,20 +110,20 @@ mixins.dmix = {
   _redeployAsset (asset) {
     const dialog = alertify.dialog('confirm');
     let opts = {
-      title: t('Overwrite existing deployment'),
+      title: ('Overwrite existing deployment'),
       message: t(
         'This form has already been deployed. Are you sure you ' +
         'want overwrite the existing deployment? ' +
         '<br/><br/><strong>This action cannot be undone.</strong>'
       ),
-      labels: {ok: t('Ok'), cancel: t('Cancel')},
+      labels: {ok: ('Ok'), cancel: ('Cancel')},
       onok: (evt, val) => {
         let ok_button = dialog.elements.buttons.primary.firstChild;
         ok_button.disabled = true;
-        ok_button.innerText = t('Deploying...');
+        ok_button.innerText = ('Deploying...');
         actions.resources.deployAsset(asset, true, {
           onDone: () => {
-            notify(t('redeployed form'));
+            notify(('redeployed form'));
             actions.resources.loadAsset({id: asset.uid});
             if (dialog && typeof dialog.destroy === 'function') {
               dialog.destroy();
@@ -350,7 +350,7 @@ mixins.droppable = {
     if (params.base64Encoded) {
       stores.pageState.showModal({
         type: MODAL_TYPES.UPLOADING_XLS,
-        filename: multipleFiles ? t('## files').replace('##', params.totalFiles) : params.name
+        filename: multipleFiles ? ('## files').replace('##', params.totalFiles) : params.name
       });
     }
 
@@ -379,7 +379,7 @@ mixins.droppable = {
               // No message shown for multiple files when successful, to avoid overloading screen
             } else if (!assetUid) {
               // TODO: use a more specific error message here
-              alertify.error(t('XLSForm Import failed. Check that the XLSForm and/or the URL are valid, and try again using the "Replace form" icon.'));
+              alertify.error(('XLSForm Import failed. Check that the XLSForm and/or the URL are valid, and try again using the "Replace form" icon.'));
               if (params.assetUid) {
                 hashHistory.push(`/forms/${params.assetUid}`);
               }
@@ -389,16 +389,16 @@ mixins.droppable = {
               } else if (!isLibrary) {
                 hashHistory.push(`/forms/${assetUid}`);
               }
-              notify(t('XLS Import completed'));
+              notify(('XLS Import completed'));
             }
           } else if (importData.status === 'processing') {
             // If the import task didn't complete immediately, inform the user accordingly.
-            alertify.warning(t('Your upload is being processed. This may take a few moments.'));
+            alertify.warning(('Your upload is being processed. This may take a few moments.'));
           } else if (importData.status === 'created') {
-            alertify.warning(t('Your upload is queued for processing. This may take a few moments.'));
+            alertify.warning(('Your upload is queued for processing. This may take a few moments.'));
           } else if (importData.status === 'error') {
             const errLines = [];
-            errLines.push(t('Import Failed!'));
+            errLines.push(('Import Failed!'));
             if (params.name) {
               errLines.push(`<code>Name: ${params.name}</code>`);
             }
@@ -407,17 +407,17 @@ mixins.droppable = {
             }
             alertify.error(errLines.join('<br/>'));
           } else {
-            alertify.error(t('Import Failed!'));
+            alertify.error(('Import Failed!'));
           }
         }).fail((failData) => {
-          alertify.error(t('Import Failed!'));
+          alertify.error(('Import Failed!'));
           log('import failed', failData);
         });
         stores.pageState.hideModal();
       }, 2500);
     }, (jqxhr) => {
       log('Failed to create import: ', jqxhr);
-      alertify.error(t('Failed to create import.'));
+      alertify.error(('Failed to create import.'));
     });
   },
 
@@ -439,11 +439,11 @@ mixins.droppable = {
 
     for (var i = 0; i < rejectedFiles.length; i++) {
       if (rejectedFiles[i].type && rejectedFiles[i].name) {
-        var errMsg = t('Upload error: could not recognize Excel file.');
-        errMsg += ` (${t('Uploaded file name: ')} ${rejectedFiles[i].name})`;
+        var errMsg = ('Upload error: could not recognize Excel file.');
+        errMsg += ` (${('Uploaded file name: ')} ${rejectedFiles[i].name})`;
         alertify.error(errMsg);
       } else {
-        alertify.error(t('Could not recognize the dropped item(s).'));
+        alertify.error(('Could not recognize the dropped item(s).'));
         break;
       }
     }
@@ -469,19 +469,19 @@ mixins.clickAssets = {
         const displayName = assetUtils.getAssetDisplayName(asset);
         // propose new name only if source asset name is not empty
         if (displayName.original) {
-          newName = `${t('Clone of')} ${displayName.original}`;
+          newName = `${('Clone of')} ${displayName.original}`;
         }
 
         let dialog = alertify.dialog('prompt');
         let ok_button = dialog.elements.buttons.primary.firstChild;
         let opts = {
-          title: `${t('Clone')} ${assetTypeLabel}`,
-          message: t('Enter the name of the cloned ##ASSET_TYPE##.').replace('##ASSET_TYPE##', assetTypeLabel),
+          title: `${('Clone')} ${assetTypeLabel}`,
+          message: ('Enter the name of the cloned ##ASSET_TYPE##.').replace('##ASSET_TYPE##', assetTypeLabel),
           value: newName,
-          labels: {ok: t('Ok'), cancel: t('Cancel')},
+          labels: {ok: ('Ok'), cancel: ('Cancel')},
           onok: (evt, value) => {
             ok_button.disabled = true;
-            ok_button.innerText = t('Cloning...');
+            ok_button.innerText = ('Cloning...');
 
             let canAddToParent = false;
             if (asset.parent) {
@@ -513,7 +513,7 @@ mixins.clickAssets = {
               }
 
               hashHistory.push(goToUrl);
-              notify(t('cloned ##ASSET_TYPE## created').replace('##ASSET_TYPE##', assetTypeLabel));
+              notify(('cloned ##ASSET_TYPE## created').replace('##ASSET_TYPE##', assetTypeLabel));
             }
             });
             // keep the dialog open
@@ -530,8 +530,8 @@ mixins.clickAssets = {
           sourceUid: sourceUid,
           sourceName: sourceName,
           targetType: ASSET_TYPES.template.id,
-          promptTitle: t('Create new template from this project'),
-          promptMessage: t('Enter the name of the new template.')
+          promptTitle: ('Create new template from this project'),
+          promptMessage: ('Enter the name of the new template.')
         });
       },
       cloneAsSurvey: function(sourceUid, sourceName) {
@@ -539,8 +539,8 @@ mixins.clickAssets = {
           sourceUid: sourceUid,
           sourceName: sourceName,
           targetType: ASSET_TYPES.survey.id,
-          promptTitle: t('Create new project from this template'),
-          promptMessage: t('Enter the name of the new project.')
+          promptTitle: ('Create new project from this template'),
+          promptMessage: ('Enter the name of the new project.')
         });
       },
       edit: function (uid) {
@@ -567,7 +567,7 @@ mixins.clickAssets = {
         let onok = (evt, val) => {
           actions.resources.deleteAsset({uid: asset.uid, assetType: asset.asset_type}, {
             onComplete: ()=> {
-              notify(t('##ASSET_TYPE## deleted permanently').replace('##ASSET_TYPE##', assetTypeLabel));
+              notify(('##ASSET_TYPE## deleted permanently').replace('##ASSET_TYPE##', assetTypeLabel));
               if (typeof callback === 'function') {
                 callback();
               }
@@ -577,17 +577,17 @@ mixins.clickAssets = {
 
         if (!deployed) {
           if (asset.asset_type !== ASSET_TYPES.survey.id) {
-            msg = t('You are about to permanently delete this item from your library.');
+            msg = ('You are about to permanently delete this item from your library.');
           } else {
-            msg = t('You are about to permanently delete this draft.');
+            msg = ('You are about to permanently delete this draft.');
           }
         } else {
-          msg = `${t('You are about to permanently delete this form.')}`;
+          msg = `${('You are about to permanently delete this form.')}`;
           if (asset.deployment__submission_count !== 0) {
-            msg += `${renderCheckbox('dt1', t('All data gathered for this form will be deleted.'))}`;
+            msg += `${renderCheckbox('dt1', ('All data gathered for this form will be deleted.'))}`;
           }
-          msg += `${renderCheckbox('dt2', t('The form associated with this project will be deleted.'))}
-            ${renderCheckbox('dt3', t('I understand that if I delete this project I will not be able to recover it.'), true)}
+          msg += `${renderCheckbox('dt2', ('The form associated with this project will be deleted.'))}
+            ${renderCheckbox('dt3', ('I understand that if I delete this project I will not be able to recover it.'), true)}
           `;
           onshow = (evt) => {
             let ok_button = dialog.elements.buttons.primary.firstChild;
@@ -607,11 +607,11 @@ mixins.clickAssets = {
           };
         }
         let opts = {
-          title: `${t('Delete')} ${assetTypeLabel} "${safeName}"`,
+          title: `${('Delete')} ${assetTypeLabel} "${safeName}"`,
           message: msg,
           labels: {
-            ok: t('Delete'),
-            cancel: t('Cancel')
+            ok: ('Delete'),
+            cancel: ('Cancel')
           },
           onshow: onshow,
           onok: onok,
@@ -635,10 +635,10 @@ mixins.clickAssets = {
         }
         let dialog = alertify.dialog('confirm');
         let opts = {
-          title: t('Archive Project'),
-          message: `${t('Are you sure you want to archive this project?')} <br/><br/>
-            <strong>${t('Your form will not accept submissions while it is archived.')}</strong>`,
-          labels: {ok: t('Archive'), cancel: t('Cancel')},
+          title: ('Archive Project'),
+          message: `${('Are you sure you want to archive this project?')} <br/><br/>
+            <strong>${('Your form will not accept submissions while it is archived.')}</strong>`,
+          labels: {ok: ('Archive'), cancel: ('Cancel')},
           onok: (evt, val) => {
             actions.resources.setDeploymentActive({
               asset: asset,
@@ -663,9 +663,9 @@ mixins.clickAssets = {
         }
         let dialog = alertify.dialog('confirm');
         let opts = {
-          title: t('Unarchive Project'),
-          message: `${t('Are you sure you want to unarchive this project?')}`,
-          labels: {ok: t('Unarchive'), cancel: t('Cancel')},
+          title: ('Unarchive Project'),
+          message: `${('Are you sure you want to unarchive this project?')}`,
+          labels: {ok: ('Unarchive'), cancel: ('Cancel')},
           onok: (evt, val) => {
             actions.resources.setDeploymentActive({
               asset: asset,
@@ -804,11 +804,11 @@ mixins.cloneAssetAsNewType = {
       title: params.promptTitle,
       message: params.promptMessage,
       value: _.escape(params.sourceName),
-      labels: {ok: t('Create'), cancel: t('Cancel')},
+      labels: {ok: ('Create'), cancel: ('Cancel')},
       onok: (evt, value) => {
         // disable buttons
         dialog.elements.buttons.primary.children[0].setAttribute('disabled', true);
-        dialog.elements.buttons.primary.children[0].innerText = t('Please wait…');
+        dialog.elements.buttons.primary.children[0].innerText = ('Please wait…');
         dialog.elements.buttons.primary.children[1].setAttribute('disabled', true);
 
         actions.resources.cloneAsset({
@@ -832,7 +832,7 @@ mixins.cloneAssetAsNewType = {
           },
           onFailed: (asset) => {
             dialog.destroy();
-            alertify.error(t('Failed to create new asset!'));
+            alertify.error(('Failed to create new asset!'));
           }
         });
 
