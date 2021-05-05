@@ -23,7 +23,7 @@ import {
 import assetUtils from 'js/assetUtils';
 import exportsStore from 'js/components/projectDownloads/exportsStore';
 
-const NAMELESS_EXPORT_NAME = t('Latest unsaved settings');
+const NAMELESS_EXPORT_NAME = ('Latest unsaved settings');
 
 /**
  * @prop {object} asset
@@ -237,9 +237,9 @@ export default class ProjectExportsCreator extends React.Component {
 
     const dialog = alertify.dialog('confirm');
     const opts = {
-      title: t('Delete export settings?'),
-      message: t('Are you sure you want to delete this settings? This action is not reversible.'),
-      labels: {ok: t('Delete'), cancel: t('Cancel')},
+      title: ('Delete export settings?'),
+      message: ('Are you sure you want to delete this settings? This action is not reversible.'),
+      labels: {ok: ('Delete'), cancel: ('Cancel')},
       onok: () => {
         actions.exports.deleteExportSetting(
           this.props.asset.uid,
@@ -264,7 +264,7 @@ export default class ProjectExportsCreator extends React.Component {
     return [
       {
         value: null,
-        label: t('None'),
+        label: ('None'),
       },
       ...this.state.definedExports,
     ];
@@ -496,11 +496,11 @@ export default class ProjectExportsCreator extends React.Component {
   renderAdvancedView() {
     const includeAllVersionsLabel = (
       <span>
-        {t('Include data from all')}
+        {('Include data from all')}
         &nbsp;
         <strong>{this.props.asset.deployed_versions.count}</strong>
         &nbsp;
-        {t('versions')}
+        {('versions')}
       </span>
     );
 
@@ -516,11 +516,11 @@ export default class ProjectExportsCreator extends React.Component {
         <bem.ProjectDownloads__column m='left'>
           <label className='project-downloads__column-row'>
             <bem.ProjectDownloads__title>
-              {t('Export')}
+              {('Export')}
               &nbsp;
-              <em>{t('Select Many')}</em>
+              <em>{('Select Many')}</em>
               &nbsp;
-              {t('questions as…')}
+              {('questions as…')}
             </bem.ProjectDownloads__title>
 
             <Select
@@ -533,7 +533,7 @@ export default class ProjectExportsCreator extends React.Component {
               className='kobo-select'
               classNamePrefix='kobo-select'
               menuPlacement='auto'
-              placeholder={t('Select…')}
+              placeholder={('Select…')}
             />
           </label>
 
@@ -549,14 +549,14 @@ export default class ProjectExportsCreator extends React.Component {
             <Checkbox
               checked={this.state.isIncludeGroupsEnabled}
               onChange={this.onAnyInputChange.bind(this, 'isIncludeGroupsEnabled')}
-              label={t('Include groups in headers')}
+              label={('Include groups in headers')}
             />
 
             <TextBox
               disabled={!this.state.isIncludeGroupsEnabled}
               value={this.state.groupSeparator}
               onChange={this.onAnyInputChange.bind(this, 'groupSeparator')}
-              label={t('Group separator')}
+              label={('Group separator')}
               customModifiers={[
                 'on-white',
                 'group-separator',
@@ -570,7 +570,7 @@ export default class ProjectExportsCreator extends React.Component {
               <Checkbox
                 checked={this.state.isFlattenGeoJsonEnabled}
                 onChange={this.onAnyInputChange.bind(this, 'isFlattenGeoJsonEnabled')}
-                label={t('Flatten GeoJSON')}
+                label={('Flatten GeoJSON')}
               />
             </bem.ProjectDownloads__columnRow>
           }
@@ -582,14 +582,14 @@ export default class ProjectExportsCreator extends React.Component {
                 this,
                 'isSaveCustomExportEnabled'
               )}
-              label={t('Save selection as…')}
+              label={('Save selection as…')}
             />
 
             <TextBox
               disabled={!this.state.isSaveCustomExportEnabled}
               value={this.state.customExportName}
               onChange={this.onAnyInputChange.bind(this, 'customExportName')}
-              placeholder={t('Name your export settings')}
+              placeholder={('Name your export settings')}
               customModifiers={['on-white', 'custom-export']}
             />
           </bem.ProjectDownloads__columnRow>
@@ -603,7 +603,7 @@ export default class ProjectExportsCreator extends React.Component {
                 this,
                 'isCustomSelectionEnabled'
               )}
-              label={t('Select questions to be exported')}
+              label={('Select questions to be exported')}
             />
 
             <bem.ProjectDownloads__textButton
@@ -613,7 +613,7 @@ export default class ProjectExportsCreator extends React.Component {
               )}
               onClick={this.selectAllRows}
             >
-              {t('Select all')}
+              {('Select all')}
             </bem.ProjectDownloads__textButton>
 
             <span className='project-downloads__vr'/>
@@ -625,7 +625,7 @@ export default class ProjectExportsCreator extends React.Component {
               )}
               onClick={this.clearSelectedRows}
             >
-              {t('Deselect all')}
+              {('Deselect all')}
             </bem.ProjectDownloads__textButton>
           </bem.ProjectDownloads__columnRow>
 
@@ -640,7 +640,7 @@ export default class ProjectExportsCreator extends React.Component {
   getGroupSeparatorLabel() {
     return (
       <bem.ProjectDownloads__title>
-        {t('Group separator')}
+        {('Group separator')}
       </bem.ProjectDownloads__title>
     );
   }
@@ -661,7 +661,7 @@ export default class ProjectExportsCreator extends React.Component {
     return (
       <label>
         <bem.ProjectDownloads__title>
-          {t('Select export type')}
+          {('Select export type')}
         </bem.ProjectDownloads__title>
 
         <Select
@@ -685,7 +685,7 @@ export default class ProjectExportsCreator extends React.Component {
 
         <bem.FormView__cell m='warning'>
           <i className='k-icon-alert' />
-          <p>{t('This export format will not be supported in the future. Please consider using one of the other export types available.')}</p>
+          <p>{('This export format will not be supported in the future. Please consider using one of the other export types available.')}</p>
         </bem.FormView__cell>
 
         <div className='project-downloads__legacy-iframe-wrapper'>
@@ -707,7 +707,7 @@ export default class ProjectExportsCreator extends React.Component {
 
           <label>
             <bem.ProjectDownloads__title>
-              {t('Value and header format')}
+              {('Value and header format')}
             </bem.ProjectDownloads__title>
 
             <Select
@@ -725,7 +725,7 @@ export default class ProjectExportsCreator extends React.Component {
         </bem.ProjectDownloads__selectorRow>
 
         <bem.ProjectDownloads__textButton onClick={this.toggleAdvancedView}>
-          {t('Advanced options')}
+          {('Advanced options')}
           {this.state.isAdvancedViewVisible && (
             <i className='k-icon k-icon-up' />
           )}
@@ -744,7 +744,7 @@ export default class ProjectExportsCreator extends React.Component {
               <React.Fragment>
                 <label>
                   <bem.ProjectDownloads__title>
-                    {t('Apply saved export settings')}
+                    {('Apply saved export settings')}
                   </bem.ProjectDownloads__title>
 
                   <Select
@@ -755,7 +755,7 @@ export default class ProjectExportsCreator extends React.Component {
                     className='kobo-select'
                     classNamePrefix='kobo-select'
                     menuPlacement='auto'
-                    placeholder={t('No export settings selected')}
+                    placeholder={('No export settings selected')}
                   />
                 </label>
 
@@ -780,7 +780,7 @@ export default class ProjectExportsCreator extends React.Component {
             onClick={this.onSubmit}
             disabled={this.state.selectedRows.size === 0}
           >
-            {t('Export')}
+            {('Export')}
           </bem.KoboButton>
         </bem.ProjectDownloads__submitRow>
       </React.Fragment>
@@ -796,7 +796,7 @@ export default class ProjectExportsCreator extends React.Component {
     return (
       <bem.FormView__row>
         <bem.FormView__cell m={['page-title']}>
-          {t('Downloads')}
+          {('Downloads')}
         </bem.FormView__cell>
 
         <bem.FormView__cell m={['box', 'padding']}>

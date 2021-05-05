@@ -48,7 +48,7 @@ export class AssetTagsForm extends React.Component {
 
   onUpdateAssetFailed() {
     this.setState({isPending: false});
-    notify(t('Failed to update tags'), 'error');
+    notify(('Failed to update tags'), 'error');
   }
 
   onSubmit(evt) {
@@ -66,9 +66,9 @@ export class AssetTagsForm extends React.Component {
 
   getSubmitButtonLabel() {
     if (this.state.isPending) {
-      return t('Updating…');
+      return ('Updating…');
     } else {
-      return t('Update');
+      return ('Update');
     }
   }
 

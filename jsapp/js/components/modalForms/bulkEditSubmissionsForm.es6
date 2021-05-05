@@ -23,11 +23,11 @@ const FUSE_OPTIONS = {
 };
 
 // we need a text to display when we need to say "this question has no answer"
-const EMPTY_VALUE_LABEL = t('n/d');
+const EMPTY_VALUE_LABEL = ('n/d');
 // we need an override value that would mean "no answer" and that would be
 // different than "no override answer" (de facto `undefined`)
 const EMPTY_VALUE = null;
-const MULTIPLE_VALUES_LABEL = t('Multiple responses');
+const MULTIPLE_VALUES_LABEL = ('Multiple responses');
 const HELP_ARTICLE_URL = 'howto_edit_multiple_submissions.html';
 
 /**
@@ -82,7 +82,7 @@ class BulkEditSubmissionsForm extends React.Component {
 
   setModalTitleToList() {
     this.props.onSetModalTitle(
-      t('Displaying multiple submissions (##count## selected of ##total##)')
+      ('Displaying multiple submissions (##count## selected of ##total##)')
         .replace('##count##', this.props.selectedSubmissions.length)
         .replace('##total##', this.props.totalSubmissions)
     );
@@ -90,7 +90,7 @@ class BulkEditSubmissionsForm extends React.Component {
 
   setModalTitleToSingleQuestion(questionName) {
     this.props.onSetModalTitle(
-      t('Editing "##question##" for ##count## submissions')
+      ('Editing "##question##" for ##count## submissions')
         .replace('##question##', questionName)
         .replace('##count##', this.props.selectedSubmissions.length)
     );
@@ -209,7 +209,7 @@ class BulkEditSubmissionsForm extends React.Component {
           href={stores.serverEnvironment.state.support_url + HELP_ARTICLE_URL}
           target='_blank'
         >
-          {t('in the help article')}
+          {('in the help article')}
         </a>
       );
     } else {
@@ -244,14 +244,14 @@ class BulkEditSubmissionsForm extends React.Component {
           }
 
           <div>
-            {question.isRequired && <strong title={t('Required')}>*&nbsp;</strong>}
+            {question.isRequired && <strong title={('Required')}>*&nbsp;</strong>}
             {question.label}
           </div>
         </bem.SimpleTable__cell>
 
         <bem.SimpleTable__cell>
           {question.hasRepatParent &&
-            <em>{t('Editing responses from repeat group questions is not possible yet.')}</em>
+            <em>{('Editing responses from repeat group questions is not possible yet.')}</em>
           }
           {!question.hasRepatParent &&
             this.renderRowDataValues(question.name, question.selectedData)
@@ -263,7 +263,7 @@ class BulkEditSubmissionsForm extends React.Component {
             m='blue'
             onClick={this.selectQuestion.bind(this, question)}
           >
-            {t('Edit')}
+            {('Edit')}
           </bem.KoboTextButton>
         </bem.SimpleTable__cell>
       </bem.SimpleTable__row>
@@ -324,31 +324,31 @@ class BulkEditSubmissionsForm extends React.Component {
     return (
       <React.Fragment>
         <bem.FormModal__item m='wrapper'>
-          {t('You are currently seeing multiple submissions at once. You can select specific questions to edit or remove responses in bulk. If you want to edit only one submission, click on the desired submission on the navigation menu on the top-left corner of this table, or go back to the general table view. You can learn more about bulk actions')} {this.renderSupportUrlLink()}.
+          {('You are currently seeing multiple submissions at once. You can select specific questions to edit or remove responses in bulk. If you want to edit only one submission, click on the desired submission on the navigation menu on the top-left corner of this table, or go back to the general table view. You can learn more about bulk actions')} {this.renderSupportUrlLink()}.
         </bem.FormModal__item>
 
         <bem.FormModal__item m='wrapper'>
           <i className='blue-response-dot'/>
-          {t('Updated responses')}
+          {('Updated responses')}
         </bem.FormModal__item>
 
         <bem.SimpleTable m='bulk-edit-list'>
           <bem.SimpleTable__header>
             <bem.SimpleTable__row>
               <bem.SimpleTable__cell>
-                {t('Type')}
+                {('Type')}
               </bem.SimpleTable__cell>
 
               <bem.SimpleTable__cell>
-                {t('Question')}
+                {('Question')}
               </bem.SimpleTable__cell>
 
               <bem.SimpleTable__cell>
-                {t('Response')}
+                {('Response')}
               </bem.SimpleTable__cell>
 
               <bem.SimpleTable__cell>
-                {t('Action')}
+                {('Action')}
               </bem.SimpleTable__cell>
             </bem.SimpleTable__row>
 
@@ -360,7 +360,7 @@ class BulkEditSubmissionsForm extends React.Component {
                   customModifiers='on-white'
                   value={this.state.filterByName}
                   onChange={this.onFilterByNameChange}
-                  placeholder={t('Type to filter')}
+                  placeholder={('Type to filter')}
                 />
               </bem.SimpleTable__cell>
 
@@ -369,7 +369,7 @@ class BulkEditSubmissionsForm extends React.Component {
                   customModifiers='on-white'
                   value={this.state.filterByValue}
                   onChange={this.onFilterByValueChange}
-                  placeholder={t('Type to filter')}
+                  placeholder={('Type to filter')}
                 />
               </bem.SimpleTable__cell>
 
@@ -389,7 +389,7 @@ class BulkEditSubmissionsForm extends React.Component {
             onClick={this.onReset}
             disabled={this.state.isPending || Object.keys(this.state.overrides).length === 0}
           >
-            {t('Discard Changes')}
+            {('Discard Changes')}
           </bem.KoboButton>
 
           <bem.KoboButton
@@ -398,7 +398,7 @@ class BulkEditSubmissionsForm extends React.Component {
             onClick={this.onSubmit}
             disabled={this.state.isPending || Object.keys(this.state.overrides).length === 0}
           >
-            {t('Confirm & close')}
+            {('Confirm & close')}
           </bem.KoboButton>
         </bem.Modal__footer>
       </React.Fragment>
@@ -409,7 +409,7 @@ class BulkEditSubmissionsForm extends React.Component {
     return (
       <React.Fragment>
         <bem.FormModal__item m='wrapper'>
-          {t('You are about to edit responses for one or multiple submissions at once. Use the XML syntax in the text box below. You can also select one of the existing responses from the table of responses. Learn more about how to edit specific responses for one or multiple submissions')} {this.renderSupportUrlLink()}.
+          {('You are about to edit responses for one or multiple submissions at once. Use the XML syntax in the text box below. You can also select one of the existing responses from the table of responses. Learn more about how to edit specific responses for one or multiple submissions')} {this.renderSupportUrlLink()}.
         </bem.FormModal__item>
 
         <bem.FormModal__item m='wrapper'>
@@ -428,7 +428,7 @@ class BulkEditSubmissionsForm extends React.Component {
             type='button'
             onClick={this.goBackToList}
           >
-            {t('Back')}
+            {('Back')}
           </bem.KoboButton>
 
           <bem.KoboButton
@@ -436,7 +436,7 @@ class BulkEditSubmissionsForm extends React.Component {
             type='button'
             onClick={this.saveOverride}
           >
-            {t('Save')}
+            {('Save')}
           </bem.KoboButton>
         </bem.Modal__footer>
       </React.Fragment>
@@ -480,7 +480,7 @@ class BulkEditRowForm extends React.Component {
    * Placeholder can be either a helpful instruction or an empty override value
    */
   getPlaceholderValue() {
-    let placeholderValue = t('Type new response for selected submissions');
+    let placeholderValue = ('Type new response for selected submissions');
     if (this.props.overrideData === EMPTY_VALUE) {
       // user selected a "no answer" as a new override value for submissions
       // we don't want this EMPTY_VALUE_LABEL to be an editable value, so we
@@ -534,7 +534,7 @@ class BulkEditRowForm extends React.Component {
             m='blue'
             onClick={this.onChange.bind(this, responseValue)}
           >
-            {t('Select')}
+            {('Select')}
           </bem.KoboTextButton>
         </bem.SimpleTable__cell>
       </bem.SimpleTable__row>
@@ -574,13 +574,13 @@ class BulkEditRowForm extends React.Component {
         <bem.SimpleTable m='bulk-edit-responses'>
           <bem.SimpleTable__header>
             <bem.SimpleTable__row>
-              <bem.SimpleTable__cell>{t('Response value')}</bem.SimpleTable__cell>
+              <bem.SimpleTable__cell>{('Response value')}</bem.SimpleTable__cell>
 
-              <bem.SimpleTable__cell>{t('Frequency')}</bem.SimpleTable__cell>
+              <bem.SimpleTable__cell>{('Frequency')}</bem.SimpleTable__cell>
 
-              <bem.SimpleTable__cell>{t('Percentage')}</bem.SimpleTable__cell>
+              <bem.SimpleTable__cell>{('Percentage')}</bem.SimpleTable__cell>
 
-              <bem.SimpleTable__cell>{t('Action')}</bem.SimpleTable__cell>
+              <bem.SimpleTable__cell>{('Action')}</bem.SimpleTable__cell>
             </bem.SimpleTable__row>
           </bem.SimpleTable__header>
 

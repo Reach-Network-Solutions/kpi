@@ -59,14 +59,14 @@ class Modal extends React.Component {
     var type = this.props.params.type;
     switch(type) {
       case MODAL_TYPES.SHARING:
-        this.setModalTitle(t('Sharing Permissions'));
+        this.setModalTitle(('Sharing Permissions'));
         break;
 
       case MODAL_TYPES.UPLOADING_XLS:
         var filename = this.props.params.filename || '';
         this.setState({
-          title: t('Uploading XLS file'),
-          message: t('Uploading: ') + filename
+          title: ('Uploading XLS file'),
+          message: ('Uploading: ') + filename
         });
         break;
 
@@ -75,23 +75,23 @@ class Modal extends React.Component {
         break;
 
       case MODAL_TYPES.LIBRARY_NEW_ITEM:
-        this.setModalTitle(t('Create Library Item'));
+        this.setModalTitle(('Create Library Item'));
         break;
 
       case MODAL_TYPES.LIBRARY_TEMPLATE:
-        this.setModalTitle(t('Template details'));
+        this.setModalTitle(('Template details'));
         break;
 
       case MODAL_TYPES.LIBRARY_COLLECTION:
-        this.setModalTitle(t('Collection details'));
+        this.setModalTitle(('Collection details'));
         break;
 
       case MODAL_TYPES.ASSET_TAGS:
-        this.setModalTitle(t('Edit tags'));
+        this.setModalTitle(('Edit tags'));
         break;
 
       case MODAL_TYPES.LIBRARY_UPLOAD:
-        this.setModalTitle(t('Upload file'));
+        this.setModalTitle(('Upload file'));
         break;
 
       case MODAL_TYPES.ENKETO_PREVIEW:
@@ -104,7 +104,7 @@ class Modal extends React.Component {
         this.listenTo(stores.snapshots, this.enketoSnapshotCreation);
 
         this.setState({
-          title: t('Form Preview'),
+          title: ('Form Preview'),
           modalClass: 'modal--large'
         });
         break;
@@ -119,9 +119,9 @@ class Modal extends React.Component {
 
       case MODAL_TYPES.REST_SERVICES:
         if (this.props.params.hookUid) {
-          this.setState({title: t('Edit REST Service')});
+          this.setState({title: ('Edit REST Service')});
         } else {
-          this.setState({title: t('New REST Service')});
+          this.setState({title: ('New REST Service')});
         }
         break;
 
@@ -130,22 +130,22 @@ class Modal extends React.Component {
         break;
 
       case MODAL_TYPES.TABLE_COLUMNS:
-        this.setModalTitle(t('Table display options'));
+        this.setModalTitle(('Table display options'));
         break;
 
       case MODAL_TYPES.FORM_LANGUAGES:
-        this.setModalTitle(t('Manage Languages'));
+        this.setModalTitle(('Manage Languages'));
         break;
 
       case MODAL_TYPES.FORM_TRANSLATIONS_TABLE:
         this.setState({
-          title: t('Translations Table'),
+          title: ('Translations Table'),
           modalClass: 'modal--large'
         });
         break;
 
       case MODAL_TYPES.ENCRYPT_FORM:
-        this.setModalTitle(t('Manage Form Encryption'));
+        this.setModalTitle(('Manage Form Encryption'));
         break;
 
       case MODAL_TYPES.BULK_EDIT_SUBMISSIONS:
@@ -185,8 +185,8 @@ class Modal extends React.Component {
     if (this.props.params.type != nextProps.params.type && nextProps.params.type === MODAL_TYPES.UPLOADING_XLS) {
       var filename = nextProps.params.filename || '';
       this.setState({
-        title: t('Uploading XLS file'),
-        message: t('Uploading: ') + filename
+        title: ('Uploading XLS file'),
+        message: ('Uploading: ') + filename
       });
     }
     if (nextProps.params && !nextProps.params.sid) {
@@ -194,21 +194,21 @@ class Modal extends React.Component {
     }
   }
   submissionTitle(props) {
-    let title = t('Success!'),
+    let title = ('Success!'),
       p = props.params,
       sid = parseInt(p.sid);
 
     if (!p.isDuplicated) {
-      title = t('Submission Record');
+      title = ('Submission Record');
       if (p.tableInfo) {
         let index = p.ids.indexOf(sid) + (p.tableInfo.pageSize * p.tableInfo.currentPage) + 1;
-        title = `${t('Submission Record')} (${index} ${t('of')} ${p.tableInfo.resultsTotal})`;
+        title = `${('Submission Record')} (${index} ${('of')} ${p.tableInfo.resultsTotal})`;
       } else {
         let index = p.ids.indexOf(sid);
         if (p.ids.length === 1) {
-            title = `${t('Submission Record')}`;
+            title = `${('Submission Record')}`;
         } else {
-            title = `${t('Submission Record')} (${index} ${t('of')} ${p.ids.length})`;
+            title = `${('Submission Record')} (${index} ${('of')} ${p.ids.length})`;
         }
       }
     }
@@ -221,7 +221,7 @@ class Modal extends React.Component {
     const opts = {
       title: title,
       message: message,
-      labels: {ok: t('Close'), cancel: t('Cancel')},
+      labels: {ok: ('Close'), cancel: ('Cancel')},
       onok: stores.pageState.hideModal,
       oncancel: dialog.destroy
     };
@@ -233,8 +233,8 @@ class Modal extends React.Component {
       stores.translations.state.isTranslationTableUnsaved
     ) {
       this.displaySafeCloseConfirm(
-        t('Close Translations Table?'),
-        t('You will lose all unsaved changes.')
+        ('Close Translations Table?'),
+        ('You will lose all unsaved changes.')
       );
     } else {
       stores.pageState.hideModal();
@@ -306,7 +306,7 @@ class Modal extends React.Component {
               <bem.Loading>
                 <bem.Loading__inner>
                   <i />
-                  {t('loading...')}
+                  {('loading...')}
                 </bem.Loading__inner>
               </bem.Loading>
             }

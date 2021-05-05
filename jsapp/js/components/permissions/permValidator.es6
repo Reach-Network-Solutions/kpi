@@ -10,7 +10,7 @@ import {
   replaceSupportEmail
 } from 'utils';
 
-const INVALID_PERMS_ERROR = t('The stored permissions are invalid. Please assign them again. If this problem persists, contact help@kobotoolbox.org');
+const INVALID_PERMS_ERROR = ('The stored permissions are invalid. Please assign them again. If this problem persists, contact help@kobotoolbox.org');
 
 class PermValidator extends React.Component {
   constructor(props){

@@ -99,7 +99,7 @@ class SidebarFormsList extends Reflux.Component {
         <bem.Loading>
           <bem.Loading__inner>
             <i />
-            {t('loading...')}
+            {('loading...')}
           </bem.Loading__inner>
         </bem.Loading>
       );
@@ -114,7 +114,7 @@ class SidebarFormsList extends Reflux.Component {
                 <bem.Loading>
                   <bem.Loading__inner>
                     <i />
-                    {t('loading...')}
+                    {('loading...')}
                   </bem.Loading__inner>
                 </bem.Loading>
               );

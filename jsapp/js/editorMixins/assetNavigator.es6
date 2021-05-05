@@ -77,7 +77,7 @@ class AssetNavigatorListView extends React.Component {
       return (
           <bem.LibList m={'empty'}>
             <bem.LibList__item m={'message'}>
-              {t('loading')}
+              {('loading')}
             </bem.LibList__item>
           </bem.LibList>
         );
@@ -85,7 +85,7 @@ class AssetNavigatorListView extends React.Component {
       return (
           <bem.LibList m={'empty'}>
             <bem.LibList__item m={'message'}>
-              {t('no search results found')}
+              {('no search results found')}
             </bem.LibList__item>
           </bem.LibList>
         );
@@ -115,7 +115,7 @@ class AssetNavigatorListView extends React.Component {
 
                 { item.asset_type === 'block' &&
                   <bem.LibList__qtype>
-                    {t('block of ___ questions').replace('___', summ.row_count)}
+                    {('block of ___ questions').replace('___', summ.row_count)}
                   </bem.LibList__qtype>
                 }
 
@@ -200,7 +200,7 @@ class AssetNavigator extends Reflux.Component {
           <bem.LibNav__search>
             <ListSearch
               ref='navigatorSearchBox'
-              placeholder={t('search library')}
+              placeholder={('search library')}
               searchContext={this.state.searchContext}
             />
           </bem.LibNav__search>

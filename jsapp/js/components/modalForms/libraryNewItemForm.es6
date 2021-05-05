@@ -67,7 +67,7 @@ class LibraryNewItemForm extends React.Component {
     });
   }
 
-  renderLoading(message = t('loading…')) {
+  renderLoading(message = ('loading…')) {
     return (
       <bem.Loading>
         <bem.Loading__inner>
@@ -88,22 +88,22 @@ class LibraryNewItemForm extends React.Component {
         <bem.FormModal__item m='form-source-buttons'>
           <button onClick={this.goToAssetCreator}>
             <i className='k-icon-block-new' />
-            {t('Question Block')}
+            {('Question Block')}
           </button>
 
           <button onClick={this.goToTemplate}>
             <i className='k-icon-template-new' />
-            {t('Template')}
+            {('Template')}
           </button>
 
           <button onClick={this.goToUpload}>
             <i className='k-icon-upload' />
-            {t('Upload')}
+            {('Upload')}
           </button>
 
           <button onClick={this.goToCollection}>
             <i className='k-icon-folder' />
-            {t('Collection')}
+            {('Collection')}
           </button>
         </bem.FormModal__item>
       </bem.FormModal__form>

@@ -230,7 +230,7 @@ class CustomReportForm extends React.Component {
             <Checkbox
               checked={this.state.customReport.questions.includes(q.name)}
               onChange={this.customReportQuestionChange.bind(this, q.name)}
-              label={q.row.label ? q.row.label[0] : t('Unlabeled') }
+              label={q.row.label ? q.row.label[0] : ('Unlabeled') }
             />
         </div>
       );
@@ -241,10 +241,10 @@ class CustomReportForm extends React.Component {
         <div className='custom-report--title'>
           <input type='text' name='title'
                   value={this.state.customReport.name}
-                  placeholder={t('Untitled Report')}
+                  placeholder={('Untitled Report')}
                   onChange={this.customReportNameChange} />
         </div>
-        <strong>{t('Include the following questions:')}</strong>
+        <strong>{('Include the following questions:')}</strong>
         <div className='custom-report--questions'>
           {questionList}
         </div>
@@ -254,14 +254,14 @@ class CustomReportForm extends React.Component {
               m='red'
               onClick={this.deleteCustomReport}
             >
-              {t('Delete')}
+              {('Delete')}
             </bem.KoboButton>
           }
           <bem.KoboButton
             m='blue'
             onClick={this.saveCustomReport}
           >
-            {t('Save')}
+            {('Save')}
           </bem.KoboButton>
         </bem.Modal__footer>
       </div>
@@ -337,7 +337,7 @@ class QuestionGraphSettings extends React.Component {
     let asset = this.props.parentState.asset,
         reportStyle = this.state.rStyle;
 
-    var tabs = [t('Chart Type'), t('Colors')];
+    var tabs = [('Chart Type'), ('Colors')];
     var modalTabs = tabs.map(function(tab, i) {
       return (
         <button className={`mdl-button mdl-button--tab ${this.state.activeModalTab === i ? 'active' : ''}`}
@@ -377,11 +377,11 @@ class QuestionGraphSettings extends React.Component {
         <ui.Modal.Footer>
           {(reportStyle.report_type || reportStyle.report_colors || reportStyle.width) &&
             <bem.Button className='reset' onClick={this.saveQS.bind(this, true)}>
-              {t('Reset')}
+              {('Reset')}
             </bem.Button>
           }
           <bem.Button className='primary' onClick={this.saveQS.bind(this, false)}>
-            {t('Save')}
+            {('Save')}
           </bem.Button>
         </ui.Modal.Footer>
       </bem.GraphSettings>
@@ -484,7 +484,7 @@ class ReportContents extends React.Component {
       <div>
         {
           reportData.map((rowContent, i)=>{
-            let label = t('Unlabeled');
+            let label = ('Unlabeled');
             if (_.isArray(rowContent.row.label)) {
               label = rowContent.row.label[tnslIndex];
             } else if (_.isString(rowContent.row.label)) {
@@ -573,7 +573,7 @@ class ReportStyleSettings extends React.Component {
     const groupByOptions = [];
     groupByOptions.push({
       value: '',
-      label: t('No grouping')
+      label: ('No grouping')
     });
     for (let key in rows) {
       if (
@@ -591,19 +591,19 @@ class ReportStyleSettings extends React.Component {
       }
     }
 
-    var tabs = [t('Chart Type'), t('Colors')];
+    var tabs = [('Chart Type'), ('Colors')];
 
     if (groupByOptions.length > 1) {
-      tabs.push(t('Group By'));
+      tabs.push(('Group By'));
     }
 
     const selectedTranslationOptions = [];
     if (translations) {
-      tabs.push(t('Translation'));
+      tabs.push(('Translation'));
       this.props.parentState.asset.content.translations.map((row, i) => {
         selectedTranslationOptions.push({
           value: i,
-          label: row || t('Unnamed language')
+          label: row || ('Unnamed language')
         });
       })
     }
@@ -626,7 +626,7 @@ class ReportStyleSettings extends React.Component {
         </ui.Modal.Tabs>
         <ui.Modal.Body>
           <div className='tabs-content'>
-            {tabs[this.state.activeModalTab] === t('Chart Type') &&
+            {tabs[this.state.activeModalTab] === ('Chart Type') &&
               <div id='graph-type'>
                 <ChartTypePicker
                   defaultStyle={reportStyle}
@@ -634,14 +634,14 @@ class ReportStyleSettings extends React.Component {
                 />
               </div>
             }
-            {tabs[this.state.activeModalTab] === t('Colors') &&
+            {tabs[this.state.activeModalTab] === ('Colors') &&
               <div id='graph-colors'>
                 <ChartColorsPicker
                   defaultStyle={reportStyle}
                   onChange={this.reportStyleChange} />
               </div>
             }
-            {tabs[this.state.activeModalTab] === t('Group By') && groupByOptions.length > 1 &&
+            {tabs[this.state.activeModalTab] === ('Group By') && groupByOptions.length > 1 &&
               <div className='graph-tab__groupby' id='graph-labels'>
                 <Radio
                   name='reports-groupby'
@@ -651,7 +651,7 @@ class ReportStyleSettings extends React.Component {
                 />
               </div>
             }
-            {tabs[this.state.activeModalTab] === t('Translation') && selectedTranslationOptions.length > 1 &&
+            {tabs[this.state.activeModalTab] === ('Translation') && selectedTranslationOptions.length > 1 &&
               <div className='graph-tab__translation' id='graph-labels'>
                 <Radio
                   name='reports-selected-translation'
@@ -664,7 +664,7 @@ class ReportStyleSettings extends React.Component {
           </div>
           <ui.Modal.Footer>
             <bem.KoboButton m='blue' onClick={this.saveReportStyles}>
-              {t('Save')}
+              {('Save')}
             </bem.KoboButton>
           </ui.Modal.Footer>
         </ui.Modal.Body>
@@ -758,7 +758,7 @@ class Reports extends React.Component {
               } else if (row.name !== undefined) {
                 row.row.label = row.name;
               } else {
-                row.row.label = t('untitled');
+                row.row.label = ('untitled');
               }
               dataWithResponses.push(row);
             }
@@ -782,7 +782,7 @@ class Reports extends React.Component {
             this.setState({
               reportStyles: reportStyles
             });
-            alertify.error(t('Could not load grouped results via "##". Will attempt to load the ungrouped report.').replace('##', groupBy));
+            alertify.error(('Could not load grouped results via "##". Will attempt to load the ungrouped report.').replace('##', groupBy));
             this.loadReportData();
           } else {
             this.setState({
@@ -820,7 +820,7 @@ class Reports extends React.Component {
           } else if (row.name !== undefined) {
             row.row.label = row.name;
           } else {
-            row.row.label = t('untitled');
+            row.row.label = ('untitled');
           }
           dataWithResponses.push(row);
         }
@@ -831,7 +831,7 @@ class Reports extends React.Component {
         error: false
       });
     }).fail((err)=> {
-      alertify.error(t('Could not refresh report.'));
+      alertify.error(('Could not refresh report.'));
       this.setState({
         error: err
       });
@@ -938,13 +938,13 @@ class Reports extends React.Component {
     return (
       <bem.FormView__reportButtons>
         <ui.PopoverMenu type='custom-reports'
-            triggerLabel={this.state.currentCustomReport ? (this.state.currentCustomReport.name || t('Untitled Report')) : t('Custom Reports')}>
+            triggerLabel={this.state.currentCustomReport ? (this.state.currentCustomReport.name || ('Untitled Report')) : ('Custom Reports')}>
             <bem.PopoverMenu__link
               key='default'
               data-name=''
               onClick={this.triggerDefaultReport}
               className={!this.state.currentCustomReport ? 'active' : ''}>
-                {t('Default Report')}
+                {('Default Report')}
             </bem.PopoverMenu__link>
             {
               customReportsList.map(function(m) {
@@ -954,7 +954,7 @@ class Reports extends React.Component {
                     data-crid={m.crid}
                     onClick={_this.setCustomReport}
                     className={(_this.state.currentCustomReport && _this.state.currentCustomReport.crid == m.crid) ? 'active' : ''}>
-                      {m.name || t('Untitled report')}
+                      {m.name || ('Untitled report')}
                   </bem.PopoverMenu__link>
                 );
               })
@@ -963,7 +963,7 @@ class Reports extends React.Component {
               <bem.PopoverMenu__link
                 key='new'
                 onClick={this.toggleCustomReportModal}>
-                  {t('Create New Report')}
+                  {('Create New Report')}
               </bem.PopoverMenu__link>
             }
         </ui.PopoverMenu>
@@ -971,7 +971,7 @@ class Reports extends React.Component {
         {this.state.currentCustomReport &&
           <bem.Button m='icon' className='report-button__edit'
                 onClick={this.editCustomReport}
-                data-tip={t('Edit Report Questions')}>
+                data-tip={('Edit Report Questions')}>
             <i className='k-icon-edit' />
           </bem.Button>
         }
@@ -979,21 +979,21 @@ class Reports extends React.Component {
         <bem.Button
           m='icon' className='report-button__expand right-tooltip'
           onClick={this.toggleFullscreen}
-          data-tip={t('Toggle fullscreen')}
+          data-tip={('Toggle fullscreen')}
         >
           <i className='k-icon-expand' />
         </bem.Button>
 
         <bem.Button m='icon' className='report-button__print'
                 onClick={launchPrinting}
-                data-tip={t('Print')}>
+                data-tip={('Print')}>
           <i className='k-icon-print' />
         </bem.Button>
 
         {this.userCan('change_asset', this.state.asset) &&
           <bem.Button m='icon' className='report-button__settings'
                   onClick={this.toggleReportGraphSettings}
-                  data-tip={t('Configure Report Style')}>
+                  data-tip={('Configure Report Style')}>
             <i className='k-icon-settings' />
           </bem.Button>
         }
@@ -1039,7 +1039,7 @@ class Reports extends React.Component {
           <bem.Loading>
             {this.state.error ?
               <bem.Loading__inner>
-                {t('This report cannot be loaded.')}
+                {('This report cannot be loaded.')}
                 <br/>
                 <code>
                   {this.state.error.statusText + ': ' + this.state.error.responseText}
@@ -1048,7 +1048,7 @@ class Reports extends React.Component {
             :
               <bem.Loading__inner>
                 <i />
-                {t('loading...')}
+                {('loading...')}
               </bem.Loading__inner>
             }
           </bem.Loading>
@@ -1061,7 +1061,7 @@ class Reports extends React.Component {
         docTitle;
 
     if (asset && asset.content)
-      docTitle = asset.name || t('Untitled');
+      docTitle = asset.name || ('Untitled');
 
     var reportData = this.state.reportData || [];
 
@@ -1082,7 +1082,7 @@ class Reports extends React.Component {
         <bem.Loading>
           {this.state.error ?
             <bem.Loading__inner>
-              {t('This report cannot be loaded.')}
+              {('This report cannot be loaded.')}
               <br/>
               <code>
                 {this.state.error.statusText + ': ' + this.state.error.responseText}
@@ -1091,7 +1091,7 @@ class Reports extends React.Component {
           :
             <bem.Loading__inner>
               <i />
-              {t('loading...')}
+              {('loading...')}
             </bem.Loading__inner>
           }
         </bem.Loading>
@@ -1116,9 +1116,9 @@ class Reports extends React.Component {
               <bem.ReportView__wrap>
                 <bem.Loading>
                   <bem.Loading__inner>
-                    {t('This report has no data.')}
+                    {('This report has no data.')}
 
-                    {hasGroupBy && ' ' + t('Try changing Report Style to "No grouping".')}
+                    {hasGroupBy && ' ' + ('Try changing Report Style to "No grouping".')}
                   </bem.Loading__inner>
                 </bem.Loading>
               </bem.ReportView__wrap>
@@ -1132,17 +1132,17 @@ class Reports extends React.Component {
                 {!this.state.currentCustomReport && this.state.reportLimit && reportData.length && this.state.reportData.length > this.state.reportLimit &&
                   <bem.FormView__cell m={['centered', 'reportLimit']}>
                     <div>
-                      {t('For performance reasons, this report only includes the first ## questions.').replace('##', this.state.reportLimit)}
+                      {('For performance reasons, this report only includes the first ## questions.').replace('##', this.state.reportLimit)}
                     </div>
                     <bem.Button m='colored' onClick={this.resetReportLimit}>
-                      {t('Show all (##)').replace('##', this.state.reportData.length)}
+                      {('Show all (##)').replace('##', this.state.reportData.length)}
                     </bem.Button>
                   </bem.FormView__cell>
                 }
 
                 <bem.FormView__cell m='warning'>
                   <i className='k-icon-alert' />
-                  <p>{t('This is an automated report based on raw data submitted to this project. Please conduct proper data cleaning prior to using the graphs and figures used on this page. ')}</p>
+                  <p>{('This is an automated report based on raw data submitted to this project. Please conduct proper data cleaning prior to using the graphs and figures used on this page. ')}</p>
                 </bem.FormView__cell>
 
                 <ReportContents parentState={this.state} reportData={reportData} triggerQuestionSettings={this.triggerQuestionSettings} />
@@ -1150,19 +1150,19 @@ class Reports extends React.Component {
             }
 
             {this.state.showReportGraphSettings &&
-              <ui.Modal open onClose={this.toggleReportGraphSettings} title={t('Edit Report Style')}>
+              <ui.Modal open onClose={this.toggleReportGraphSettings} title={('Edit Report Style')}>
                 <ReportStyleSettings parentState={this.state} />
               </ui.Modal>
             }
 
             {this.state.showCustomReportModal &&
-              <ui.Modal open onClose={this.toggleCustomReportModal} title={t('Custom Report')}>
+              <ui.Modal open onClose={this.toggleCustomReportModal} title={('Custom Report')}>
                 {this.renderCustomReportModal()}
               </ui.Modal>
             }
 
             {this.state.currentQuestionGraph &&
-              <ui.Modal open onClose={this.closeQuestionSettings} title={t('Question Style')}>
+              <ui.Modal open onClose={this.closeQuestionSettings} title={('Question Style')}>
                 <QuestionGraphSettings question={this.state.currentQuestionGraph} parentState={this.state} />
               </ui.Modal>
             }

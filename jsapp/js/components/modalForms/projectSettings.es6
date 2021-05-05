@@ -76,10 +76,10 @@ class ProjectSettings extends React.Component {
       isImportFromURLPending: false,
       importUrl: '',
       importUrlButtonEnabled: false,
-      importUrlButton: t('Import'),
+      importUrlButton: ('Import'),
       // template
       isApplyTemplatePending: false,
-      applyTemplateButton: t('Next'),
+      applyTemplateButton: ('Next'),
       chosenTemplateUid: null,
       // upload files
       isUploadFilePending: false,
@@ -133,23 +133,23 @@ class ProjectSettings extends React.Component {
   getBaseTitle() {
     switch (this.props.context) {
       case PROJECT_SETTINGS_CONTEXTS.NEW:
-        return t('Create project');
+        return ('Create project');
       case PROJECT_SETTINGS_CONTEXTS.REPLACE:
-        return t('Replace form');
+        return ('Replace form');
       case PROJECT_SETTINGS_CONTEXTS.EXISTING:
       case PROJECT_SETTINGS_CONTEXTS.BUILDER:
       default:
-        return t('Project settings');
+        return ('Project settings');
     }
   }
 
   getStepTitle(step) {
     switch (step) {
-      case this.STEPS.FORM_SOURCE: return t('Choose a source');
-      case this.STEPS.CHOOSE_TEMPLATE: return t('Choose template');
-      case this.STEPS.UPLOAD_FILE: return t('Upload XLSForm');
-      case this.STEPS.IMPORT_URL: return t('Import XLSForm');
-      case this.STEPS.PROJECT_DETAILS: return t('Project details');
+      case this.STEPS.FORM_SOURCE: return ('Choose a source');
+      case this.STEPS.CHOOSE_TEMPLATE: return ('Choose template');
+      case this.STEPS.UPLOAD_FILE: return ('Upload XLSForm');
+      case this.STEPS.IMPORT_URL: return ('Import XLSForm');
+      case this.STEPS.PROJECT_DETAILS: return ('Project details');
       default: return '';
     }
   }
@@ -197,7 +197,7 @@ class ProjectSettings extends React.Component {
     this.setState({
       importUrl: value,
       importUrlButtonEnabled: isAValidUrl(value),
-      importUrlButton: t('Import')
+      importUrlButton: ('Import')
     });
   }
 
@@ -210,7 +210,7 @@ class ProjectSettings extends React.Component {
   resetApplyTemplateButton() {
     this.setState({
       isApplyTemplatePending: false,
-      applyTemplateButton: t('Choose')
+      applyTemplateButton: ('Choose')
     });
   }
 
@@ -218,7 +218,7 @@ class ProjectSettings extends React.Component {
     this.setState({
       isImportFromURLPending: false,
       importUrlButtonEnabled: false,
-      importUrlButton: t('Import'),
+      importUrlButton: ('Import'),
     });
   }
 
@@ -408,7 +408,7 @@ class ProjectSettings extends React.Component {
         }).done((asset) => {
           resolve(asset);
         }).fail(function(r){
-          reject(t('Error: asset could not be created.') + ` (code: ${r.statusText})`);
+          reject(('Error: asset could not be created.') + ` (code: ${r.statusText})`);
         });
       }
     });
@@ -428,7 +428,7 @@ class ProjectSettings extends React.Component {
     }).done((asset) => {
       this.goToFormBuilder(asset.uid);
     }).fail(function(r){
-      alertify.error(t('Error: new project could not be created.') + ` (code: ${r.statusText})`);
+      alertify.error(('Error: new project could not be created.') + ` (code: ${r.statusText})`);
     });
   }
 
@@ -452,7 +452,7 @@ class ProjectSettings extends React.Component {
 
     this.setState({
       isApplyTemplatePending: true,
-      applyTemplateButton: t('Please wait…')
+      applyTemplateButton: ('Please wait…')
     });
 
     if (this.props.context === PROJECT_SETTINGS_CONTEXTS.REPLACE) {
@@ -478,7 +478,7 @@ class ProjectSettings extends React.Component {
       this.setState({
         isImportFromURLPending: true,
         importUrlButtonEnabled: false,
-        importUrlButton: t('Retrieving form, please wait...')
+        importUrlButton: ('Retrieving form, please wait...')
       });
 
       this.getOrCreateFormAsset().then(
@@ -507,13 +507,13 @@ class ProjectSettings extends React.Component {
                 }
               }).fail(() => {
                 this.resetImportUrlButton();
-                alertify.error(t('Failed to reload project after import!'));
+                alertify.error(('Failed to reload project after import!'));
               });
             },
             (response) => {
               this.resetImportUrlButton();
               const errLines = [];
-              errLines.push(t('Import Failed!'));
+              errLines.push(('Import Failed!'));
               if (importUrl) {
                 errLines.push(`<code>Name: ${this.getFilenameFromURI(importUrl)}</code>`);
               }
@@ -525,7 +525,7 @@ class ProjectSettings extends React.Component {
           );
         },
         () => {
-          alertify.error(t('Could not initialize XLSForm import!'));
+          alertify.error(('Could not initialize XLSForm import!'));
         }
       );
     }
@@ -565,13 +565,13 @@ class ProjectSettings extends React.Component {
                 }
               }).fail(() => {
                 this.setState({isUploadFilePending: false});
-                alertify.error(t('Failed to reload project after upload!'));
+                alertify.error(('Failed to reload project after upload!'));
               });
             },
             (response) => {
               this.setState({isUploadFilePending: false});
               const errLines = [];
-              errLines.push(t('Import Failed!'));
+              errLines.push(('Import Failed!'));
               if (files[0].name) {
                 errLines.push(`<code>Name: ${files[0].name}</code>`);
               }
@@ -584,7 +584,7 @@ class ProjectSettings extends React.Component {
         },
         () => {
           this.setState({isUploadFilePending: false});
-          alertify.error(t('Could not import XLSForm!'));
+          alertify.error(('Could not import XLSForm!'));
         }
       );
     }
@@ -595,7 +595,7 @@ class ProjectSettings extends React.Component {
 
     // simple non-empty name validation
     if (!this.state.name.trim()) {
-      alertify.error(t('Please enter a title for your project!'));
+      alertify.error(('Please enter a title for your project!'));
       return;
     }
 
@@ -613,9 +613,9 @@ class ProjectSettings extends React.Component {
    */
 
   getNameInputLabel(nameVal) {
-    let label = t('Project Name');
+    let label = ('Project Name');
     if (nameVal.length >= NAME_MAX_LENGTH - 99) {
-      label += ` (${t('##count## characters left').replace('##count##', NAME_MAX_LENGTH - nameVal.length)})`;
+      label += ` (${('##count## characters left').replace('##count##', NAME_MAX_LENGTH - nameVal.length)})`;
     }
     return label;
   }
@@ -624,7 +624,7 @@ class ProjectSettings extends React.Component {
     return (
       <button onClick={this.displayStep.bind(this, this.STEPS.CHOOSE_TEMPLATE)}>
         <i className='k-icon-template-new' />
-        {t('Use a template')}
+        {('Use a template')}
       </button>
     );
   }
@@ -634,7 +634,7 @@ class ProjectSettings extends React.Component {
       <bem.FormModal__form className='project-settings project-settings--form-source'>
         {this.props.context !== PROJECT_SETTINGS_CONTEXTS.REPLACE &&
           <bem.Modal__subheader>
-            {t('Choose one of the options below to continue. You will be prompted to enter name and other details in further steps.')}
+            {('Choose one of the options below to continue. You will be prompted to enter name and other details in further steps.')}
           </bem.Modal__subheader>
         }
 
@@ -642,7 +642,7 @@ class ProjectSettings extends React.Component {
           {this.props.context === PROJECT_SETTINGS_CONTEXTS.NEW &&
             <button onClick={this.displayStep.bind(this, this.STEPS.PROJECT_DETAILS)}>
               <i className='k-icon-edit' />
-              {t('Build from scratch')}
+              {('Build from scratch')}
             </button>
           }
 
@@ -652,12 +652,12 @@ class ProjectSettings extends React.Component {
 
           <button onClick={this.displayStep.bind(this, this.STEPS.UPLOAD_FILE)}>
             <i className='k-icon-upload' />
-            {t('Upload an XLSForm')}
+            {('Upload an XLSForm')}
           </button>
 
           <button onClick={this.displayStep.bind(this, this.STEPS.IMPORT_URL)}>
             <i className='k-icon-link' />
-            {t('Import an XLSForm via URL')}
+            {('Import an XLSForm via URL')}
           </button>
 
           {this.props.context !== PROJECT_SETTINGS_CONTEXTS.NEW &&
@@ -693,7 +693,7 @@ class ProjectSettings extends React.Component {
     return (
       <bem.FormModal__form className='project-settings project-settings--upload-file'>
         <bem.Modal__subheader>
-          {t('Import an XLSForm from your computer.')}
+          {('Import an XLSForm from your computer.')}
         </bem.Modal__subheader>
 
         {!this.state.isUploadFilePending &&
@@ -706,12 +706,12 @@ class ProjectSettings extends React.Component {
             accept={validFileTypes()}
           >
             <i className='k-icon-xls-file' />
-            {t(' Drag and drop the XLSForm file here or click to browse')}
+            {(' Drag and drop the XLSForm file here or click to browse')}
           </Dropzone>
         }
         {this.state.isUploadFilePending &&
           <div className='dropzone'>
-            {this.renderLoading(t('Uploading file…'))}
+            {this.renderLoading(('Uploading file…'))}
           </div>
         }
 
@@ -726,12 +726,12 @@ class ProjectSettings extends React.Component {
     return (
       <bem.FormModal__form className='project-settings project-settings--import-url'>
         <div className='intro'>
-          {t('Enter a valid XLSForm URL in the field below.')}<br/>
+          {('Enter a valid XLSForm URL in the field below.')}<br/>
 
           { stores.serverEnvironment &&
             stores.serverEnvironment.state.support_url &&
             <a href={stores.serverEnvironment.state.support_url + VIA_URL_SUPPORT_URL} target='_blank'>
-              {t('Having issues? See this help article.')}
+              {('Having issues? See this help article.')}
             </a>
           }
         </div>
@@ -739,7 +739,7 @@ class ProjectSettings extends React.Component {
         <bem.FormModal__item>
           <TextBox
             type='url'
-            label={t('URL')}
+            label={('URL')}
             placeholder='https://'
             value={this.state.importUrl}
             onChange={this.onImportUrlChange}
@@ -784,7 +784,7 @@ class ProjectSettings extends React.Component {
               m='blue'
               onClick={this.handleSubmit}
             >
-              {t('Save Changes')}
+              {('Save Changes')}
             </bem.KoboButton>
           </bem.Modal__footer>
         }
@@ -800,7 +800,7 @@ class ProjectSettings extends React.Component {
                 type='text'
                 maxLength={NAME_MAX_LENGTH}
                 id='name'
-                placeholder={t('Enter title of project here')}
+                placeholder={('Enter title of project here')}
                 value={this.state.name}
                 onChange={this.onNameChange}
               />
@@ -809,25 +809,25 @@ class ProjectSettings extends React.Component {
 
           <bem.FormModal__item>
             <label htmlFor='description'>
-              {t('Description')}
+              {('Description')}
             </label>
             <TextareaAutosize
               onChange={this.onDescriptionChange}
               value={this.state.description}
-              placeholder={t('Enter short description here')}
+              placeholder={('Enter short description here')}
             />
           </bem.FormModal__item>
 
           <bem.FormModal__item>
             <label className='long'>
-              {t('Please specify the country and the sector where this project will be deployed. ')}
-              {/*t('This information will be used to help you filter results on the project list page.')*/}
+              {('Please specify the country and the sector where this project will be deployed. ')}
+              {/*('This information will be used to help you filter results on the project list page.')*/}
             </label>
           </bem.FormModal__item>
 
           <bem.FormModal__item m='sector'>
             <label htmlFor='sector'>
-              {t('Sector')}
+              {('Sector')}
             </label>
             <Select
               id='sector'
@@ -843,7 +843,7 @@ class ProjectSettings extends React.Component {
 
           <bem.FormModal__item m='country'>
             <label htmlFor='country'>
-              {t('Country')}
+              {('Country')}
             </label>
             <Select
               id='country'
@@ -861,7 +861,7 @@ class ProjectSettings extends React.Component {
             <Checkbox
               checked={this.state['share-metadata']}
               onChange={this.onShareMetadataChange}
-              label={t('Help KoboToolbox improve this product by sharing the sector and country where this project will be deployed.') + ' ' + t('All the information is submitted anonymously, and will not include the project name or description listed above.')}
+              label={('Help KoboToolbox improve this product by sharing the sector and country where this project will be deployed.') + ' ' + ('All the information is submitted anonymously, and will not include the project name or description listed above.')}
             />
           </bem.FormModal__item>
 
@@ -878,9 +878,9 @@ class ProjectSettings extends React.Component {
                 onClick={this.handleSubmit}
                 disabled={this.state.isSubmitPending}
               >
-                {this.state.isSubmitPending && t('Please wait…')}
-                {!this.state.isSubmitPending && this.props.context === PROJECT_SETTINGS_CONTEXTS.NEW && t('Create project')}
-                {!this.state.isSubmitPending && this.props.context === PROJECT_SETTINGS_CONTEXTS.REPLACE && t('Save')}
+                {this.state.isSubmitPending && ('Please wait…')}
+                {!this.state.isSubmitPending && this.props.context === PROJECT_SETTINGS_CONTEXTS.NEW && ('Create project')}
+                {!this.state.isSubmitPending && this.props.context === PROJECT_SETTINGS_CONTEXTS.REPLACE && ('Save')}
               </bem.KoboButton>
             </bem.Modal__footer>
           }
@@ -893,7 +893,7 @@ class ProjectSettings extends React.Component {
                     m='blue'
                     onClick={this.unarchiveProject}
                   >
-                    {t('Unarchive Project')}
+                    {('Unarchive Project')}
                   </bem.KoboButton>
                 }
 
@@ -902,13 +902,13 @@ class ProjectSettings extends React.Component {
                     m='orange'
                     onClick={this.archiveProject}
                   >
-                    {t('Archive Project')}
+                    {('Archive Project')}
                   </bem.KoboButton>
                 }
               </bem.FormModal__item>
 
               <bem.FormModal__item m='inline'>
-                {this.isArchived() ? t('Unarchive project to resume accepting submissions.') : t('Archive project to stop accepting submissions.')}
+                {this.isArchived() ? ('Unarchive project to resume accepting submissions.') : ('Archive project to stop accepting submissions.')}
               </bem.FormModal__item>
             </bem.FormModal__item>
           }
@@ -916,7 +916,7 @@ class ProjectSettings extends React.Component {
           {isSelfOwned && this.props.context === PROJECT_SETTINGS_CONTEXTS.EXISTING &&
             <bem.FormModal__item>
               <bem.KoboButton m='red' onClick={this.deleteProject}>
-                {t('Delete Project and Data')}
+                {('Delete Project and Data')}
               </bem.KoboButton>
             </bem.FormModal__item>
           }
@@ -940,7 +940,7 @@ class ProjectSettings extends React.Component {
           onClick={this.displayPreviousStep}
           disabled={isBackButtonDisabled}
         >
-          {t('Back')}
+          {('Back')}
         </bem.KoboButton>
       );
     } else {
@@ -948,7 +948,7 @@ class ProjectSettings extends React.Component {
     }
   }
 
-  renderLoading(message = t('loading…')) {
+  renderLoading(message = ('loading…')) {
     return (
       <bem.Loading>
         <bem.Loading__inner>

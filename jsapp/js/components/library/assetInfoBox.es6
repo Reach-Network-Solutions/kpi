@@ -44,7 +44,7 @@ class AssetInfoBox extends React.Component {
   }
 
   onGetUserFailed() {
-    notify(t('Failed to get owner data.'), 'error');
+    notify(('Failed to get owner data.'), 'error');
   }
 
   render() {
@@ -56,34 +56,34 @@ class AssetInfoBox extends React.Component {
       <bem.AssetInfoBox>
         <bem.AssetInfoBox__column>
           <bem.AssetInfoBox__cell>
-            <label>{t('Date Created')}</label>
+            <label>{('Date Created')}</label>
             {formatTime(this.props.asset.date_created)}
           </bem.AssetInfoBox__cell>
 
           {this.state.areDetailsVisible &&
           <bem.AssetInfoBox__cell>
-            <label>{t('Last Modified')}</label>
+            <label>{('Last Modified')}</label>
             {formatTime(this.props.asset.date_modified)}
           </bem.AssetInfoBox__cell>
           }
 
           {this.state.areDetailsVisible &&
           <bem.AssetInfoBox__cell>
-            <label>{t('Owner')}</label>
+            <label>{('Owner')}</label>
             {assetUtils.getAssetOwnerDisplayName(this.props.asset.owner__username)}
           </bem.AssetInfoBox__cell>
           }
 
           {this.state.areDetailsVisible &&
           <bem.AssetInfoBox__cell>
-            <label>{t('Description')}</label>
+            <label>{('Description')}</label>
             {this.props.asset.settings.description || '-'}
           </bem.AssetInfoBox__cell>
           }
 
           {this.state.areDetailsVisible &&
           <bem.AssetInfoBox__cell>
-            <label>{t('Tags')}</label>
+            <label>{('Tags')}</label>
             {this.props.asset.tag_string && this.props.asset.tag_string.split(',').join(', ') || '-'}
           </bem.AssetInfoBox__cell>
           }
@@ -93,13 +93,13 @@ class AssetInfoBox extends React.Component {
           <bem.AssetInfoBox__cell>
             {this.props.asset.asset_type === ASSET_TYPES.collection.id &&
               <React.Fragment>
-                <label>{t('Items')}</label>
+                <label>{('Items')}</label>
                 {this.props.asset.children.count || 0}
               </React.Fragment>
             }
             {this.props.asset.asset_type !== ASSET_TYPES.collection.id &&
               <React.Fragment>
-                <label>{t('Questions')}</label>
+                <label>{('Questions')}</label>
                 {this.props.asset.summary.row_count || 0}
               </React.Fragment>
             }
@@ -107,28 +107,28 @@ class AssetInfoBox extends React.Component {
 
           {this.state.areDetailsVisible &&
           <bem.AssetInfoBox__cell>
-            <label>{t('Organization')}</label>
+            <label>{('Organization')}</label>
             {assetUtils.getOrganizationDisplayString(this.props.asset)}
           </bem.AssetInfoBox__cell>
           }
 
           {this.state.areDetailsVisible &&
           <bem.AssetInfoBox__cell>
-            <label>{t('Sector')}</label>
+            <label>{('Sector')}</label>
             {assetUtils.getSectorDisplayString(this.props.asset)}
           </bem.AssetInfoBox__cell>
           }
 
           {this.state.areDetailsVisible &&
           <bem.AssetInfoBox__cell>
-            <label>{t('Country')}</label>
+            <label>{('Country')}</label>
             {assetUtils.getCountryDisplayString(this.props.asset, true)}
           </bem.AssetInfoBox__cell>
           }
 
           {this.state.areDetailsVisible &&
           <bem.AssetInfoBox__cell>
-            <label>{t('Languages')}</label>
+            <label>{('Languages')}</label>
             {assetUtils.getLanguagesDisplayString(this.props.asset)}
           </bem.AssetInfoBox__cell>
           }
@@ -137,7 +137,7 @@ class AssetInfoBox extends React.Component {
         <bem.AssetInfoBox__column m='toggle'>
           <bem.AssetInfoBox__toggle onClick={this.toggleDetails}>
             {this.state.areDetailsVisible ? <i className='k-icon k-icon-up'/> : <i className='k-icon k-icon-down'/>}
-            {this.state.areDetailsVisible ? t('Hide full details') : t('Show full details')}
+            {this.state.areDetailsVisible ? ('Hide full details') : ('Show full details')}
           </bem.AssetInfoBox__toggle>
         </bem.AssetInfoBox__column>
       </bem.AssetInfoBox>

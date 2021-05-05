@@ -91,7 +91,7 @@ class AssetBreadcrumbs extends React.Component {
     if (parentAssetData) {
       return getAssetDisplayName(parentAssetData).final;
     } else {
-      return t('Parent Collection');
+      return ('Parent Collection');
     }
   }
 

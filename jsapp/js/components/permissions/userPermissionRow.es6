@@ -38,9 +38,9 @@ class UserPermissionRow extends React.Component {
   removePermissions() {
     const dialog = alertify.dialog('confirm');
     const opts = {
-      title: t('Remove permissions?'),
-      message: t('This action will remove all permissions for user ##username##').replace('##username##', `<strong>${this.props.user.name}</strong>`),
-      labels: {ok: t('Remove'), cancel: t('Cancel')},
+      title: ('Remove permissions?'),
+      message: ('This action will remove all permissions for user ##username##').replace('##username##', `<strong>${this.props.user.name}</strong>`),
+      labels: {ok: ('Remove'), cancel: ('Cancel')},
       onok: this.removeAllPermissions,
       oncancel: dialog.destroy
     };
@@ -96,11 +96,11 @@ class UserPermissionRow extends React.Component {
           if (permUsers.length === 0) {
             permNameTemplate = '##permission_name##';
           } else if (permUsers.length <= maxParentheticalUsernames) {
-            permNameTemplate = t('##permission_name## (##username_list##)');
+            permNameTemplate = ('##permission_name## (##username_list##)');
           } else if (permUsers.length === maxParentheticalUsernames + 1) {
-            permNameTemplate = t('##permission_name## (##username_list## and 1 other)');
+            permNameTemplate = ('##permission_name## (##username_list## and 1 other)');
           } else {
-            permNameTemplate = t('##permission_name## (##username_list## and ' +
+            permNameTemplate = ('##permission_name## (##username_list## and ' +
                                  '##hidden_username_count## others)');
           }
           let friendlyPermName = (
@@ -148,7 +148,7 @@ class UserPermissionRow extends React.Component {
           </bem.UserRow__name>
 
           {this.props.user.isOwner &&
-            <bem.UserRow__perms>{t('is owner')}</bem.UserRow__perms>
+            <bem.UserRow__perms>{('is owner')}</bem.UserRow__perms>
           }
           {!this.props.user.isOwner &&
             <React.Fragment>

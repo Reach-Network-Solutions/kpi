@@ -132,9 +132,9 @@ export class TranslationSettings extends React.Component {
       content.translations.splice(index, 1);
       const dialog = alertify.dialog('confirm');
       const opts = {
-        title: t('Delete language?'),
-        message: t('Are you sure you want to delete this language? This action is not reversible.'),
-        labels: {ok: t('Delete'), cancel: t('Cancel')},
+        title: ('Delete language?'),
+        message: ('Are you sure you want to delete this language? This action is not reversible.'),
+        labels: {ok: ('Delete'), cancel: ('Cancel')},
         onok: () => {
           this.updateAsset(content);
           dialog.destroy();
@@ -143,7 +143,7 @@ export class TranslationSettings extends React.Component {
       };
       dialog.set(opts).show();
     } else {
-      notify(t('Translation index mismatch. Cannot delete language.'), 'error');
+      notify(('Translation index mismatch. Cannot delete language.'), 'error');
     }
   }
   prepareTranslations(content) {
@@ -214,9 +214,9 @@ export class TranslationSettings extends React.Component {
 
     const dialog = alertify.dialog('confirm');
     const opts = {
-      title: t('Change default language?'),
-      message: t('Are you sure you would like to set ##lang## as the default language for this form?').replace('##lang##', langString),
-      labels: {ok: t('Confirm'), cancel: t('Cancel')},
+      title: ('Change default language?'),
+      message: ('Are you sure you would like to set ##lang## as the default language for this form?').replace('##lang##', langString),
+      labels: {ok: ('Confirm'), cancel: ('Cancel')},
       onok: () => {
         this.setState({isUpdatingDefaultLanguage: true});
         const content = this.state.asset.content;
@@ -244,7 +244,7 @@ export class TranslationSettings extends React.Component {
       <bem.FormModal m='translation-settings'>
         <bem.FormModal__item>
           <bem.FormView__cell>
-            {t('There is nothing to translate in this form.')}
+            {('There is nothing to translate in this form.')}
           </bem.FormView__cell>
         </bem.FormModal__item>
       </bem.FormModal>
@@ -255,7 +255,7 @@ export class TranslationSettings extends React.Component {
       <bem.Loading>
         <bem.Loading__inner>
           <i />
-          {t('loading...')}
+          {('loading...')}
         </bem.Loading__inner>
       </bem.Loading>
     );
@@ -265,23 +265,23 @@ export class TranslationSettings extends React.Component {
       <bem.FormModal m='translation-settings'>
         <bem.FormModal__item>
           <bem.FormView__cell m='translation-note'>
-            <p>{t('Here you can add more languages to your project, and translate the strings in each of them.')}</p>
-            <p>{t('For the language code field, we suggest using the')}
+            <p>{('Here you can add more languages to your project, and translate the strings in each of them.')}</p>
+            <p>{('For the language code field, we suggest using the')}
               <a target='_blank' href='https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry'>
-                {' ' + t('official language code') + ' '}
+                {' ' + ('official language code') + ' '}
               </a>
-              {t('(e.g. "English (en)" or "Rohingya (rhg)").')}
+              {('(e.g. "English (en)" or "Rohingya (rhg)").')}
 
               { stores.serverEnvironment &&
                 stores.serverEnvironment.state.support_url &&
                 <a target='_blank' href={stores.serverEnvironment.state.support_url + LANGUAGE_SUPPORT_URL}>
-                  {' ' + t('Read more.')}
+                  {' ' + ('Read more.')}
                 </a>
               }
             </p>
           </bem.FormView__cell>
           <bem.FormView__cell m='translation'>
-            <p><strong>{t('Please name your default language before adding languages and translations.')}</strong></p>
+            <p><strong>{('Please name your default language before adding languages and translations.')}</strong></p>
           </bem.FormView__cell>
           <bem.FormView__cell m='update-language-form'>
             <LanguageForm
@@ -299,12 +299,12 @@ export class TranslationSettings extends React.Component {
       <bem.FormModal m='translation-settings'>
         <bem.FormModal__item>
           <bem.FormView__cell m='label'>
-            {t('Current languages')}
+            {('Current languages')}
           </bem.FormView__cell>
           {translations[0] == null &&
             <bem.FormView__cell m={['warning', 'translation-modal-warning']}>
               <i className='k-icon-alert' />
-              <p>{t('You have named translations in your form but the default translation is unnamed. Please specifiy a default translation or make an existing one default.')}</p>
+              <p>{('You have named translations in your form but the default translation is unnamed. Please specifiy a default translation or make an existing one default.')}</p>
             </bem.FormView__cell>
           }
           {translations.map((l, i) => {
@@ -316,7 +316,7 @@ export class TranslationSettings extends React.Component {
 
                     {i === 0 &&
                       <bem.FormView__label m='default-language'>
-                        {t('default')}
+                        {('default')}
                       </bem.FormView__label>
                     }
 
@@ -325,7 +325,7 @@ export class TranslationSettings extends React.Component {
                         data-index={i}
                         onClick={this.changeDefaultLanguage}
                         disabled={this.state.isUpdatingDefaultLanguage}
-                        data-tip={t('Make default')}
+                        data-tip={('Make default')}
                       >
                         <i className='k-icon-language-default' />
                       </bem.FormView__iconButton>
@@ -337,7 +337,7 @@ export class TranslationSettings extends React.Component {
                       data-index={i}
                       onClick={this.toggleRenameLanguageForm}
                       disabled={this.state.isUpdatingDefaultLanguage}
-                      data-tip={t('Edit language')}
+                      data-tip={('Edit language')}
                       className='right-tooltip'
                     >
                       {this.state.renameLanguageIndex === i &&
@@ -353,7 +353,7 @@ export class TranslationSettings extends React.Component {
                       data-string={this.state.translations[i]}
                       onClick={this.launchTranslationTableModal}
                       disabled={this.state.isUpdatingDefaultLanguage}
-                      data-tip={t('Update translations')}
+                      data-tip={('Update translations')}
                       className='right-tooltip'
                     >
                       <i className='k-icon-language-settings' />
@@ -364,7 +364,7 @@ export class TranslationSettings extends React.Component {
                         data-index={i}
                         onClick={this.deleteLanguage}
                         disabled={this.state.isUpdatingDefaultLanguage}
-                        data-tip={t('Delete language')}
+                        data-tip={('Delete language')}
                         className='right-tooltip'
                       >
                         <i className='k-icon-trash' />
@@ -393,7 +393,7 @@ export class TranslationSettings extends React.Component {
                 onClick={this.showAddLanguageForm}
                 disabled={!this.canAddLanguages()}
               >
-                {t('Add language')}
+                {('Add language')}
               </bem.KoboButton>
             </bem.FormView__cell>
           }
@@ -403,7 +403,7 @@ export class TranslationSettings extends React.Component {
                 <i className='k-icon-close' />
               </bem.FormView__link>
               <bem.FormView__cell m='label'>
-                {t('Add a new language')}
+                {('Add a new language')}
               </bem.FormView__cell>
               <LanguageForm
                 onLanguageChange={this.onLanguageChange}

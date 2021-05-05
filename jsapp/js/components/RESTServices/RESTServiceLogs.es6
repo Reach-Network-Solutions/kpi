@@ -49,7 +49,7 @@ export default class RESTServiceLogs extends React.Component {
         this.setState({
           isLoadingHook: false
         });
-        alertify.error(t('Could not load REST Service'));
+        alertify.error(('Could not load REST Service'));
       });
 
     actions.hooks.getLogs(
@@ -68,7 +68,7 @@ export default class RESTServiceLogs extends React.Component {
           this.setState({
             isLoadingLogs: false
           });
-          alertify.error(t('Could not load REST Service logs'));
+          alertify.error(('Could not load REST Service logs'));
         }
       }
     );
@@ -89,7 +89,7 @@ export default class RESTServiceLogs extends React.Component {
       })
       .fail(() => {
         this.setState({isLoadingLogs: false});
-        alertify.error(t('Could not load REST Service logs'));
+        alertify.error(('Could not load REST Service logs'));
       });
   }
 
@@ -166,7 +166,7 @@ export default class RESTServiceLogs extends React.Component {
   }
 
   showLogInfo(log) {
-    const title = t('Submission Failure Detail (##id##)').replace('##id##', log.instance_id);
+    const title = ('Submission Failure Detail (##id##)').replace('##id##', log.instance_id);
     const escapedMessage = $('<div/>').text(log.message).html();
     alertify.alert(title, `<pre>${escapedMessage}</pre>`);
   }
@@ -207,7 +207,7 @@ export default class RESTServiceLogs extends React.Component {
           href={`/#/forms/${this.state.assetUid}/settings/rest`}
         >
           <i className='k-icon-prev' />
-          {t('Back to REST Services')}
+          {('Back to REST Services')}
         </a>
 
         <h2 className='rest-services-list__header-label rest-services-list__header-label--big'>
@@ -227,7 +227,7 @@ export default class RESTServiceLogs extends React.Component {
         m={this.state.isLoadingLogs ? 'loading' : null}
         onClick={this.loadMore}
       >
-        {this.state.isLoadingLogs ? t('Loading…') : t('Load more')}
+        {this.state.isLoadingLogs ? ('Loading…') : ('Load more')}
       </bem.ServiceRowButton>
     );
   }
@@ -240,7 +240,7 @@ export default class RESTServiceLogs extends React.Component {
 
           <bem.EmptyContent>
             <bem.EmptyContent__message>
-              {t('There are no logs yet')}
+              {('There are no logs yet')}
             </bem.EmptyContent__message>
           </bem.EmptyContent>
         </bem.FormView__cell>
@@ -256,20 +256,20 @@ export default class RESTServiceLogs extends React.Component {
 
           <bem.FormView__cell m={['box']}>
             <bem.ServiceRow m='header'>
-              <bem.ServiceRow__column m='submission'>{t('Submission')}</bem.ServiceRow__column>
+              <bem.ServiceRow__column m='submission'>{('Submission')}</bem.ServiceRow__column>
               <bem.ServiceRow__column m='status'>
-                {t('Status')}
+                {('Status')}
                 { this.hasAnyFailedLogs() &&
                   <bem.ServiceRow__actionButton
                     onClick={this.retryAll.bind(this)}
-                    data-tip={t('Retry all submissions')}
+                    data-tip={('Retry all submissions')}
                     disabled={!this.state.isHookActive}
                   >
                     <i className='k-icon-replace-all'/>
                   </bem.ServiceRow__actionButton>
                 }
               </bem.ServiceRow__column>
-              <bem.ServiceRow__column m='date'>{t('Date')}</bem.ServiceRow__column>
+              <bem.ServiceRow__column m='date'>{('Date')}</bem.ServiceRow__column>
             </bem.ServiceRow>
 
             {this.state.logs.map((log, n) => {
@@ -280,21 +280,21 @@ export default class RESTServiceLogs extends React.Component {
               let statusLabel = '';
               if (log.status === HOOK_LOG_STATUSES.SUCCESS) {
                 statusMod = 'success';
-                statusLabel = t('Success');
+                statusLabel = ('Success');
                 rowProps.m = 'clickable';
                 rowProps.onClick = this.openSubmissionModal.bind(this, log);
               }
               if (log.status === HOOK_LOG_STATUSES.PENDING) {
                 statusMod = 'pending';
-                statusLabel = t('Pending');
+                statusLabel = ('Pending');
 
                 if (log.tries && log.tries > 1) {
-                  statusLabel = t('Pending (##count##×)').replace('##count##', log.tries);
+                  statusLabel = ('Pending (##count##×)').replace('##count##', log.tries);
                 }
               }
               if (log.status === HOOK_LOG_STATUSES.FAILED) {
                 statusMod = 'failed';
-                statusLabel = t('Failed');
+                statusLabel = ('Failed');
               }
 
               return (
@@ -312,7 +312,7 @@ export default class RESTServiceLogs extends React.Component {
                       <bem.ServiceRow__actionButton
                         disabled={!this.state.isHookActive}
                         onClick={this.retryLog.bind(this, log)}
-                        data-tip={t('Retry submission')}
+                        data-tip={('Retry submission')}
                       >
                         <i className='k-icon-replace' />
                       </bem.ServiceRow__actionButton>
@@ -321,7 +321,7 @@ export default class RESTServiceLogs extends React.Component {
                     {this.hasInfoToDisplay(log) &&
                       <bem.ServiceRow__actionButton
                         onClick={this.showLogInfo.bind(this, log)}
-                        data-tip={t('More info')}
+                        data-tip={('More info')}
                       >
                         <i className='k-icon-information' />
                       </bem.ServiceRow__actionButton>
@@ -348,7 +348,7 @@ export default class RESTServiceLogs extends React.Component {
         <bem.Loading>
           <bem.Loading__inner>
             <i />
-            {t('loading...')}
+            {('loading...')}
           </bem.Loading__inner>
         </bem.Loading>
       );

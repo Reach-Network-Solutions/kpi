@@ -135,9 +135,9 @@ export default class ProjectExportsList extends React.Component {
   deleteExport(exportUid) {
     const dialog = alertify.dialog('confirm');
     const opts = {
-      title: t('Delete export?'),
-      message: t('Are you sure you want to delete this export? This action is not reversible.'),
-      labels: {ok: t('Delete'), cancel: t('Cancel')},
+      title: ('Delete export?'),
+      message: ('Are you sure you want to delete this export? This action is not reversible.'),
+      labels: {ok: ('Delete'), cancel: ('Cancel')},
       onok: () => {actions.exports.deleteExport(this.props.asset.uid, exportUid);},
       oncancel: () => {dialog.destroy();},
     };
@@ -149,9 +149,9 @@ export default class ProjectExportsList extends React.Component {
    */
   renderBooleanAnswer(isTrue) {
     if (isTrue) {
-      return t('Yes');
+      return ('Yes');
     } else {
-      return t('No');
+      return ('No');
     }
   }
 
@@ -162,7 +162,7 @@ export default class ProjectExportsList extends React.Component {
   renderLanguage(exportLang) {
     // Unknown happens when export was done for a translated language that
     // doesn't exist in current form version
-    let languageDisplay = (<em>{t('Unknown')}</em>);
+    let languageDisplay = (<em>{('Unknown')}</em>);
     const langIndex = getLanguageIndex(this.props.asset, exportLang);
     if (langIndex !== null) {
       languageDisplay = exportLang;
@@ -202,13 +202,13 @@ export default class ProjectExportsList extends React.Component {
               href={exportData.result}
             >
               <i className='k-icon k-icon-download'/>
-              {t('Download')}
+              {('Download')}
             </a>
           }
 
           {exportData.status === EXPORT_STATUSES.error &&
             <span className='right-tooltip' data-tip={exportData.messages?.error}>
-              {t('Export Failed')}
+              {('Export Failed')}
             </span>
           }
 
@@ -216,7 +216,7 @@ export default class ProjectExportsList extends React.Component {
             exportData.status !== EXPORT_STATUSES.complete &&
             exportData.status !== EXPORT_STATUSES.error
           ) &&
-            <span className='animate-processing'>{t('Processing…')}</span>
+            <span className='animate-processing'>{('Processing…')}</span>
           }
 
           {mixins.permissions.userCan(PERMISSIONS_CODENAMES.view_submissions, this.props.asset) &&
@@ -252,30 +252,30 @@ export default class ProjectExportsList extends React.Component {
       return (
         <bem.FormView__row>
           <bem.FormView__cell m={['page-subtitle']}>
-            {t('Exports')}
+            {('Exports')}
           </bem.FormView__cell>
 
           <bem.SimpleTable m='project-exports'>
             <bem.SimpleTable__header>
               <bem.SimpleTable__row>
                 <bem.SimpleTable__cell>
-                  {t('Type')}
+                  {('Type')}
                 </bem.SimpleTable__cell>
 
                 <bem.SimpleTable__cell>
-                  {t('Created')}
+                  {('Created')}
                 </bem.SimpleTable__cell>
 
                 <bem.SimpleTable__cell>
-                  {t('Language')}
+                  {('Language')}
                 </bem.SimpleTable__cell>
 
                 <bem.SimpleTable__cell>
-                  {t('Include Groups')}
+                  {('Include Groups')}
                 </bem.SimpleTable__cell>
 
                 <bem.SimpleTable__cell>
-                  {t('Multiple Versions')}
+                  {('Multiple Versions')}
                 </bem.SimpleTable__cell>
 
                 <bem.SimpleTable__cell/>

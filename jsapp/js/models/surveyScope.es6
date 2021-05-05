@@ -51,7 +51,7 @@ class SurveyScope {
         asset_type: 'question',
         content: content
       }).then(function(){
-        notify(t('question has been added to the library'));
+        notify(('question has been added to the library'));
       });
     } else {
       console.error('cannot add group to question library');

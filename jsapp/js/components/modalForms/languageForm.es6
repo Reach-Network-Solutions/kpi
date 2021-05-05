@@ -86,7 +86,7 @@ class LanguageForm extends React.Component {
 
     const isNameValid = this.isLanguageNameValid();
     if (!isNameValid) {
-      this.setState({nameError: t('Name must be unique!')});
+      this.setState({nameError: ('Name must be unique!')});
       evt.currentTarget.disabled = false;
     } else {
       this.setState({nameError: null});
@@ -94,7 +94,7 @@ class LanguageForm extends React.Component {
 
     const isCodeValid = this.isLanguageCodeValid();
     if (!isCodeValid) {
-      this.setState({codeError: t('Code must be unique!')});
+      this.setState({codeError: ('Code must be unique!')});
       evt.currentTarget.disabled = false;
     } else {
       this.setState({codeError: null});
@@ -124,7 +124,7 @@ class LanguageForm extends React.Component {
       <bem.FormView__form m='add-language-fields'>
         <bem.FormView__cell m='lang-name'>
           <bem.FormModal__item>
-            <label>{(this.props.isDefault) ? t('Default language name') : t('Language name')}</label>
+            <label>{(this.props.isDefault) ? ('Default language name') : ('Language name')}</label>
             <TextBox
               value={this.state.name}
               onChange={this.onNameChange}
@@ -135,7 +135,7 @@ class LanguageForm extends React.Component {
 
         <bem.FormView__cell m='lang-code'>
           <bem.FormModal__item>
-            <label>{(this.props.isDefault) ? t('Default language code') : t('Language code')}</label>
+            <label>{(this.props.isDefault) ? ('Default language code') : ('Language code')}</label>
             <TextBox
               value={this.state.code}
               onChange={this.onCodeChange}
@@ -150,7 +150,7 @@ class LanguageForm extends React.Component {
             onClick={this.onSubmit} type='submit'
             disabled={isAnyFieldEmpty}
           >
-            {this.props.langIndex !== undefined ? t('Update') : (this.props.isDefault) ? t('Set') : t('Add')}
+            {this.props.langIndex !== undefined ? ('Update') : (this.props.isDefault) ? ('Set') : ('Add')}
           </bem.KoboButton>
         </bem.FormView__cell>
       </bem.FormView__form>

@@ -79,9 +79,9 @@ class TableBulkOptions extends React.Component {
     this.closeCurrentDialog(); // just for safety sake
     this.currentDialog = alertify.dialog('confirm');
     const opts = {
-      title: t('Update status of selected submissions'),
-      message: t('You have selected ## submissions. Are you sure you would like to update their status? This action is irreversible.').replace('##', selectedCount),
-      labels: {ok: t('Update Validation Status'), cancel: t('Cancel')},
+      title: ('Update status of selected submissions'),
+      message: ('You have selected ## submissions. Are you sure you would like to update their status? This action is irreversible.').replace('##', selectedCount),
+      labels: {ok: ('Update Validation Status'), cancel: ('Cancel')},
       onok: () => {
         apiFn(this.props.asset.uid, data);
         // keep the dialog open
@@ -111,9 +111,9 @@ class TableBulkOptions extends React.Component {
       selectedCount = data.submission_ids.length;
     }
     let msg, onshow;
-    msg = t('You are about to permanently delete ##count## data entries.').replace('##count##', selectedCount);
-    msg += `${renderCheckbox('dt1', t('All selected data associated with this form will be deleted.'))}`;
-    msg += `${renderCheckbox('dt2', t('I understand that if I delete the selected entries I will not be able to recover them.'))}`;
+    msg = ('You are about to permanently delete ##count## data entries.').replace('##count##', selectedCount);
+    msg += `${renderCheckbox('dt1', ('All selected data associated with this form will be deleted.'))}`;
+    msg += `${renderCheckbox('dt2', ('I understand that if I delete the selected entries I will not be able to recover them.'))}`;
 
     this.closeCurrentDialog(); // just for safety sake
     this.currentDialog = alertify.dialog('confirm');
@@ -135,9 +135,9 @@ class TableBulkOptions extends React.Component {
     };
 
     const opts = {
-      title: t('Delete selected submissions'),
+      title: ('Delete selected submissions'),
       message: msg,
-      labels: {ok: t('Delete selected'), cancel: t('Cancel')},
+      labels: {ok: ('Delete selected'), cancel: ('Cancel')},
       onshow: onshow,
       onok: () => {
         actions.submissions.bulkDelete(this.props.asset.uid, data);
@@ -164,7 +164,7 @@ class TableBulkOptions extends React.Component {
     if (this.props.selectedAllPages) {
       selectedCount = this.props.totalRowsCount;
     }
-    const selectedLabel = t('##count## selected').replace('##count##', selectedCount);
+    const selectedLabel = ('##count## selected').replace('##count##', selectedCount);
 
     const maxPageRes = Math.min(this.props.pageSize, this.props.data.length);
     const isSelectAllAvailable = (
@@ -184,7 +184,7 @@ class TableBulkOptions extends React.Component {
         {selectedCount > 1 && <span>:</span>}
 
         {Object.keys(this.props.selectedRows).length > 0 &&
-          <ui.PopoverMenu type='bulkUpdate-menu' triggerLabel={t('Change status')} >
+          <ui.PopoverMenu type='bulkUpdate-menu' triggerLabel={('Change status')} >
             {this.userCan('validate_submissions', this.props.asset) &&
               VALIDATION_STATUSES_LIST.map((item, n) => {
                 return (
@@ -192,7 +192,7 @@ class TableBulkOptions extends React.Component {
                     onClick={this.onUpdateStatus.bind(this, item.value)}
                     key={n}
                   >
-                    {t('Set status: ##status##').replace('##status##', item.label)}
+                    {('Set status: ##status##').replace('##status##', item.label)}
                   </bem.PopoverMenu__link>
                 );
               })
@@ -209,7 +209,7 @@ class TableBulkOptions extends React.Component {
             <bem.TableMeta__additionalText>
               <i className='k-icon k-icon-edit'/>
             </bem.TableMeta__additionalText>
-            {t('Edit')}
+            {('Edit')}
           </bem.KoboLightButton>
         }
 
@@ -221,7 +221,7 @@ class TableBulkOptions extends React.Component {
             <bem.TableMeta__additionalText>
               <i className='k-icon k-icon-trash'/>
             </bem.TableMeta__additionalText>
-            {t('Delete')}
+            {('Delete')}
           </bem.KoboLightButton>
         }
       </bem.TableMeta__bulkOptions>

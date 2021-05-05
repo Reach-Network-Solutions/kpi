@@ -55,14 +55,14 @@ class TemplatesList extends React.Component {
         <bem.Loading>
           <bem.Loading__inner>
             <i />
-            {t('loading...')}
+            {('loading...')}
           </bem.Loading__inner>
         </bem.Loading>
       );
     } else if (this.state.templatesCount === 0) {
       return (
         <bem.FormView__cell>
-          {t('You have no templates. Go to Library and create some.')}
+          {('You have no templates. Go to Library and create some.')}
         </bem.FormView__cell>
       );
     } else {
@@ -70,16 +70,16 @@ class TemplatesList extends React.Component {
         <bem.TemplatesList>
           <bem.TemplatesList__header className={['templates-list__row']}>
             <bem.TemplatesList__column m='name'>
-              {t('Template name')}
+              {('Template name')}
             </bem.TemplatesList__column>
             <bem.TemplatesList__column m='owner'>
-              {t('Owner')}
+              {('Owner')}
             </bem.TemplatesList__column>
             <bem.TemplatesList__column m='date'>
-              {t('Last modified')}
+              {('Last modified')}
             </bem.TemplatesList__column>
             <bem.TemplatesList__column m='questions'>
-              {t('Questions')}
+              {('Questions')}
             </bem.TemplatesList__column>
           </bem.TemplatesList__header>
 

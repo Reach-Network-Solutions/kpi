@@ -144,7 +144,7 @@ export default class AssetsTable extends React.Component {
         columnDef.id === ASSETS_TABLE_COLUMNS['items-count'].id &&
         this.props.context === ASSETS_TABLE_CONTEXTS.COLLECTION_CONTENT
       ) {
-        displayLabel = t('Questions');
+        displayLabel = ('Questions');
       }
       return (
         <bem.AssetsTableRow__column m={columnDef.id} disabled>
@@ -280,7 +280,7 @@ export default class AssetsTable extends React.Component {
             onClick={this.switchPage.bind(this, this.props.currentPage - 1)}
           >
             <i className='k-icon k-icon-prev'/>
-            {t('Previous')}
+            {('Previous')}
           </bem.AssetsTablePagination__button>
 
           <bem.AssetsTablePagination__index>
@@ -292,7 +292,7 @@ export default class AssetsTable extends React.Component {
             disabled={naturalCurrentPage >= this.props.totalPages}
             onClick={this.switchPage.bind(this, this.props.currentPage + 1)}
           >
-            {t('Next')}
+            {('Next')}
             <i className='k-icon k-icon-next'/>
           </bem.AssetsTablePagination__button>
         </bem.AssetsTablePagination>
@@ -307,7 +307,7 @@ export default class AssetsTable extends React.Component {
       <bem.AssetsTable__footer>
         {this.props.totalAssets !== null &&
           <span>
-            {t('##count## items').replace('##count##', this.props.totalAssets)}
+            {('##count## items').replace('##count##', this.props.totalAssets)}
           </span>
         }
 
@@ -318,7 +318,7 @@ export default class AssetsTable extends React.Component {
             className='mdl-button'
             onClick={this.toggleFullscreen}
           >
-            {t('Toggle fullscreen')}
+            {('Toggle fullscreen')}
             <i className='k-icon k-icon-expand' />
           </button>
         }
@@ -365,7 +365,7 @@ export default class AssetsTable extends React.Component {
 
           {!this.props.isLoading && this.props.assets.length === 0 &&
             <bem.AssetsTableRow m='empty-message'>
-              {this.props.emptyMessage || t('There are no assets to display.')}
+              {this.props.emptyMessage || ('There are no assets to display.')}
             </bem.AssetsTableRow>
           }
 

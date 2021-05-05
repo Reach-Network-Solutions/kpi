@@ -39,7 +39,7 @@ class TagInput extends React.Component {
 
   render() {
     var inputProps = {
-      placeholder: t('Add tag(s)')
+      placeholder: ('Add tag(s)')
     };
     return (
       <TagsInput

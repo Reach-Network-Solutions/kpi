@@ -1,6 +1,6 @@
 export const ROOT_BREADCRUMBS = Object.freeze({
     USERS: {
-      label: t('Users'),
+      label: ('Users'),
       href: '#/users/summary',
     }
   });

@@ -1,14 +1,14 @@
 export const ROOT_BREADCRUMBS = Object.freeze({
   PROJECTS: {
-    label: t('Projects'),
+    label: ('Projects'),
     href: '#/forms',
   },
   MY_LIBRARY: {
-    label: t('My Library'),
+    label: ('My Library'),
     href: '#/library/my-library',
   },
   PUBLIC_COLLECTIONS: {
-    label: t('Public Collections'),
+    label: ('Public Collections'),
     href: '#/library/public-collections',
   },
 });
@@ -40,25 +40,25 @@ Object.freeze(ORDER_DIRECTIONS);
  */
 export const ASSETS_TABLE_COLUMNS = Object.freeze({
   'icon-status': {
-    label: t('Type'),
+    label: ('Type'),
     id: 'icon-status',
     orderBy: 'asset_type',
     defaultValue: ORDER_DIRECTIONS.ascending,
   },
   'date-modified': {
-    label: t('Last Modified'),
+    label: ('Last Modified'),
     id: 'date-modified',
     orderBy: 'date_modified',
     defaultValue: ORDER_DIRECTIONS.descending,
   },
   name: {
-    label: t('Name'),
+    label: ('Name'),
     id: 'name',
     orderBy: 'name',
     defaultValue: ORDER_DIRECTIONS.ascending,
   },
   'items-count': {
-    label: t('Items'),
+    label: ('Items'),
     id: 'items-count',
     // TODO: currently it is not possible to order by summary.row_count and children.count at the same time
     // so we disable this column
@@ -66,26 +66,26 @@ export const ASSETS_TABLE_COLUMNS = Object.freeze({
     defaultValue: null,
   },
   owner: {
-    label: t('Owner'),
+    label: ('Owner'),
     id: 'owner',
     orderBy: 'owner__username',
     defaultValue: ORDER_DIRECTIONS.ascending,
   },
   'subscribers-count': {
-    label: t('Subscribers'),
+    label: ('Subscribers'),
     id: 'subscribers-count',
     orderBy: 'subscribers_count',
     defaultValue: ORDER_DIRECTIONS.ascending,
   },
   languages: {
-    label: t('Languages'),
+    label: ('Languages'),
     id: 'languages',
     filterBy: 'summary__languages__icontains',
     filterByPath: ['summary', 'languages'],
     filterByMetadataName: 'languages',
   },
   'primary-sector': {
-    label: t('Primary Sector'),
+    label: ('Primary Sector'),
     id: 'primary-sector',
     filterBy: 'settings__sector__value',
     filterByPath: ['settings', 'sector'],

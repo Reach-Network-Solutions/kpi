@@ -42,7 +42,7 @@ class AssetPublicButton extends React.Component {
   onSetAssetPublicFailed(assetUid) {
     if (this.props.asset.uid === assetUid) {
       this.setState({isPublicPending: false});
-      notify(t('Failed to change asset public status.'), 'error');
+      notify(('Failed to change asset public status.'), 'error');
     }
   }
 
@@ -90,7 +90,7 @@ class AssetPublicButton extends React.Component {
             disabled={this.isSetPublicButtonDisabled()}
           >
             <i className='k-icon k-icon-globe-alt'/>
-            {t('Make public')}
+            {('Make public')}
           </bem.AssetActionButtons__button>
         }
         {isPublic &&
@@ -100,7 +100,7 @@ class AssetPublicButton extends React.Component {
             disabled={this.isSetPublicButtonDisabled()}
           >
             <i className='k-icon k-icon-close'/>
-            {t('Make private')}
+            {('Make private')}
           </bem.AssetActionButtons__button>
         }
       </React.Fragment>

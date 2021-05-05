@@ -87,7 +87,7 @@ export class LibraryAssetForm extends React.Component {
 
   onCreateResourceCompleted(response) {
     this.setState({isPending: false});
-    notify(t('##type## ##name## created').replace('##type##', this.getFormAssetType()).replace('##name##', response.name));
+    notify(('##type## ##name## created').replace('##type##', this.getFormAssetType()).replace('##name##', response.name));
     stores.pageState.hideModal();
     if (this.getFormAssetType() === ASSET_TYPES.collection.id) {
       hashHistory.push(`/library/asset/${response.uid}`);
@@ -98,7 +98,7 @@ export class LibraryAssetForm extends React.Component {
 
   onCreateResourceFailed() {
     this.setState({isPending: false});
-    notify(t('Failed to create ##type##').replace('##type##', this.getFormAssetType()), 'error');
+    notify(('Failed to create ##type##').replace('##type##', this.getFormAssetType()), 'error');
   }
 
   onUpdateAssetCompleted() {
@@ -108,7 +108,7 @@ export class LibraryAssetForm extends React.Component {
 
   onUpdateAssetFailed() {
     this.setState({isPending: false});
-    notify(t('Failed to update ##type##').replace('##type##', this.getFormAssetType()), 'error');
+    notify(('Failed to update ##type##').replace('##type##', this.getFormAssetType()), 'error');
   }
 
   onSubmit(evt) {
@@ -185,14 +185,14 @@ export class LibraryAssetForm extends React.Component {
   getSubmitButtonLabel() {
     if (this.props.asset) {
       if (this.state.isPending) {
-        return t('Saving…');
+        return ('Saving…');
       } else {
-        return t('Save');
+        return ('Save');
       }
     } else if (this.state.isPending) {
-      return t('Creating…');
+      return ('Creating…');
     } else {
-      return t('Create');
+      return ('Create');
     }
   }
 
@@ -211,7 +211,7 @@ export class LibraryAssetForm extends React.Component {
             <TextBox
               value={this.state.data.name}
               onChange={this.onNameChange}
-              label={t('Name')}
+              label={('Name')}
             />
           </bem.FormModal__item>
 
@@ -219,13 +219,13 @@ export class LibraryAssetForm extends React.Component {
             <TextBox
               value={this.state.data.organization}
               onChange={this.onOrganizationChange}
-              label={t('Organization')}
+              label={('Organization')}
             />
           </bem.FormModal__item>
 
           <bem.FormModal__item>
             <label htmlFor='country'>
-              {t('Country')}
+              {('Country')}
             </label>
 
             <Select
@@ -242,7 +242,7 @@ export class LibraryAssetForm extends React.Component {
 
           <bem.FormModal__item>
             <label htmlFor='sector'>
-              {t('Primary Sector')}
+              {('Primary Sector')}
             </label>
 
             <Select
@@ -261,7 +261,7 @@ export class LibraryAssetForm extends React.Component {
             <KoboTagsInput
               tags={this.state.data.tags}
               onChange={this.onTagsChange}
-              label={t('Tags')}
+              label={('Tags')}
             />
           </bem.FormModal__item>
 
@@ -269,7 +269,7 @@ export class LibraryAssetForm extends React.Component {
             <TextareaAutosize
               onChange={this.onDescriptionChange}
               value={this.state.data.description}
-              placeholder={t('Enter short description here')}
+              placeholder={('Enter short description here')}
             />
           </bem.FormModal__item>
         </bem.FormModal__item>

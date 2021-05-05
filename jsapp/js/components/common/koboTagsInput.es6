@@ -3,7 +3,7 @@ import autoBind from 'react-autobind';
 import TagsInput from 'react-tagsinput';
 import {cleanupTags} from 'js/assetUtils';
 
-const DEFAULT_PLACEHOLDER = t('Type and confirm with ENTER');
+const DEFAULT_PLACEHOLDER = ('Type and confirm with ENTER');
 const TAGS_SEPARATOR = ',';
 
 /**

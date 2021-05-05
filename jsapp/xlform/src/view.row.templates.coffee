@@ -248,7 +248,7 @@ module.exports = do ->
 
     """
     <div class="card__settings__fields__field">
-      <label>#{t('Mandatory response')}:</label>
+      <label>#{('Mandatory response')}:</label>
       <span class="settings__input">
         <div class="radio">
           <label class="radio__row mandatory-setting__row mandatory-setting__row--true">
@@ -258,7 +258,7 @@ module.exports = do ->
               name="#{uniqueName}"
               value="true" #{if modifier is 'true' then 'checked' else ''}
             >
-            <span class="radio__label">#{t('Yes')}</span>
+            <span class="radio__label">#{('Yes')}</span>
           </label>
           <label class="radio__row mandatory-setting__row mandatory-setting__row--false">
             <input
@@ -267,7 +267,7 @@ module.exports = do ->
               name="#{uniqueName}"
               value="false" #{if modifier is 'false' then 'checked' else ''}
             >
-            <span class="radio__label">#{t('No')}</span>
+            <span class="radio__label">#{('No')}</span>
           </label>
           <label class="radio__row mandatory-setting__row mandatory-setting__row--custom">
             <input
@@ -276,13 +276,13 @@ module.exports = do ->
               name="#{uniqueName}"
               value="custom" #{if modifier is 'custom' then 'checked' else ''}
             >
-            <span class="radio__label">#{t('Custom logic')}</span>
+            <span class="radio__label">#{('Custom logic')}</span>
             <label class="text-box text-box--on-white">
               <input
                 type="text"
                 class="text-box__input js-mandatory-setting-custom-text"
                 value="#{currentValue}"
-                placeholder="#{t('Mandatory when this formula is true')}"
+                placeholder="#{('Mandatory when this formula is true')}"
               >
             </label>
           </label>
@@ -294,7 +294,7 @@ module.exports = do ->
   paramsSettingsField = ->
     """
     <div class="card__settings__fields__field params-view__settings-wrapper">
-      <label>#{t('Parameters')}:</label>
+      <label>#{('Parameters')}:</label>
       <span class="settings__input">
         <div class="params-view"></div>
       </span>

@@ -60,7 +60,7 @@ export default class SearchBox extends React.Component {
           value={this.state.inputVal}
           onChange={this.onInputChange}
           onKeyUp={this.onInputKeyUp}
-          placeholder={this.props.placeholder || t('Search…')}
+          placeholder={this.props.placeholder || ('Search…')}
           disabled={this.props.disabled}
         />
         {this.state.inputVal !== '' &&

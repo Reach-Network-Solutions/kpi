@@ -118,7 +118,7 @@ class EncryptForm extends React.Component {
       <bem.FormView__form m='add-language-fields'>
         <bem.FormView__cell m='encrypt-url'>
           <bem.FormModal__item>
-            <label>{t('Submission URL')}</label>
+            <label>{('Submission URL')}</label>
             <TextBox
               value={!this.state.clearEncryption ? this.state.submissionURL : ''}
               onChange={this.onSubmissionURLChange}
@@ -128,7 +128,7 @@ class EncryptForm extends React.Component {
 
         <bem.FormView__cell m='encrypt-key'>
           <bem.FormModal__item>
-            <label>{t('Public key')}</label>
+            <label>{('Public key')}</label>
             <TextBox
               value={!this.state.clearEncryption ? this.state.publicKey : ''}
               onChange={this.onPublicKeyChange}
@@ -142,16 +142,16 @@ class EncryptForm extends React.Component {
             disabled={this.state.isPending}
             onClick={this.onSubmit} type='submit'
           >
-            {t('Set encryption')}
+            {('Set encryption')}
           </button>
           <button
             className='remove-encryption mdl-button mdl-button--colored mdl-button--red mdl-button--raised'
             disabled={this.state.isPending}
             onClick={this.onRemove} type='submit'
           >
-            {t('Remove encryption')}
+            {('Remove encryption')}
           </button>
-          <button className="encrypt-help" onClick={this.openEncryptionHelp} data-tip={t('Learn more about encrypting forms')}>
+          <button className="encrypt-help" onClick={this.openEncryptionHelp} data-tip={('Learn more about encrypting forms')}>
             <i className='k-icon k-icon-help'/>
           </button>
         </bem.FormView__cell>

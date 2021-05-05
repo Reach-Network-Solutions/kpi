@@ -48,15 +48,15 @@ class TableBulkCheckbox extends React.Component {
 
         <ui.PopoverMenu type='table-bulk-checkbox' triggerLabel='' additionalModifiers={['right']}>
           <bem.PopoverMenu__link onClick={this.onSelectAllPages}>
-            {t('Select all results (##count##)').replace('##count##', this.props.totalRowsCount)}
+            {('Select all results (##count##)').replace('##count##', this.props.totalRowsCount)}
           </bem.PopoverMenu__link>
 
           <bem.PopoverMenu__link onClick={this.onSelectCurrentPage}>
-            {t('Select visible results (##count##)').replace('##count##', this.props.visibleRowsCount)}
+            {('Select visible results (##count##)').replace('##count##', this.props.visibleRowsCount)}
           </bem.PopoverMenu__link>
 
           <bem.PopoverMenu__link onClick={this.onClearSelection}>
-            {t('None')}
+            {('None')}
           </bem.PopoverMenu__link>
         </ui.PopoverMenu>
       </div>

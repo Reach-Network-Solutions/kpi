@@ -20,7 +20,7 @@ import {
   PERMISSIONS_CODENAMES
 } from 'js/constants';
 
-const PARTIAL_PLACEHOLDER = t('Enter usernames separated by commas');
+const PARTIAL_PLACEHOLDER = ('Enter usernames separated by commas');
 const USERNAMES_SEPARATOR = ',';
 
 /**
@@ -278,7 +278,7 @@ class UserAssetPermsEditor extends React.Component {
 
   notifyUnknownUser(username) {
     if (navigator.onLine) {
-      notify(`${t('User not found:')} ${username}`, 'warning');
+      notify(`${('User not found:')} ${username}`, 'warning');
     }
   }
 
@@ -423,7 +423,7 @@ class UserAssetPermsEditor extends React.Component {
           // don't display username editor when editing existing user
           <div className='user-permissions-editor__row user-permissions-editor__row--username'>
             <TextBox
-              placeholder={t('username')}
+              placeholder={('username')}
               value={this.state.username}
               onChange={this.onUsernameChange}
               onBlur={this.onUsernameChangeEnd}
@@ -533,7 +533,7 @@ class UserAssetPermsEditor extends React.Component {
             type='submit'
             disabled={!this.isSubmitEnabled()}
             >
-              {isNew ? t('Grant permissions') : t('Update permissions')}
+              {isNew ? ('Grant permissions') : ('Update permissions')}
             </bem.KoboButton>
         </div>
       </bem.FormModal__form>

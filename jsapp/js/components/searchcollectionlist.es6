@@ -106,7 +106,7 @@ class SearchCollectionList extends Reflux.Component {
       (
         <bem.List__heading key='1'>
           <span className={this.state.parentName ? 'parent' : ''}>
-            {t('My Library')}
+            {('My Library')}
           </span>
 
           {this.state.parentName &&
@@ -120,16 +120,16 @@ class SearchCollectionList extends Reflux.Component {
       (
         <bem.AssetListSorts className='mdl-grid' key='2'>
           <bem.AssetListSorts__item m={'name'} className='mdl-cell mdl-cell--6-col mdl-cell--3-col-tablet mdl-cell--2-col-phone'>
-            {t('Name')}
+            {('Name')}
           </bem.AssetListSorts__item>
           <bem.AssetListSorts__item m={'type'} className='mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--hide-phone'>
-            {t('Type')}
+            {('Type')}
           </bem.AssetListSorts__item>
           <bem.AssetListSorts__item m={'owner'} className='mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
-            {t('Owner')}
+            {('Owner')}
           </bem.AssetListSorts__item>
           <bem.AssetListSorts__item m={'modified'} className='mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
-            {t('Last Modified')}
+            {('Last Modified')}
           </bem.AssetListSorts__item>
         </bem.AssetListSorts>
       )];
@@ -138,19 +138,19 @@ class SearchCollectionList extends Reflux.Component {
     return (
         <bem.AssetListSorts className='mdl-grid' style={{width: this.state.fixedHeadingsWidth}}>
           <bem.AssetListSorts__item m={'name'} className='mdl-cell mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--2-col-phone'>
-            {t('Name')}
+            {('Name')}
           </bem.AssetListSorts__item>
           <bem.AssetListSorts__item m={'owner'} className='mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--hide-phone'>
-            {t('Shared by')}
+            {('Shared by')}
           </bem.AssetListSorts__item>
           <bem.AssetListSorts__item m={'created'} className='mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone'>
-            {t('Created')}
+            {('Created')}
           </bem.AssetListSorts__item>
           <bem.AssetListSorts__item m={'modified'} className='mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone'>
-            {t('Last Modified')}
+            {('Last Modified')}
           </bem.AssetListSorts__item>
           <bem.AssetListSorts__item m={'submissions'} className='mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone' >
-            {t('Submissions')}
+            {('Submissions')}
           </bem.AssetListSorts__item>
         </bem.AssetListSorts>
       );
@@ -192,10 +192,10 @@ class SearchCollectionList extends Reflux.Component {
     let display;
     if (this.props.searchContext.store.filterTags === COMMON_QUERIES.s) {
       display = 'grouped';
-      docTitle = t('Projects');
+      docTitle = ('Projects');
     } else {
       display = 'regular';
-      docTitle = t('Library');
+      docTitle = ('Library');
     }
     return (
       <DocumentTitle title={`${docTitle} | KoboToolbox`}>
@@ -224,7 +224,7 @@ class SearchCollectionList extends Reflux.Component {
                       <bem.Loading>
                         <bem.Loading__inner>
                           <i />
-                          {t('loading...')}
+                          {('loading...')}
                         </bem.Loading__inner>
                       </bem.Loading>
                     );
@@ -233,7 +233,7 @@ class SearchCollectionList extends Reflux.Component {
                       return (
                         <bem.Loading>
                           <bem.Loading__inner>
-                            {t('Your search returned no results.')}
+                            {('Your search returned no results.')}
                           </bem.Loading__inner>
                         </bem.Loading>
                       );
@@ -249,7 +249,7 @@ class SearchCollectionList extends Reflux.Component {
                       <bem.Loading>
                         <bem.Loading__inner>
                           <i />
-                          {t('loading...')}
+                          {('loading...')}
                         </bem.Loading__inner>
                       </bem.Loading>
                     );
@@ -259,9 +259,9 @@ class SearchCollectionList extends Reflux.Component {
                         return (
                           <bem.Loading>
                             <bem.Loading__inner>
-                              {t('Let\'s get started by creating your first project. Click the New button to create a new form.')}
+                              {('Let\'s get started by creating your first project. Click the New button to create a new form.')}
                               <div className='pro-tip'>
-                              {t('Advanced users: You can also drag and drop XLSForms here and they will be uploaded and converted to projects.')}
+                              {('Advanced users: You can also drag and drop XLSForms here and they will be uploaded and converted to projects.')}
                               </div>
                             </bem.Loading__inner>
                           </bem.Loading>
@@ -270,7 +270,7 @@ class SearchCollectionList extends Reflux.Component {
                         return (
                           <bem.Loading>
                             <bem.Loading__inner>
-                              {t('Let\'s get started by creating your first library question or question block. Click the New button to create a new question or block.')}
+                              {('Let\'s get started by creating your first library question or question block. Click the New button to create a new question or block.')}
                             </bem.Loading__inner>
                           </bem.Loading>
                         );
@@ -291,7 +291,7 @@ class SearchCollectionList extends Reflux.Component {
             </bem.AssetList>
             <div className='dropzone-active-overlay'>
               <i className='k-icon-upload' />
-              {t('Drop files to upload')}
+              {('Drop files to upload')}
             </div>
           </bem.List>
         </Dropzone>

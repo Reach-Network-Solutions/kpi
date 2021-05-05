@@ -53,7 +53,7 @@ const permConfig = Reflux.createStore({
    */
   verifyReady() {
     if (this.permissions.length === 0) {
-      throw new Error(t('Permission config is not ready or failed to initialize!'));
+      throw new Error(('Permission config is not ready or failed to initialize!'));
     }
   }
 });

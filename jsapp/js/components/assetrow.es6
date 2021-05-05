@@ -31,7 +31,7 @@ class AssetRow extends React.Component {
     var clickedActionIcon = $(evt.target).closest('[data-action]').get(0);
     if (clickedActionIcon) {
       var action = clickedActionIcon.getAttribute('data-action');
-      var name = clickedActionIcon.getAttribute('data-asset-name') || t('untitled');
+      var name = clickedActionIcon.getAttribute('data-asset-name') || ('untitled');
       stores.selectedAsset.toggleSelect(this.props.uid, true);
       this.props.onActionButtonClick(action, this.props.uid, name);
     }

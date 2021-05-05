@@ -30,7 +30,7 @@ class CopyTeamPermissions extends React.Component {
   }
 
   onPermissionsCopied() {
-    notify(t('permissions were copied successfully'));
+    notify(('permissions were copied successfully'));
   }
 
   onAssetChange(data) {
@@ -69,13 +69,13 @@ class CopyTeamPermissions extends React.Component {
   safeCopyPermissionsFrom() {
     if (this.state.sourceUid) {
       const dialog = alertify.dialog('confirm');
-      const finalMessage = t('You are about to copy permissions from ##source to ##target. This action cannot be undone.')
+      const finalMessage = ('You are about to copy permissions from ##source to ##target. This action cannot be undone.')
         .replace('##source', `<strong>${this.state.sourceName}</strong>`)
         .replace('##target', `<strong>${this.state.targetName}</strong>`);
       let dialogOptions = {
-        title: t('Are you sure you want to copy permissions?'),
+        title: ('Are you sure you want to copy permissions?'),
         message: finalMessage,
-        labels: { ok: t('Proceed'), cancel: t('Cancel') },
+        labels: { ok: ('Proceed'), cancel: ('Cancel') },
         onok: () => {
           this.setState({ isAwaitingAssetChange: true });
           actions.permissions.copyPermissionsFrom(
@@ -102,7 +102,7 @@ class CopyTeamPermissions extends React.Component {
         if (assetUid !== this.state.targetUid) {
           availableOptions.push({
             value: assetUid,
-            label: stores.allAssets.byUid[assetUid].name || t('Unlabelled')
+            label: stores.allAssets.byUid[assetUid].name || ('Unlabelled')
           });
         }
       }
@@ -119,7 +119,7 @@ class CopyTeamPermissions extends React.Component {
           m='copy-team-permissions-opener'
           onClick={this.toggleCopyForm}
         >
-          {t('Copy team from another project')}
+          {('Copy team from another project')}
 
           <i className='k-icon k-icon-next'/>
         </bem.Button>
@@ -127,7 +127,7 @@ class CopyTeamPermissions extends React.Component {
         {this.state.isCopyFormVisible && (
           <bem.FormView__cell>
             <bem.FormModal__item>
-              {t('This will overwrite any existing sharing settings defined in this project.')}
+              {('This will overwrite any existing sharing settings defined in this project.')}
             </bem.FormModal__item>
 
             <bem.FormModal__item m={['gray-row', 'flexed-row', 'copy-team-permissions']}>
@@ -136,7 +136,7 @@ class CopyTeamPermissions extends React.Component {
                 ref='sourceUid'
                 value={this.getSelectedProjectOption()}
                 isClearable={false}
-                placeholder={t('Select source project…')}
+                placeholder={('Select source project…')}
                 options={availableOptions}
                 onChange={this.onSelectedProjectChange}
                 className='kobo-select'
@@ -149,7 +149,7 @@ class CopyTeamPermissions extends React.Component {
                 disabled={!isImportButtonEnabled}
                 onClick={this.safeCopyPermissionsFrom}
               >
-                {t('copy')}
+                {('copy')}
               </bem.KoboButton>
             </bem.FormModal__item>
           </bem.FormView__cell>

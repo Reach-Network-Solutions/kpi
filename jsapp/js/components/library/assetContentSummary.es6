@@ -72,7 +72,7 @@ class AssetContentSummary extends React.Component {
     if (items.length === 0) {
       return (
         <bem.FormView__cell m={['box', 'padding-small']}>
-          {t('This ##asset_type## is empty.').replace('##asset_type##', this.props.asset.asset_type)}
+          {('This ##asset_type## is empty.').replace('##asset_type##', this.props.asset.asset_type)}
         </bem.FormView__cell>
       );
     }
@@ -87,7 +87,7 @@ class AssetContentSummary extends React.Component {
           <bem.FormView__cell m={['toggle-details']}>
             <button onClick={this.toggleExpanded}>
               {this.state.isExpanded ? <i className='k-icon k-icon-up'/> : <i className='k-icon k-icon-down'/>}
-              {this.state.isExpanded ? t('Show less') : t('Show more')}
+              {this.state.isExpanded ? ('Show less') : ('Show more')}
             </button>
           </bem.FormView__cell>
         }

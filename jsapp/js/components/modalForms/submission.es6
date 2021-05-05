@@ -32,7 +32,7 @@ class Submission extends React.Component {
       translationOptions = translations.map((trns) => {
         return {
           value: trns,
-          label: trns || t('Unnamed language')
+          label: trns || ('Unnamed language')
         };
       });
     }
@@ -119,13 +119,13 @@ class Submission extends React.Component {
       if (error.responseText) {
         let error_message = error.responseText;
         if (error_message === DETAIL_NOT_FOUND) {
-          error_message = t('The submission could not be found. It may have been deleted. Submission ID: ##id##').replace('##id##', sid);
+          error_message = ('The submission could not be found. It may have been deleted. Submission ID: ##id##').replace('##id##', sid);
         }
         this.setState({error: error_message, loading: false});
       } else if (error.statusText) {
           this.setState({error: error.statusText, loading: false});
       } else {
-        this.setState({error: t('Error: could not load data.'), loading: false});
+        this.setState({error: ('Error: could not load data.'), loading: false});
       }
     });
   }
@@ -142,9 +142,9 @@ class Submission extends React.Component {
   deleteSubmission() {
     let dialog = alertify.dialog('confirm');
     let opts = {
-      title: t('Delete submission?'),
-      message: `${t('Are you sure you want to delete this submission?')} ${t('This action cannot be undone')}.`,
-      labels: {ok: t('Delete'), cancel: t('Cancel')},
+      title: ('Delete submission?'),
+      message: `${('Are you sure you want to delete this submission?')} ${('This action cannot be undone')}.`,
+      labels: {ok: ('Delete'), cancel: ('Cancel')},
       onok: () => {
         actions.resources.deleteSubmission(this.props.asset.uid, this.props.sid);
       },
@@ -244,7 +244,7 @@ class Submission extends React.Component {
         <bem.Loading>
           <bem.Loading__inner>
             <i />
-            {t('loading...')}
+            {('loading...')}
           </bem.Loading__inner>
         </bem.Loading>
       );
@@ -268,12 +268,12 @@ class Submission extends React.Component {
     if (this.state.isDuplicated && !this.state.isEditingDuplicate) {
       return(
         <bem.FormModal>
-          <h1 className='submission-duplicate__header'>{t('Duplicate created')}</h1>
+          <h1 className='submission-duplicate__header'>{('Duplicate created')}</h1>
           <p className='submission-duplicate__text'>
-            {t('A duplicate of the submission record was successfully created. You can view the new instance below and make changes using the action buttons below.')}
+            {('A duplicate of the submission record was successfully created. You can view the new instance below and make changes using the action buttons below.')}
             <br/>
             <br/>
-            {t('Source submission uuid:' + ' ')}
+            {('Source submission uuid:' + ' ')}
             <code>{this.state.duplicatedSubmission._uuid}</code>
           </p>
           <bem.FormModal__group>
@@ -284,8 +284,8 @@ class Submission extends React.Component {
                   className='kobo-button kobo-button--blue'
                   disabled={!this.isSubmissionEditable()}
                 >
-                  {this.state.isEditLoading && t('Loading…')}
-                  {!this.state.isEditLoading && t('Edit')}
+                  {this.state.isEditLoading && ('Loading…')}
+                  {!this.state.isEditLoading && ('Edit')}
                 </a>
               }
 
@@ -293,9 +293,9 @@ class Submission extends React.Component {
                 <a
                   onClick={this.deleteSubmission}
                   className='kobo-button kobo-button--red submission-duplicate__button'
-                  data-tip={t('Discard duplicated submission')}
+                  data-tip={('Discard duplicated submission')}
                 >
-                  {t('Discard')}
+                  {('Discard')}
                 </a>
               }
             </div>
@@ -305,7 +305,7 @@ class Submission extends React.Component {
             <bem.FormModal__group>
               {translationOptions.length > 1 &&
                 <div className='switch--label-language'>
-                  <label>{t('Language:')}</label>
+                  <label>{('Language:')}</label>
                   <Select
                     isClearable={false}
                     value={translationOptions[this.state.translationIndex]}
@@ -318,7 +318,7 @@ class Submission extends React.Component {
                 </div>
               }
               <div className='switch--validation-status'>
-                <label>{t('Validation status:')}</label>
+                <label>{('Validation status:')}</label>
                 <Select
                   isDisabled={!this.userCan('validate_submissions', this.props.asset)}
                   isClearable={false}
@@ -349,9 +349,9 @@ class Submission extends React.Component {
         <bem.FormModal>
           {this.state.promptRefresh &&
             <div className='submission--warning'>
-              <p>{t('Click on the button below to load the most recent data for this submission. ')}</p>
+              <p>{('Click on the button below to load the most recent data for this submission. ')}</p>
               <a onClick={this.triggerRefresh} className='kobo-button kobo-button--blue'>
-                {t('Refresh submission')}
+                {('Refresh submission')}
               </a>
             </div>
           }
@@ -360,7 +360,7 @@ class Submission extends React.Component {
             <bem.FormModal__group>
               {translationOptions.length > 1 &&
                 <div className='switch--label-language'>
-                  <label>{t('Language:')}</label>
+                  <label>{('Language:')}</label>
                   <Select
                     isClearable={false}
                     value={translationOptions[this.state.translationIndex]}
@@ -373,7 +373,7 @@ class Submission extends React.Component {
                 </div>
               }
               <div className='switch--validation-status'>
-                <label>{t('Validation status:')}</label>
+                <label>{('Validation status:')}</label>
                 <Select
                   isDisabled={!this.userCan('validate_submissions', this.props.asset)}
                   isClearable={false}
@@ -403,7 +403,7 @@ class Submission extends React.Component {
                     className='mdl-button mdl-button--colored'
                   >
                     <i className='k-icon k-icon-prev' />
-                    {t('Previous')}
+                    {('Previous')}
                   </a>
                 }
                 {this.state.previous === -2 &&
@@ -412,7 +412,7 @@ class Submission extends React.Component {
                     className='mdl-button mdl-button--colored'
                   >
                     <i className='k-icon k-icon-prev' />
-                    {t('Previous')}
+                    {('Previous')}
                   </a>
                 }
 
@@ -422,7 +422,7 @@ class Submission extends React.Component {
                     onClick={this.switchSubmission.bind(this, this.state.next)}
                     className='mdl-button mdl-button--colored'
                   >
-                    {t('Next')}
+                    {('Next')}
                     <i className='k-icon-next' />
                   </a>
                 }
@@ -431,7 +431,7 @@ class Submission extends React.Component {
                     onClick={this.nextTablePage}
                     className='mdl-button mdl-button--colored'
                   >
-                    {t('Next')}
+                    {('Next')}
                     <i className='k-icon-next' />
                   </a>
                 }
@@ -442,7 +442,7 @@ class Submission extends React.Component {
               <Checkbox
                 checked={this.state.showXMLNames}
                 onChange={this.onShowXMLNamesChange}
-                label={t('Display XML names')}
+                label={('Display XML names')}
               />
 
               {this.userCan('change_submissions', this.props.asset) &&
@@ -451,8 +451,8 @@ class Submission extends React.Component {
                   className='kobo-button kobo-button--blue submission-duplicate__button'
                   disabled={!this.isSubmissionEditable()}
                 >
-                  {this.state.isEditLoading && t('Loading…')}
-                  {!this.state.isEditLoading && t('Edit')}
+                  {this.state.isEditLoading && ('Loading…')}
+                  {!this.state.isEditLoading && ('Edit')}
                 </a>
               }
 
@@ -462,13 +462,13 @@ class Submission extends React.Component {
                   className='kobo-button kobo-button--blue submission-duplicate__button'
                   disabled={!this.isSubmissionEditable()}
                 >
-                  {t('Duplicate')}
+                  {('Duplicate')}
                 </a>
               }
 
               <bem.Button m='icon' className='report-button__print'
                       onClick={launchPrinting}
-                      data-tip={t('Print')}>
+                      data-tip={('Print')}>
                 <i className='k-icon-print' />
               </bem.Button>
 
@@ -476,7 +476,7 @@ class Submission extends React.Component {
                 <a
                   onClick={this.deleteSubmission}
                   className='mdl-button mdl-button--icon mdl-button--colored mdl-button--red right-tooltip'
-                  data-tip={t('Delete submission')}
+                  data-tip={('Delete submission')}
                 >
                   <i className='k-icon-trash' />
                 </a>

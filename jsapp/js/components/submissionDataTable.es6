@@ -53,15 +53,15 @@ class SubmissionDataTable extends React.Component {
         {item.type === DISPLAY_GROUP_TYPES.get('group_root') &&
           <bem.SubmissionDataTable__row m={['columns', 'column-names']}>
             <bem.SubmissionDataTable__column m='type'>
-              {t('Type')}
+              {('Type')}
             </bem.SubmissionDataTable__column>
 
             <bem.SubmissionDataTable__column m='label'>
-              {t('Question')}
+              {('Question')}
             </bem.SubmissionDataTable__column>
 
             <bem.SubmissionDataTable__column m='data'>
-              {t('Response')}
+              {('Response')}
             </bem.SubmissionDataTable__column>
           </bem.SubmissionDataTable__row>
         }
@@ -222,19 +222,19 @@ class SubmissionDataTable extends React.Component {
     return (
       <ul>
         <li>
-          {t('latitude (x.y °):') + ' '}
+          {('latitude (x.y °):') + ' '}
           <bem.SubmissionDataTable__value>{parts[0]}</bem.SubmissionDataTable__value>
         </li>
         <li>
-          {t('longitude (x.y °):') + ' '}
+          {('longitude (x.y °):') + ' '}
           <bem.SubmissionDataTable__value>{parts[1]}</bem.SubmissionDataTable__value>
         </li>
         <li>
-          {t('altitude (m):') + ' '}
+          {('altitude (m):') + ' '}
           <bem.SubmissionDataTable__value>{parts[2]}</bem.SubmissionDataTable__value>
         </li>
         <li>
-          {t('accuracy (m):') + ' '}
+          {('accuracy (m):') + ' '}
           <bem.SubmissionDataTable__value>{parts[3]}</bem.SubmissionDataTable__value>
         </li>
       </ul>
@@ -278,7 +278,7 @@ class SubmissionDataTable extends React.Component {
       }
     // In the case that an attachment is missing, don't crash the page
     } else {
-      return(t('Could not retrieve ##filename##').replace('##filename##', filename));
+      return(('Could not retrieve ##filename##').replace('##filename##', filename));
     }
   }
 
@@ -321,19 +321,19 @@ class SubmissionDataTable extends React.Component {
       <bem.SubmissionDataTable>
         {this.renderGroup(displayData)}
 
-        {this.renderMetaResponse(META_QUESTION_TYPES.start, t('start'))}
-        {this.renderMetaResponse(META_QUESTION_TYPES.end, t('end'))}
-        {this.renderMetaResponse(META_QUESTION_TYPES.today, t('today'))}
-        {this.renderMetaResponse(META_QUESTION_TYPES.username, t('username'))}
-        {this.renderMetaResponse(META_QUESTION_TYPES.simserial, t('sim serial'))}
-        {this.renderMetaResponse(META_QUESTION_TYPES.subscriberid, t('subscriber ID'))}
-        {this.renderMetaResponse(META_QUESTION_TYPES.deviceid, t('device ID'))}
-        {this.renderMetaResponse(META_QUESTION_TYPES.phonenumber, t('phone number'))}
-        {this.renderMetaResponse(META_QUESTION_TYPES.audit, t('audit'))}
-        {this.renderMetaResponse('__version__', t('__version__'))}
-        {this.renderMetaResponse('_id', t('_id'))}
-        {this.renderMetaResponse('meta/instanceID', t('instanceID'))}
-        {this.renderMetaResponse('_submitted_by', t('Submitted by'))}
+        {this.renderMetaResponse(META_QUESTION_TYPES.start, ('start'))}
+        {this.renderMetaResponse(META_QUESTION_TYPES.end, ('end'))}
+        {this.renderMetaResponse(META_QUESTION_TYPES.today, ('today'))}
+        {this.renderMetaResponse(META_QUESTION_TYPES.username, ('username'))}
+        {this.renderMetaResponse(META_QUESTION_TYPES.simserial, ('sim serial'))}
+        {this.renderMetaResponse(META_QUESTION_TYPES.subscriberid, ('subscriber ID'))}
+        {this.renderMetaResponse(META_QUESTION_TYPES.deviceid, ('device ID'))}
+        {this.renderMetaResponse(META_QUESTION_TYPES.phonenumber, ('phone number'))}
+        {this.renderMetaResponse(META_QUESTION_TYPES.audit, ('audit'))}
+        {this.renderMetaResponse('__version__', ('__version__'))}
+        {this.renderMetaResponse('_id', ('_id'))}
+        {this.renderMetaResponse('meta/instanceID', ('instanceID'))}
+        {this.renderMetaResponse('_submitted_by', ('Submitted by'))}
       </bem.SubmissionDataTable>
     );
   }

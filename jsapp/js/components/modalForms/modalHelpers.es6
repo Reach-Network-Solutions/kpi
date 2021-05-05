@@ -6,7 +6,7 @@ import {
   PERMISSIONS_CODENAMES
 } from 'js/constants';
 
-export function renderLoading(message = t('loading…')) {
+export function renderLoading(message = ('loading…')) {
   return (
     <bem.Loading>
       <bem.Loading__inner>
@@ -26,7 +26,7 @@ export function renderBackButton(isDisabled = false) {
         onClick={stores.pageState.switchToPreviousModal}
         disabled={isDisabled}
       >
-        {t('Back')}
+        {('Back')}
       </bem.KoboButton>
     );
   } else {

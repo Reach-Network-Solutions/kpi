@@ -15,22 +15,22 @@ import {KEY_CODES} from 'js/constants';
 const EXPORT_TYPES = {
   json: {
     value: 'json',
-    label: t('JSON')
+    label: ('JSON')
   },
   xml: {
     value: 'xml',
-    label: t('XML')
+    label: ('XML')
   }
 };
 
 const AUTH_OPTIONS = {
   no_auth: {
     value: 'no_auth',
-    label: t('No Authorization')
+    label: ('No Authorization')
   },
   basic_auth: {
     value: 'basic_auth',
-    label: t('Basic Authorization')
+    label: ('Basic Authorization')
   }
 };
 
@@ -102,7 +102,7 @@ export default class RESTServicesForm extends React.Component {
         })
         .fail(() => {
           this.setState({isSubmitPending: false});
-          alertify.error(t('Could not load REST Service'));
+          alertify.error(('Could not load REST Service'));
         });
     } else {
       this.setState({isLoadingHook: false});
@@ -229,11 +229,11 @@ export default class RESTServicesForm extends React.Component {
   validateForm() {
     let isValid = true;
     if (this.state.name.trim() === '') {
-      this.setState({nameError: t('Name required')});
+      this.setState({nameError: ('Name required')});
       isValid = false;
     }
     if (this.state.endpoint.trim() === '') {
-      this.setState({endpointError: t('URL required')});
+      this.setState({endpointError: ('URL required')});
       isValid = false;
     }
     return isValid;
@@ -243,7 +243,7 @@ export default class RESTServicesForm extends React.Component {
     evt.preventDefault();
 
     if (!this.validateForm()) {
-      alertify.error(t('Please enter both name and url of your service.'));
+      alertify.error(('Please enter both name and url of your service.'));
       return;
     }
 
@@ -328,7 +328,7 @@ export default class RESTServicesForm extends React.Component {
     return (
       <bem.FormModal__item m='http-headers'>
         <label>
-          {t('Custom HTTP Headers')}
+          {('Custom HTTP Headers')}
         </label>
 
         {this.state.customHeaders.map((item, n) => {
@@ -336,7 +336,7 @@ export default class RESTServicesForm extends React.Component {
             <bem.FormModal__item m='http-header-row' key={n}>
               <input
                 type='text'
-                placeholder={t('Name')}
+                placeholder={('Name')}
                 id={`headerName-${n}`}
                 name='headerName'
                 value={this.state.customHeaders[n].name}
@@ -347,7 +347,7 @@ export default class RESTServicesForm extends React.Component {
 
               <input
                 type='text'
-                placeholder={t('Value')}
+                placeholder={('Value')}
                 id={`headerValue-${n}`}
                 name='headerValue'
                 value={this.state.customHeaders[n].value}
@@ -373,7 +373,7 @@ export default class RESTServicesForm extends React.Component {
           onClick={this.addNewCustomHeaderRow}
         >
           <i className='k-icon k-icon-plus' />
-          {t('Add header')}
+          {('Add header')}
         </bem.KoboButton>
       </bem.FormModal__item>
     );
@@ -393,8 +393,8 @@ export default class RESTServicesForm extends React.Component {
         <KoboTagsInput
           tags={this.state.subsetFields.join(',')}
           onChange={this.onSubsetFieldsChange}
-          placeholder={t('Add field(s)')}
-          label={t('Select fields subset')}
+          placeholder={('Add field(s)')}
+          label={('Select fields subset')}
         />
       </bem.FormModal__item>
     );
@@ -412,7 +412,7 @@ export default class RESTServicesForm extends React.Component {
         <bem.Loading>
           <bem.Loading__inner>
             <i />
-            {t('loading...')}
+            {('loading...')}
           </bem.Loading__inner>
         </bem.Loading>
       );
@@ -427,9 +427,9 @@ export default class RESTServicesForm extends React.Component {
           <bem.FormModal__item m='wrapper'>
             <bem.FormModal__item>
               <TextBox
-                label={t('Name')}
+                label={('Name')}
                 type='text'
-                placeholder={t('Service Name')}
+                placeholder={('Service Name')}
                 value={this.state.name}
                 errors={this.state.nameError}
                 onChange={this.handleNameChange.bind(this)}
@@ -438,9 +438,9 @@ export default class RESTServicesForm extends React.Component {
 
             <bem.FormModal__item>
               <TextBox
-                label={t('Endpoint URL')}
+                label={('Endpoint URL')}
                 type='text'
-                placeholder={t('https://')}
+                placeholder={('https://')}
                 value={this.state.endpoint}
                 errors={this.state.endpointError}
                 onChange={this.handleEndpointChange.bind(this)}
@@ -453,7 +453,7 @@ export default class RESTServicesForm extends React.Component {
                 id='active-checkbox'
                 onChange={this.handleActiveChange.bind(this)}
                 checked={this.state.isActive}
-                label={t('Enabled')}
+                label={('Enabled')}
               />
             </bem.FormModal__item>
 
@@ -463,7 +463,7 @@ export default class RESTServicesForm extends React.Component {
                 id='email-checkbox'
                 onChange={this.handleEmailNotificationChange.bind(this)}
                 checked={this.state.emailNotification}
-                label={t('Receive emails notifications')}
+                label={('Receive emails notifications')}
               />
             </bem.FormModal__item>
 
@@ -473,13 +473,13 @@ export default class RESTServicesForm extends React.Component {
                 options={this.state.typeOptions}
                 onChange={this.handleTypeRadioChange.bind(this)}
                 selected={this.state.type}
-                title={t('Type')}
+                title={('Type')}
               />
             </bem.FormModal__item>
 
             <bem.FormModal__item>
               <label htmlFor='rest-service-form--security'>
-                {t('Security')}
+                {('Security')}
               </label>
 
               <Select
@@ -497,14 +497,14 @@ export default class RESTServicesForm extends React.Component {
             {this.state.authLevel && this.state.authLevel.value === AUTH_OPTIONS.basic_auth.value &&
               <bem.FormModal__item>
                 <TextBox
-                  label={t('Username')}
+                  label={('Username')}
                   type='text'
                   value={this.state.authUsername}
                   onChange={this.handleAuthUsernameChange.bind(this)}
                 />
 
                 <TextBox
-                  label={t('Password')}
+                  label={('Password')}
                   type='text'
                   value={this.state.authPassword}
                   onChange={this.handleAuthPasswordChange.bind(this)}
@@ -519,9 +519,9 @@ export default class RESTServicesForm extends React.Component {
             {this.state.type === EXPORT_TYPES.json.value &&
               <bem.FormModal__item m='rest-custom-wrapper'>
                 <TextBox
-                  label={t('Add custom wrapper around JSON submission (%SUBMISSION% will be replaced by JSON)').replace('%SUBMISSION%', submissionPlaceholder)}
+                  label={('Add custom wrapper around JSON submission (%SUBMISSION% will be replaced by JSON)').replace('%SUBMISSION%', submissionPlaceholder)}
                   type='text-multiline'
-                  placeholder={t('Add Custom Wrapper')}
+                  placeholder={('Add Custom Wrapper')}
                   value={this.state.payloadTemplate}
                   errors={this.state.payloadTemplateErrors}
                   onChange={this.handleCustomWrapperChange.bind(this)}
@@ -536,7 +536,7 @@ export default class RESTServicesForm extends React.Component {
               onClick={this.onSubmit}
               disabled={this.state.isSubmitPending}
             >
-              { isEditingExistingHook ? t('Save') : t('Create') }
+              { isEditingExistingHook ? ('Save') : ('Create') }
             </bem.KoboButton>
           </bem.Modal__footer>
         </bem.FormModal__form>

@@ -39,7 +39,7 @@ const ErrorMessage__strong = bem.create('error-message__header', '<strong>');
 
 const WEBFORM_STYLES_SUPPORT_URL = 'alternative_enketo.html';
 
-const UNSAVED_CHANGES_WARNING = t('You have unsaved changes. Leave form without saving?');
+const UNSAVED_CHANGES_WARNING = ('You have unsaved changes. Leave form without saving?');
 
 const ASIDE_CACHE_NAME = 'kpi.editable-form.aside';
 
@@ -227,7 +227,7 @@ export default assign({
       if (jqxhr && jqxhr.responseJSON && jqxhr.responseJSON.error) {
         err = jqxhr.responseJSON.error;
       } else {
-        err = t('Unknown Enketo preview error');
+        err = ('Unknown Enketo preview error');
       }
       this.setState({
         enketopreviewError: err,
@@ -308,7 +308,7 @@ export default assign({
           });
         })
         .catch((resp) => {
-          var errorMsg = `${t('Your changes could not be saved, likely because of a lost internet connection.')}&nbsp;${t('Keep this window open and try saving again while using a better connection.')}`;
+          var errorMsg = `${('Your changes could not be saved, likely because of a lost internet connection.')}&nbsp;${('Keep this window open and try saving again while using a better connection.')}`;
           if (resp.statusText !== 'error') {
             errorMsg = resp.statusText;
           }
@@ -316,9 +316,9 @@ export default assign({
           alertify.defaults.theme.ok = 'ajs-cancel';
           let dialog = alertify.dialog('alert');
           let opts = {
-            title: t('Error saving form'),
+            title: ('Error saving form'),
             message: errorMsg,
-            label: t('Dismiss'),
+            label: ('Dismiss'),
           };
           dialog.set(opts).show();
 
@@ -373,11 +373,11 @@ export default assign({
       ooo.styleValue = this.state.settings__style;
     }
     if (this.state.isNewAsset) {
-      ooo.saveButtonText = t('create');
+      ooo.saveButtonText = ('create');
     } else if (this.state.surveySaveFail) {
-      ooo.saveButtonText = `${t('save')} (${t('retry')}) `;
+      ooo.saveButtonText = `${('save')} (${('retry')}) `;
     } else {
-      ooo.saveButtonText = t('save');
+      ooo.saveButtonText = ('save');
     }
     return ooo;
   },
@@ -481,7 +481,7 @@ export default assign({
       let opts = {
         title: UNSAVED_CHANGES_WARNING,
         message: '',
-        labels: {ok: t('Yes, leave form'), cancel: t('Cancel')},
+        labels: {ok: ('Yes, leave form'), cancel: ('Cancel')},
         onok: () => {
           hashHistory.push(route);
         },
@@ -552,7 +552,7 @@ export default assign({
         <bem.FormBuilderHeader__row m='primary'>
           <bem.FormBuilderHeader__cell
             m={'logo'}
-            data-tip={t('Return to list')}
+            data-tip={('Return to list')}
             className='left-tooltip'
             tabIndex='0'
             onClick={this.safeNavigateToList}
@@ -605,7 +605,7 @@ export default assign({
               m={['preview', {previewdisabled: previewDisabled}]}
               onClick={this.previewForm}
               disabled={previewDisabled}
-              data-tip={t('Preview form')}
+              data-tip={('Preview form')}
             >
               <i className='k-icon-view' />
             </bem.FormBuilderHeader__button>
@@ -615,7 +615,7 @@ export default assign({
                     open: showAllOpen,
                   }]}
                   onClick={this.showAll}
-                  data-tip={t('Expand / collapse questions')}>
+                  data-tip={('Expand / collapse questions')}>
                 <i className='k-icon-view-all-alt' />
               </bem.FormBuilderHeader__button>
             }
@@ -624,7 +624,7 @@ export default assign({
               m={['group', {groupable: groupable}]}
               onClick={this.groupQuestions}
               disabled={!groupable}
-              data-tip={groupable ? t('Create group with selected questions') : t('Grouping disabled. Please select at least one question.')}
+              data-tip={groupable ? ('Create group with selected questions') : ('Grouping disabled. Please select at least one question.')}
             >
               <i className='k-icon-group' />
             </bem.FormBuilderHeader__button>
@@ -633,7 +633,7 @@ export default assign({
               <bem.FormBuilderHeader__button
                 m={['cascading']}
                 onClick={this.toggleCascade}
-                data-tip={t('Insert cascading select')}
+                data-tip={('Insert cascading select')}
               >
                 <i className='k-icon-cascading' />
               </bem.FormBuilderHeader__button>
@@ -652,7 +652,7 @@ export default assign({
               onClick={this.toggleAsideLibrarySearch}
             >
               <i className={['k-icon', this.state.asideLibrarySearchVisible ? 'k-icon-close' : 'k-icon-library' ].join(' ')} />
-              <span className='panel-toggle-name'>{t('Add from Library')}</span>
+              <span className='panel-toggle-name'>{('Add from Library')}</span>
             </bem.FormBuilderHeader__button>
           </bem.FormBuilderHeader__cell>
 
@@ -666,10 +666,10 @@ export default assign({
               <i className={['k-icon', this.state.asideLayoutSettingsVisible ? 'k-icon-close' : 'k-icon-settings' ].join(' ')} />
               <span className='panel-toggle-name'>
                 {this.hasMetadataAndDetails() &&
-                  t('Layout & Settings')
+                  ('Layout & Settings')
                 }
                 {!this.hasMetadataAndDetails() &&
-                  t('Layout')
+                  ('Layout')
                 }
               </span>
             </bem.FormBuilderHeader__button>
@@ -696,14 +696,14 @@ export default assign({
           <bem.FormBuilderAside__content>
             <bem.FormBuilderAside__row>
               <bem.FormBuilderAside__header>
-                {t('Form style')}
+                {('Form style')}
 
                 { stores.serverEnvironment &&
                   stores.serverEnvironment.state.support_url &&
                   <a
                     href={stores.serverEnvironment.state.support_url + WEBFORM_STYLES_SUPPORT_URL}
                     target='_blank'
-                    data-tip={t('Read more about form styles')}
+                    data-tip={('Read more about form styles')}
                   >
                     <i className='k-icon k-icon-help'/>
                   </a>
@@ -715,9 +715,9 @@ export default assign({
                 htmlFor='webform-style'
               >
                 { hasSettings ?
-                  t('Select the form style that you would like to use. This will only affect web forms.')
+                  ('Select the form style that you would like to use. This will only affect web forms.')
                   :
-                  t('Select the form style. This will only affect the Enketo preview, and it will not be saved with the question or block.')
+                  ('Select the form style. This will only affect the Enketo preview, and it will not be saved with the question or block.')
                 }
               </label>
 
@@ -738,7 +738,7 @@ export default assign({
             {this.hasMetadataAndDetails() &&
               <bem.FormBuilderAside__row>
                 <bem.FormBuilderAside__header>
-                  {t('Metadata')}
+                  {('Metadata')}
                 </bem.FormBuilderAside__header>
 
                 <MetadataEditor
@@ -752,7 +752,7 @@ export default assign({
             {this.hasMetadataAndDetails() &&
               <bem.FormBuilderAside__row>
                 <bem.FormBuilderAside__header>
-                  {t('Details')}
+                  {('Details')}
                 </bem.FormBuilderAside__header>
 
                 <ProjectSettings
@@ -768,7 +768,7 @@ export default assign({
           <bem.FormBuilderAside__content>
             <bem.FormBuilderAside__row>
               <bem.FormBuilderAside__header>
-                {t('Search Library')}
+                {('Search Library')}
               </bem.FormBuilderAside__header>
             </bem.FormBuilderAside__row>
 
@@ -786,7 +786,7 @@ export default assign({
       return (
         <ErrorMessage>
           <ErrorMessage__strong>
-            {t('Error loading survey:')}
+            {('Error loading survey:')}
           </ErrorMessage__strong>
           <p>
             {this.state.surveyLoadError}
@@ -799,7 +799,7 @@ export default assign({
   },
 
   render() {
-    var docTitle = this.state.name || t('Untitled');
+    var docTitle = this.state.name || ('Untitled');
 
     if (!this.state.isNewAsset && !this.state.asset) {
       return (
@@ -844,7 +844,7 @@ export default assign({
               open
               large
               onClose={this.hidePreview}
-              title={t('Form Preview')}
+              title={('Form Preview')}
             >
               <ui.Modal.Body>
                 <div className='enketo-holder'>
@@ -859,7 +859,7 @@ export default assign({
               open
               error
               onClose={this.clearPreviewError}
-              title={t('Error generating preview')}
+              title={('Error generating preview')}
             >
               <ui.Modal.Body>{this.state.enketopreviewError}</ui.Modal.Body>
             </ui.Modal>
@@ -869,7 +869,7 @@ export default assign({
             <ui.Modal
               open
               onClose={this.hideCascade}
-              title={t('Import Cascading Select Questions')}
+              title={('Import Cascading Select Questions')}
             >
               <ui.Modal.Body>{this.renderCascadePopup()}</ui.Modal.Body>
             </ui.Modal>

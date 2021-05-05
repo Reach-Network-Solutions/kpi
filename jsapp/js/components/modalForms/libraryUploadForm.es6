@@ -43,7 +43,7 @@ class LibraryUploadForm extends React.Component {
     return (
       <bem.FormModal__form className='project-settings project-settings--upload-file'>
         <bem.Modal__subheader>
-          {t('Import an XLSForm from your computer.')}
+          {('Import an XLSForm from your computer.')}
         </bem.Modal__subheader>
 
         {!this.state.isPending &&
@@ -56,12 +56,12 @@ class LibraryUploadForm extends React.Component {
             accept={validFileTypes()}
           >
             <i className='k-icon-xls-file' />
-            {t(' Drag and drop the XLSForm file here or click to browse')}
+            {(' Drag and drop the XLSForm file here or click to browse')}
           </Dropzone>
         }
         {this.state.isPending &&
           <div className='dropzone'>
-            {renderLoading(t('Uploading file…'))}
+            {renderLoading(('Uploading file…'))}
           </div>
         }
 

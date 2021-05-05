@@ -103,7 +103,7 @@ class SharingForm extends React.Component {
       <bem.Loading>
         <bem.Loading__inner>
           <i />
-          {t('loading...')}
+          {('loading...')}
         </bem.Loading__inner>
       </bem.Loading>
     );
@@ -126,7 +126,7 @@ class SharingForm extends React.Component {
 
         {/* list of users and their permissions */}
         <bem.FormModal__item>
-          <h2>{t('Who has access')}</h2>
+          <h2>{('Who has access')}</h2>
 
           {this.state.permissions.map((perm) => {
             // don't show anonymous user permissions in UI
@@ -148,7 +148,7 @@ class SharingForm extends React.Component {
               m='blue'
               onClick={this.toggleAddUserEditor}
             >
-              {t('Add user')}
+              {('Add user')}
             </bem.KoboButton>
           }
 
@@ -179,7 +179,7 @@ class SharingForm extends React.Component {
             <bem.Modal__hr/>
 
             <bem.FormModal__item m='share-settings'>
-              <h2>{t('Share publicly by link')}</h2>
+              <h2>{('Share publicly by link')}</h2>
 
               <PublicShareSettings
                 publicPerms={this.state.publicPerms}
@@ -195,7 +195,7 @@ class SharingForm extends React.Component {
         { asset_type !== ASSET_TYPES.collection.id && this.state.allAssetsCount === 0 &&
           <React.Fragment>
             <bem.Modal__hr/>
-            {t('Waiting for all projects to load…')}
+            {('Waiting for all projects to load…')}
           </React.Fragment>
         }
         { asset_type !== ASSET_TYPES.collection.id && this.state.allAssetsCount >= 2 &&

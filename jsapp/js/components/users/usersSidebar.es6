@@ -19,20 +19,20 @@ class UsersSidebar extends Reflux.Component {
         <bem.KoboButton
           m={['blue', 'fullwidth']}
         >
-          {t('new user')}
+          {('new user')}
         </bem.KoboButton>
 
         <bem.UsersSidebar >
           <bem.UsersSidebar__label
           >
             <i className='k-icon-users'/>
-            <bem.UsersSidebar__labelText>{t('Users')}</bem.UsersSidebar__labelText>
+            <bem.UsersSidebar__labelText>{('Users')}</bem.UsersSidebar__labelText>
           </bem.UsersSidebar__label>
 
           <bem.UsersSidebar__label
           >
             <i className='k-icon-group'/>
-            <bem.UsersSidebar__labelText>{t('Groups')}</bem.UsersSidebar__labelText>
+            <bem.UsersSidebar__labelText>{('Groups')}</bem.UsersSidebar__labelText>
           </bem.UsersSidebar__label>
         </bem.UsersSidebar>
       </React.Fragment>

@@ -10,9 +10,9 @@ import {MODAL_TYPES} from 'js/constants';
 import {getLangString} from 'utils';
 
 const SAVE_BUTTON_TEXT = {
-  DEFAULT: t('Save Changes'),
-  UNSAVED: t('* Save Changes'),
-  PENDING: t('Saving…')
+  DEFAULT: ('Save Changes'),
+  UNSAVED: ('* Save Changes'),
+  PENDING: ('Saving…')
 };
 
 export class TranslationTable extends React.Component {
@@ -28,7 +28,7 @@ export class TranslationTable extends React.Component {
     stores.translations.setTranslationTableUnsaved(false);
     const {translated, survey, choices, translations} = props.asset.content;
     const langIndex = props.langIndex;
-    const editableColTitle = (langIndex == 0) ? t('updated text') : t('translation');
+    const editableColTitle = (langIndex == 0) ? ('updated text') : ('translation');
 
     // add each translatable property for survey items to translation table
     survey.forEach((row) => {
@@ -63,7 +63,7 @@ export class TranslationTable extends React.Component {
 
     this.columns = [
       {
-        Header: t('Original string'),
+        Header: ('Original string'),
         accessor: 'original',
         minWidth: 130,
         Cell: (cellInfo) => {return cellInfo.original.original;}
@@ -170,9 +170,9 @@ export class TranslationTable extends React.Component {
     if (stores.translations.state.isTranslationTableUnsaved) {
       const dialog = alertify.dialog('confirm');
       const opts = {
-        title: t('Go back?'),
-        message: t('You will lose all unsaved changes.'),
-        labels: {ok: t('Confirm'), cancel: t('Cancel')},
+        title: ('Go back?'),
+        message: ('You will lose all unsaved changes.'),
+        labels: {ok: ('Confirm'), cancel: ('Cancel')},
         onok: this.showManageLanguagesModal.bind(this),
         oncancel: dialog.destroy
       };
@@ -243,13 +243,13 @@ export class TranslationTable extends React.Component {
             columns={this.columns}
             defaultPageSize={30}
             showPageSizeOptions={false}
-            previousText={t('Prev')}
-            nextText={t('Next')}
+            previousText={('Prev')}
+            nextText={('Next')}
             minRows={1}
             loadingText={
               <span>
                 <i className='fa k-spin fa-circle-o-notch' />
-                {t('Loading...')}
+                {('Loading...')}
               </span>
             }
           />
@@ -260,7 +260,7 @@ export class TranslationTable extends React.Component {
             m='whitegray'
             onClick={this.onBack.bind(this)}
           >
-            {t('Back')}
+            {('Back')}
           </bem.KoboButton>
 
           <bem.KoboButton

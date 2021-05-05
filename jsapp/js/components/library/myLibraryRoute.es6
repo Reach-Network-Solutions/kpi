@@ -65,21 +65,21 @@ class MyLibraryRoute extends React.Component {
   }
 
   render() {
-    let contextualEmptyMessage = t('Your search returned no results.');
+    let contextualEmptyMessage = ('Your search returned no results.');
 
     if (myLibraryStore.data.totalUserAssets === 0) {
       contextualEmptyMessage = (
         <div>
           {t("Let's get started by creating your first library question, block, template or collection. Click the New button to create it.")}
           <div className='pro-tip'>
-            {t('Advanced users: You can also drag and drop XLSForms here and they will be uploaded and converted to library items.')}
+            {('Advanced users: You can also drag and drop XLSForms here and they will be uploaded and converted to library items.')}
           </div>
         </div>
       );
     }
 
     return (
-      <DocumentTitle title={`${t('My Library')} | KoboToolbox`}>
+      <DocumentTitle title={`${('My Library')} | KoboToolbox`}>
         <Dropzone
           onDrop={this.dropFiles}
           disableClick
@@ -112,7 +112,7 @@ class MyLibraryRoute extends React.Component {
 
           <div className='dropzone-active-overlay'>
             <i className='k-icon k-icon-upload'/>
-            {t('Drop files to upload')}
+            {('Drop files to upload')}
           </div>
         </Dropzone>
       </DocumentTitle>

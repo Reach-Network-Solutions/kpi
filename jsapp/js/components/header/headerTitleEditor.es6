@@ -42,7 +42,7 @@ class HeaderTitleEditor extends React.Component {
   updateAssetTitle() {
     // surveys are required to have name
     if (!this.state.name.trim() && this.props.asset.asset_type === ASSET_TYPES.survey.id) {
-      alertify.error(t('Please enter a title for your ##type##').replace('##type##', ASSET_TYPES[this.props.asset.asset_type].label));
+      alertify.error(('Please enter a title for your ##type##').replace('##type##', ASSET_TYPES[this.props.asset.asset_type].label));
       return false;
     } else {
       this.setState({isPending: true});
@@ -87,14 +87,14 @@ class HeaderTitleEditor extends React.Component {
         if (displayName.question) {
           placeholder = displayName.question;
         } else {
-          placeholder = t('untitled ##type##').replace('##type##', ASSET_TYPES[this.props.asset.asset_type].label);
+          placeholder = ('untitled ##type##').replace('##type##', ASSET_TYPES[this.props.asset.asset_type].label);
         }
         break;
       case ASSET_TYPES.collection.id:
-        placeholder = t('untitled collection');
+        placeholder = ('untitled collection');
         break;
       case ASSET_TYPES.survey.id:
-        placeholder = t('project title');
+        placeholder = ('project title');
         break;
     }
 

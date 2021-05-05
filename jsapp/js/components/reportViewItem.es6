@@ -18,7 +18,7 @@ class ReportTable extends React.Component {
   render () {
     let th = [''], rows = [];
     if (this.props.type === 'numerical') {
-      th = [t('Mean'), t('Median'), t('Mode'), t('Standard deviation')];
+      th = [('Mean'), ('Median'), ('Mode'), ('Standard deviation')];
       if (this.props.rows)
         th.unshift('');
       if (this.props.values)
@@ -35,10 +35,10 @@ class ReportTable extends React.Component {
           {this.props.values &&
             <tbody>
               <tr>
-                <td>{this.formatNumber(v.mean) || t('N/A')}</td>
-                <td>{this.formatNumber(v.median) || t('N/A')}</td>
-                <td>{this.formatNumber(v.mode) || t('N/A')}</td>
-                <td>{this.formatNumber(v.stdev) || t('N/A')}</td>
+                <td>{this.formatNumber(v.mean) || ('N/A')}</td>
+                <td>{this.formatNumber(v.median) || ('N/A')}</td>
+                <td>{this.formatNumber(v.mode) || ('N/A')}</td>
+                <td>{this.formatNumber(v.stdev) || ('N/A')}</td>
               </tr>
             </tbody>
           }
@@ -48,10 +48,10 @@ class ReportTable extends React.Component {
                 return (
                     <tr key={r[0]}>
                       <td>{r[0]}</td>
-                      <td>{this.formatNumber(r[1].mean) || t('N/A')}</td>
-                      <td>{this.formatNumber(r[1].median) || t('N/A')}</td>
-                      <td>{this.formatNumber(r[1].mode) || t('N/A')}</td>
-                      <td>{this.formatNumber(r[1].stdev) || t('N/A')}</td>
+                      <td>{this.formatNumber(r[1].mean) || ('N/A')}</td>
+                      <td>{this.formatNumber(r[1].median) || ('N/A')}</td>
+                      <td>{this.formatNumber(r[1].mode) || ('N/A')}</td>
+                      <td>{this.formatNumber(r[1].stdev) || ('N/A')}</td>
                     </tr>
                   );
               })}
@@ -61,7 +61,7 @@ class ReportTable extends React.Component {
       );
     }
     if (this.props.type === 'regular') {
-      th = [t('Value'), t('Frequency'), t('Percentage')];
+      th = [('Value'), ('Frequency'), ('Percentage')];
       rows = this.props.rows;
     } else {
       // prepare table data for disaggregated rows
@@ -363,19 +363,19 @@ class ReportViewItem extends React.Component {
           <bem.ReportView__headingMeta>
             <span className='type'>
               {
-                t('Type: ') + _type + t('. ')
+                ('Type: ') + _type + ('. ')
               }
             </span>
             <span className='respondents'>
               {
-                t('#1 out of #2 respondents answered this question. ')
+                ('#1 out of #2 respondents answered this question. ')
                   .replace('#1', d.provided)
                   .replace('#2', d.total_count)
               }
             </span>
             <span>
               {
-                t('(# were without data.)').replace('#', d.not_provided)
+                ('(# were without data.)').replace('#', d.not_provided)
               }
             </span>
           </bem.ReportView__headingMeta>
@@ -383,7 +383,7 @@ class ReportViewItem extends React.Component {
             <bem.Button m='icon' className='report-button__question-settings'
                   onClick={this.props.triggerQuestionSettings}
                   data-question={name}
-                  data-tip={t('Override Graph Style')}>
+                  data-tip={('Override Graph Style')}>
               <i className='k-icon-more' data-question={name} />
             </bem.Button>
           }

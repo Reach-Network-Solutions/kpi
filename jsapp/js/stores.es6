@@ -365,7 +365,7 @@ stores.allAssets = Reflux.createStore({
     this.trigger(this.data);
   },
   onListAssetsFailed: function (searchData, response) {
-    notify(response.responseJSON.detail || t('failed to list assets'));
+    notify(response.responseJSON.detail || ('failed to list assets'));
   }
 });
 

@@ -48,7 +48,7 @@ class PublicShareSettings extends React.Component {
           <Checkbox
             checked={anonCanView ? true : false}
             onChange={this.togglePerms.bind(this, 'view_asset')}
-            label={t('Anyone can view this form')}
+            label={('Anyone can view this form')}
           />
         </bem.FormModal__item>
 
@@ -57,7 +57,7 @@ class PublicShareSettings extends React.Component {
             <Checkbox
               checked={anonCanViewData ? true : false}
               onChange={this.togglePerms.bind(this, 'view_submissions')}
-              label={t('Anyone can view submissions made to this form')}
+              label={('Anyone can view submissions made to this form')}
             />
           </bem.FormModal__item>
         }
@@ -65,7 +65,7 @@ class PublicShareSettings extends React.Component {
         { anonCanView &&
           <bem.FormModal__item m='shareable-link'>
             <label>
-              {t('Shareable link')}
+              {('Shareable link')}
             </label>
             <input type='text' value={url} readOnly />
           </bem.FormModal__item>

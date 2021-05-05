@@ -47,7 +47,7 @@ export const cascadeMixin = {
         choices: inp
       });
       if (tmpSurvey.choices.length === 0) {
-        throw new Error(t('Paste your formatted table from excel in the box below.'));
+        throw new Error(('Paste your formatted table from excel in the box below.'));
       }
       tmpSurvey.choices.at(0).create_corresponding_rows();
       /*
@@ -58,13 +58,13 @@ export const cascadeMixin = {
       */
       var rowCount = tmpSurvey.rows.length;
       if (rowCount === 0) {
-        throw new Error(t('Paste your formatted table from excel in the box below.'));
+        throw new Error(('Paste your formatted table from excel in the box below.'));
       }
       s.cascadeReady = true;
       s.cascadeReadySurvey = tmpSurvey;
       s.cascadeMessage = {
         msgType: 'ready',
-        addCascadeMessage: t('add cascade with # questions').replace('#', rowCount),
+        addCascadeMessage: ('add cascade with # questions').replace('#', rowCount),
       };
     } catch (err) {
       s.cascadeReady = false;
@@ -84,13 +84,13 @@ export const cascadeMixin = {
               </CascadePopup__message>
             :
               <CascadePopup__message m='instructions'>
-                {t('Paste your formatted table from excel in the box below.')}
+                {('Paste your formatted table from excel in the box below.')}
               </CascadePopup__message>
             }
 
             {this.state.cascadeReady ?
               <CascadePopup__message m='ready'>
-                {t('OK')}
+                {('OK')}
               </CascadePopup__message>
             : null}
 
@@ -102,7 +102,7 @@ export const cascadeMixin = {
               <div className='cascade-help right-tooltip'>
                 <a href={stores.serverEnvironment.state.support_url + CHOICE_LIST_SUPPORT_URL}
                   target='_blank'
-                  data-tip={t('Learn more about importing cascading lists from Excel')}>
+                  data-tip={('Learn more about importing cascading lists from Excel')}>
                     <i className='k-icon-help' />
                 </a>
               </div>
@@ -116,7 +116,7 @@ export const cascadeMixin = {
                     this.state.cascadeLastSelectedRowIndex);
                   this.cancelCascade();
                 }}>
-                {t('DONE')}
+                {('DONE')}
               </CascadePopup__button>
             </CascadePopup__buttonWrapper>
           </CascadePopup>

@@ -131,7 +131,7 @@ export class DataTable extends React.Component {
             resultsTotal: 0
           });
         } else {
-          this.setState({error: t('This project has no submitted data. ' +
+          this.setState({error: ('This project has no submitted data. ' +
                                   'Please collect some and try again.'),
                          loading: false});
         }
@@ -142,7 +142,7 @@ export class DataTable extends React.Component {
       else if (error.statusText)
         this.setState({error: error.statusText, loading: false});
       else
-        this.setState({error: t('Error: could not load data.'), loading: false});
+        this.setState({error: ('Error: could not load data.'), loading: false});
     });
   }
   getValidationStatusOption(originalRow) {
@@ -322,7 +322,7 @@ export class DataTable extends React.Component {
       Cell: row => (
         <div>
           <span onClick={this.launchSubmissionModal} data-sid={row.original._id}
-                className='table-link' data-tip={t('Open')}>
+                className='table-link' data-tip={('Open')}>
             <i className='k-icon k-icon-view'/>
           </span>
 
@@ -331,7 +331,7 @@ export class DataTable extends React.Component {
               onClick={this.launchEditSubmission.bind(this)}
               data-sid={row.original._id}
               className='table-link'
-              data-tip={t('Edit')}
+              data-tip={('Edit')}
             >
               <i className='k-icon k-icon-edit'/>
             </span>
@@ -344,7 +344,7 @@ export class DataTable extends React.Component {
       Header: () => {
         return (
           <span className='column-header-title'>
-            {t('Validation status')}
+            {('Validation status')}
           </span>
         );
       },
@@ -558,7 +558,7 @@ export class DataTable extends React.Component {
                   value={filter ? filter.value : ''}>
             <option value=''>Show All</option>
             {choices.filter(c => c.list_name === col.question.select_from_list_name).map((item, n) => {
-              let displayLabel = t('Unlabelled');
+              let displayLabel = ('Unlabelled');
               if (item.label) {
                 displayLabel = item.label[translationIndex];
               } else if (item.name) {
@@ -651,13 +651,13 @@ export class DataTable extends React.Component {
       case '__SubmissionCheckbox':
         return (
           <span className='column-header-title'>
-            {t('Multi-select checkboxes column')}
+            {('Multi-select checkboxes column')}
           </span>
         );
       case '_validation_status.uid':
         return (
           <span className='column-header-title'>
-            {t('Validation status')}
+            {('Validation status')}
           </span>
         );
     }
@@ -896,8 +896,8 @@ export class DataTable extends React.Component {
     return (
       <bem.TableMeta>
         <bem.TableMeta__counter>
-          {res1} - {res2} {t('of')} {' '} {this.state.resultsTotal}
-          <bem.TableMeta__additionalText>{' '}{t('results')}</bem.TableMeta__additionalText>
+          {res1} - {res2} {('of')} {' '} {this.state.resultsTotal}
+          <bem.TableMeta__additionalText>{' '}{('results')}</bem.TableMeta__additionalText>
         </bem.TableMeta__counter>
 
         <TableBulkOptions
@@ -959,7 +959,7 @@ export class DataTable extends React.Component {
             <bem.Button
               m='icon' className='report-button__expand right-tooltip'
               onClick={this.toggleFullscreen}
-              data-tip={t('Toggle fullscreen')}
+              data-tip={('Toggle fullscreen')}
             >
               <i className='k-icon-expand' />
             </bem.Button>
@@ -967,7 +967,7 @@ export class DataTable extends React.Component {
             <bem.Button
               m='icon' className='report-button__expand right-tooltip'
               onClick={this.showTableColumsOptionsModal}
-              data-tip={t('Display options')}
+              data-tip={('Display options')}
             >
               <i className='k-icon-settings' />
             </bem.Button>
@@ -985,18 +985,18 @@ export class DataTable extends React.Component {
           manual
           onFetchData={this.fetchData}
           loading={loading}
-          previousText={t('Prev')}
-          nextText={t('Next')}
+          previousText={('Prev')}
+          nextText={('Next')}
           loadingText={
             <span>
               <i className='fa k-spin fa-circle-o-notch' />
-              {t('Loading...')}
+              {('Loading...')}
             </span>
           }
-          noDataText={t('Your filters returned no submissions.')}
-          pageText={t('Page')}
-          ofText={t('of')}
-          rowsText={t('rows')}
+          noDataText={('Your filters returned no submissions.')}
+          pageText={('Page')}
+          ofText={('of')}
+          rowsText={('rows')}
           getTableProps={() => {
             return {
               onScroll: (e) => {

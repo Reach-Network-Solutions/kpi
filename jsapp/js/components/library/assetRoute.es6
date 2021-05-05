@@ -110,7 +110,7 @@ class AssetRoute extends React.Component {
               {isUserSubscribed &&
                 <bem.FormView__cell m='subscribed-badge'>
                   <i className='k-icon k-icon-folder-subscribed' />
-                  {t('Subscribed')}
+                  {('Subscribed')}
                 </bem.FormView__cell>
               }
 
@@ -130,7 +130,7 @@ class AssetRoute extends React.Component {
             <bem.FormView__row>
               <bem.FormView__cell m={['columns', 'first']}>
                 <bem.FormView__cell m='label'>
-                  {t('Quick look')}
+                  {('Quick look')}
                 </bem.FormView__cell>
               </bem.FormView__cell>
 

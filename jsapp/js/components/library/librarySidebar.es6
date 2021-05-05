@@ -60,7 +60,7 @@ class LibrarySidebar extends Reflux.Component {
           m={['blue', 'fullwidth']}
           onClick={this.showLibraryNewModal}
         >
-          {t('new')}
+          {('new')}
         </bem.KoboButton>
 
         <bem.FormSidebar m={sidebarModifier}>
@@ -69,7 +69,7 @@ class LibrarySidebar extends Reflux.Component {
             href='#/library/my-library'
           >
             <i className='k-icon-library'/>
-            <bem.FormSidebar__labelText>{t('My Library')}</bem.FormSidebar__labelText>
+            <bem.FormSidebar__labelText>{('My Library')}</bem.FormSidebar__labelText>
             <bem.FormSidebar__labelCount>{this.state.myLibraryCount}</bem.FormSidebar__labelCount>
           </bem.FormSidebar__label>
 
@@ -78,7 +78,7 @@ class LibrarySidebar extends Reflux.Component {
             href='#/library/public-collections'
           >
             <i className='k-icon-library-public'/>
-            <bem.FormSidebar__labelText>{t('Public Collections')}</bem.FormSidebar__labelText>
+            <bem.FormSidebar__labelText>{('Public Collections')}</bem.FormSidebar__labelText>
           </bem.FormSidebar__label>
         </bem.FormSidebar>
       </React.Fragment>

@@ -107,7 +107,7 @@ export class TableColumnFilter extends React.Component {
     })
   }
   settingsUpdateFailed() {
-    notify(t('There was an error, table settings could not be saved.'));
+    notify(('There was an error, table settings could not be saved.'));
   }
   resetTableSettings() {
     let settings = this.props.asset.settings;
@@ -138,7 +138,7 @@ export class TableColumnFilter extends React.Component {
 
     colsArray.unshift({
       value: SUBMISSION_LINKS_ID,
-      label: t('Submission links')
+      label: ('Submission links')
     });
 
     return colsArray;
@@ -147,10 +147,10 @@ export class TableColumnFilter extends React.Component {
     const options = [];
     options.push({
       value: -1,
-      label: t('XML Values')
+      label: ('XML Values')
     });
     this.props.asset.content.translations.map((trns, n) => {
-      let label = t('Labels');
+      let label = ('Labels');
       if (trns) {
         label += ` - ${trns}`;
       }
@@ -168,7 +168,7 @@ export class TableColumnFilter extends React.Component {
       <div className='tableColumn-modal'>
         <bem.FormModal__item m='translation-radios'>
           <Radio
-            title={t('Display labels or XML values?')}
+            title={('Display labels or XML values?')}
             options={this.getDisplayedLabelOptions()}
             selected={this.state.translationIndex}
             onChange={this.onLabelChange}
@@ -178,7 +178,7 @@ export class TableColumnFilter extends React.Component {
           <Checkbox
             checked={this.state.showGroupName}
             onChange={this.updateGroupHeaderDisplay}
-            label={t('Show group names in table headers')}
+            label={('Show group names in table headers')}
           />
         </bem.FormModal__item>
 
@@ -186,18 +186,18 @@ export class TableColumnFilter extends React.Component {
           <Checkbox
             checked={this.state.showHXLTags}
             onChange={this.onHXLTagsChange}
-            label={t('Show HXL tags')}
+            label={('Show HXL tags')}
           />
         </bem.FormModal__item>
 
         {this.userCan('change_asset', this.props.asset) &&
           <bem.FormModal__item m='advanced-table-options'>
             <bem.FormView__cell m='note'>
-              {t('Note: Only users with the "edit form" permission can see the following two options. If other users can view submissions on this project, their table view will be restricted by the choices made below.')}
+              {('Note: Only users with the "edit form" permission can see the following two options. If other users can view submissions on this project, their table view will be restricted by the choices made below.')}
             </bem.FormView__cell>
             <bem.FormModal__item>
               <bem.FormView__cell m='label'>
-                {t('Set a frozen first column in the table.')}
+                {('Set a frozen first column in the table.')}
               </bem.FormView__cell>
               <Select
                 value={this.state.frozenColumn}
@@ -211,8 +211,8 @@ export class TableColumnFilter extends React.Component {
             </bem.FormModal__item>
             <bem.FormModal__item>
               <bem.FormView__cell m='label'>
-                {t('Restrict the visible columns in the table display')}
-                <span>{t('All columns are visible by default')}</span>
+                {('Restrict the visible columns in the table display')}
+                <span>{('All columns are visible by default')}</span>
               </bem.FormView__cell>
               <ul>
                 {this.listColumns().map(function(col) {
@@ -233,12 +233,12 @@ export class TableColumnFilter extends React.Component {
         <bem.Modal__footer>
           {this.userCan('change_asset', this.props.asset) &&
             <bem.KoboButton m='whitegray' onClick={this.resetTableSettings}>
-              {t('Reset')}
+              {('Reset')}
             </bem.KoboButton>
           }
 
           <bem.KoboButton m='blue' onClick={this.saveTableColumns}>
-            {t('Save')}
+            {('Save')}
           </bem.KoboButton>
         </bem.Modal__footer>
 
