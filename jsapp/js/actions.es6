@@ -16,6 +16,7 @@ import {dataInterface} from './dataInterface';
 import {permissionsActions} from './actions/permissions';
 import {helpActions} from './actions/help';
 import libraryActions from './actions/library';
+import usersActions from './actions/users';
 import submissionsActions from './actions/submissions';
 import exportsActions from './actions/exportsActions';
 import {
@@ -30,6 +31,7 @@ export const actions = {
   permissions: permissionsActions,
   help: helpActions,
   library: libraryActions,
+  users: usersActions,
   submissions: submissionsActions,
   exports: exportsActions,
 };

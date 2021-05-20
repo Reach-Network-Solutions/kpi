@@ -65,6 +65,7 @@ export const MODAL_TYPES = {
   LIBRARY_TEMPLATE: 'library-template',
   LIBRARY_COLLECTION: 'library-collection',
   LIBRARY_UPLOAD: 'library-upload',
+  USERS_NEW_USER: 'users-new-user',
   ENKETO_PREVIEW: 'enketo-preview',
   SUBMISSION: 'submission',
   REPLACE_PROJECT: 'replace-project',

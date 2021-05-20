@@ -519,6 +519,13 @@ export var dataInterface;
         COMMON_QUERIES.c,
       );
     },
+    searchUsers(params = {}) {
+      return $ajax({
+        url: `${ROOT_URL}/api/v2/users/`,
+        dataType: 'json',
+        method: 'GET'
+      });
+    },
     assetsHash () {
       return $ajax({
         url: `${ROOT_URL}/api/v2/assets/hash/`,

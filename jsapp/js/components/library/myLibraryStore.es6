@@ -176,6 +176,7 @@ const myLibraryStore = Reflux.createStore({
     delete this.abortFetchData;
     this.data.totalPages = Math.ceil(response.count / this.PAGE_SIZE);
     this.data.assets = response.results;
+
     // if we didn't fetch metadata, we assume it didn't change so leave current one
     if (response.metadata) {
       this.data.metadata = response.metadata;

@@ -292,6 +292,21 @@ bem.AssetsTablePagination = BEM('assets-table-pagination');
 bem.AssetsTablePagination__button = bem.AssetsTablePagination.__('button', '<button>');
 bem.AssetsTablePagination__index = bem.AssetsTablePagination.__('index');
 
+bem.UsersTable = BEM('users-table');
+bem.UsersTable__header = bem.UsersTable.__('header');
+bem.UsersTable__body = bem.UsersTable.__('body');
+bem.UsersTable__footer = bem.UsersTable.__('footer');
+bem.UsersTableRow = BEM('users-table-row');
+bem.UsersTableRow__link = bem.UsersTableRow.__('link', '<a>');
+bem.UsersTableRow__buttons = bem.UsersTableRow.__('buttons');
+bem.UsersTableRow__column = bem.UsersTableRow.__('column');
+bem.UsersTableRow__headerLabel = bem.UsersTableRow.__('header-label', 'span');
+bem.UsersTableRow__tags = bem.UsersTableRow.__('tags', '<div>');
+bem.UsersTableRow__tag = bem.UsersTableRow.__('tag', '<span>');
+bem.UsersTablePagination = BEM('users-table-pagination');
+bem.UsersTablePagination__button = bem.UsersTablePagination.__('button', '<button>');
+bem.UsersTablePagination__index = bem.UsersTablePagination.__('index');
+
 bem.AssetActionButtons = BEM('asset-action-buttons', '<menu>');
 bem.AssetActionButtons__button = bem.AssetActionButtons.__('button', '<a>');
 bem.AssetActionButtons__iconButton = bem.AssetActionButtons.__('icon-button', '<a>');
