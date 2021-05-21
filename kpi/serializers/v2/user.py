@@ -23,6 +23,7 @@ class UserDetailSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     user_details = serializers.SerializerMethodField()
+    user_id = serializers.SerializerMethodField()
     url = HyperlinkedIdentityField(
         lookup_field='username', view_name='user-detail')
     assets = PaginatedApiField(
@@ -36,6 +37,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ('url',
+                  'user_id',
                   'username',
                   'first_name',
                   'last_name',
@@ -81,3 +83,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             .values('data')[0]["data"]
         except IndexError:
             return None
+
+    def get_user_id(self, user):
+        return user.id
