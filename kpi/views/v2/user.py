@@ -1,13 +1,14 @@
 # coding: utf-8
 from django.contrib.auth.models import User
 from rest_framework import exceptions, mixins, renderers, status, viewsets
-from rest_framework.decorators import action
+from rest_framework.decorators import action,api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 from kpi.tasks import sync_kobocat_xforms
 from kpi.models.authorized_application import ApplicationTokenAuthentication, TokenAuthentication
 from kpi.serializers.v2.user import UserSerializer
+from kpi.serializers.create_user import CreateUserSerializer
 
 from rest_framework.permissions import IsAuthenticated
 
@@ -35,7 +36,7 @@ class UserViewSet(viewsets.GenericViewSet, mixins.RetrieveModelMixin):
         serializer = UserSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data)
 
-    @action(detail=True, methods=['GET'],
+    @action(detail=True, methods=['GET','POST'],
             renderer_classes=[renderers.JSONRenderer],
             url_path=r'migrate(?:/(?P<task_id>[\d\w\-]+))?')
     def migrate(self, request, task_id: str = None, **kwargs):
@@ -89,3 +90,16 @@ class UserViewSet(viewsets.GenericViewSet, mixins.RetrieveModelMixin):
                 )
             }
         )
+    def create(self,request):
+        serializer = CreateUserSerializer(data=request.data)
+        if serializer.is_valid():
+            User.objects.create_user(
+            serializer.validated_data['username'],
+            email = serializer.validated_data['email'],
+            first_name = serializer.validated_data['first_name'],
+            last_name = serializer.validated_data['last_name'],
+            password = serializer.validated_data['password']
+        )
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer._errors, status=status.HTTP_400_BAD_REQUEST)

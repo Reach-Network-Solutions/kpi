@@ -32,29 +32,22 @@ export const USERS_TABLE_COLUMNS = Object.freeze({
     orderBy: 'username',
     defaultValue: ORDER_DIRECTIONS.ascending,
   },
-  name: {
-    label: t('Name'),
-    id: 'name',
-    orderBy: 'name',
+  firstname: {
+    label: t('Firstname'),
+    id: 'firstname',
+    orderBy: 'firstname',
     defaultValue: ORDER_DIRECTIONS.ascending,
   },
-  organisation: {
-    label: t('Organisation'),
-    id: '0rgansation',
-    orderBy: 'organisation',
+  lastname: {
+    label: t('Lastname'),
+    id: 'lastname',
+    orderBy: 'lastname',
     defaultValue: ORDER_DIRECTIONS.ascending,
   },
-  country: {
-    label: t('Country'),
-    id: 'country',
-    filterBy: 'country',
+  email: {
+    label: t('Email'),
+    id: 'email',
+    filterBy: 'email',
     defaultValue: ORDER_DIRECTIONS.ascending,
-  },
-  sector: {
-    label: t('Primary Sector'),
-    id: 'primary-sector',
-    filterBy: 'settings__sector__value',
-    filterByPath: ['settings', 'sector'],
-    filterByMetadataName: 'sectors',
   },
 });

@@ -184,7 +184,7 @@ export default class UsersTable extends React.Component {
         {this.renderPagination()}
 
         {this.props.totalUsers !== null && (
-          <button className="mdl-button" onClick={this.toggleFullscreen}>
+          <button className="mdl-button" onClick='#'>
             {t("Toggle fullscreen")}
             <i className="k-icon k-icon-expand" />
           </button>
@@ -204,10 +204,8 @@ export default class UsersTable extends React.Component {
         <bem.UsersTable__header>
           <bem.UsersTableRow m="header">
             {this.renderHeader(USERS_TABLE_COLUMNS.username)}
-            {this.renderHeader(USERS_TABLE_COLUMNS.name)}
-            {this.renderHeader(USERS_TABLE_COLUMNS.organisation)}
-            {this.renderHeader(USERS_TABLE_COLUMNS.country)}
-            {this.renderHeader(USERS_TABLE_COLUMNS.sector)}
+            {this.renderHeader(USERS_TABLE_COLUMNS.firstname)}
+            {this.renderHeader(USERS_TABLE_COLUMNS.lastname)}
             {this.renderHeader(USERS_TABLE_COLUMNS.status, 'last')}
 
             {this.state.scrollbarWidth !== 0 &&
@@ -229,11 +227,11 @@ export default class UsersTable extends React.Component {
             </bem.UsersTableRow>
           )}
 
-          {!this.props.isLoading && this.props.users.map((user,index) => {
+          {!this.props.isLoading && this.props.users.map((user, index) => {
               return (
                 <UsersTableRow
                   user={user}
-                  key={index}
+                  key={user.user_id}
                   context={this.props.context}
                 />
               );

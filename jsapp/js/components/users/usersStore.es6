@@ -23,7 +23,7 @@ const usersStore = Reflux.createStore({
     previousPath: hashHistory.getCurrentLocation().pathname,
     previousSearchPhrase: searchBoxStore.getSearchPhrase(),
     PAGE_SIZE: 100,
-    DEFAULT_ORDER_COLUMN: USERS_TABLE_COLUMNS['name'],
+    DEFAULT_ORDER_COLUMN: USERS_TABLE_COLUMNS['firstname'],
   
     isInitialised: false,
   
@@ -167,6 +167,8 @@ const usersStore = Reflux.createStore({
       delete this.abortFetchData;
       this.data.totalPages = Math.ceil(response.count / this.PAGE_SIZE);
       this.data.users = response;
+
+      console.log(response);
       
       // if we didn't fetch metadata, we assume it didn't change so leave current one
       if (response.metadata) {

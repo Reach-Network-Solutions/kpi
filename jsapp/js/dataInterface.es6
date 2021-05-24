@@ -539,6 +539,13 @@ export var dataInterface;
         data: details
       });
     },
+    createUser (details) {
+      return $ajax({
+        method: 'POST',
+        url: `${ROOT_URL}/api/v2/users/`,
+        data: details
+      });
+    },
     patchAsset (uid, data) {
       return $ajax({
         url: `${ROOT_URL}/api/v2/assets/${uid}/`,
