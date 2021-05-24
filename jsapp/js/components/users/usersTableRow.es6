@@ -1,7 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import {bem} from 'js/bem';
-// import AssetActionButtons from './assetActionButtons';
+// import UserActionButtons from './userActionButtons';
 import ui from 'js/ui';
 import {formatTime} from 'utils';
 import {ASSET_TYPES} from 'js/constants';
@@ -22,11 +22,11 @@ class UsersTableRow extends React.Component {
     }
 
     return (
-      <bem.UsersTableRow m={['user', `type-`]}>
-        <bem.UsersTableRow__link href={`#/library/asset/${this.props.user.user_id}`}/>
+      <bem.UsersTableRow m='user'>
+        <bem.UsersTableRow__link href={`/api/v2/users/${this.props.user.username}`}/>
 
         {/* <bem.UsersTableRow__buttons>
-          <AssetActionButtons asset={this.props.user}/>
+          <UserActionButtons asset={this.props.user}/>
         </bem.UsersTableRow__buttons> */}
 
         <bem.UsersTableRow__column m='username'>
@@ -34,20 +34,17 @@ class UsersTableRow extends React.Component {
         </bem.UsersTableRow__column>
 
         <bem.UsersTableRow__column m='firstname'>
-          {/* <ui.AssetName {...this.props.user.username}/> */}
           <p>{this.props.user.first_name}</p>
 
           
         </bem.UsersTableRow__column>
 
         <bem.UsersTableRow__column m='lastname'>
-          {/* {assetUtils.getAssetOwnerDisplayName(this.props.user.owner__username)} */}
           <p>{this.props.user.last_name}</p>
         </bem.UsersTableRow__column>
         
 
         <bem.UsersTableRow__column m='status'>
-          {/* {formatTime(this.props.user.date_modified)} */}
           <p>{(this.props.user.is_active === true)? 'Active' : 'Inactive'}</p>
         </bem.UsersTableRow__column>
       </bem.UsersTableRow>

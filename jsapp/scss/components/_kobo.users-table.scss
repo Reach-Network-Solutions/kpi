@@ -81,8 +81,7 @@
    }
  }
  
- .users-table--MY_LIBRARY,
- .users-table--PUBLIC_COLLECTIONS {
+ .users-table--MY_USERS{
    height: calc(100% - #{$s-breadcrumbs-height});
    display: flex;
    flex-direction: column;
@@ -151,7 +150,7 @@
    position: relative;
    align-items: flex-start;
  
-   &.users-table-row--asset {
+   &.users-table-row--user {
      &:hover {
        background-color: $users-table-hover-bg;
  
@@ -161,7 +160,7 @@
        }
      }
  
-     .users-table-row__column--icon-status {
+     .users-table-row__column--tatus {
        padding: 13px 0 0 0;
  
        .k-icon {
@@ -294,22 +293,27 @@
  
    .users-table-row__column {
      border-top: 1px solid $kobo-lightgray;
-     padding: 20px 10px;
+     padding: 10px 10px;
      color: $kobo-darkgray;
  
      &[disabled] {
        pointer-events: none;
      }
  
-     &.users-table-row__column--icon-status {
-       width: 70px;
-       text-align: center;
+     &.users-table-row__column--username {
+       width: 200px;
+       text-align: left;
      }
  
-     &.users-table-row__column--name {
-       flex: 1;
+     &.users-table-row__column--firstname {
+       width: 150px;
        color: $kobo-black;
      }
+
+     &.users-table-row__column--lastname {
+      flex: 1;
+      color: $kobo-black;
+    }
  
      &.users-table-row__column--owner {
        width: 10%;
@@ -335,7 +339,7 @@
        width: 7.5%;
      }
  
-     &.users-table-row__column--date-modified {
+     &.users-table-row__column--status {
        width: 17.5%;
        text-align: right;
      }

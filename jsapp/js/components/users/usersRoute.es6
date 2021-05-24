@@ -93,7 +93,7 @@ class usersRoute extends React.Component {
               {ROOT_BREADCRUMBS.USERS.label}
             </bem.Breadcrumbs__crumb>
           </bem.Breadcrumbs>
-          {/* { console.log(this.state.users)} */}
+          
           <UsersTable
             context={USERS_TABLE_CONTEXTS.MY_USERS}
             isLoading={this.state.isLoading}

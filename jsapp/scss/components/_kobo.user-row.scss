@@ -1,0 +1,199 @@
+$hover-user-row: $kobo-whitegray;
+$hover-transition: 0.3s opacity;
+$user-row-spacing: 6px;
+
+.user-row {
+  list-style-type: none;
+  border-top: 1px solid $kobo-lightgray;
+  padding: $user-row-spacing $user-row-spacing * 2;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  min-height: 49px;
+  opacity: 1;
+  position: relative;
+  align-items: flex-start;
+  color: $kobo-darkgray;
+
+  &:hover {
+    color: $kobo-black;
+    background: $hover-user-row;
+
+    // avoid displaying border over tooltip
+    z-index: 1;
+  }
+
+  .user-row__link-overlay {
+    cursor: pointer;
+    position: absolute;
+    top: -1 * $user-row-spacing;
+    left: -2 * $user-row-spacing;
+    width: calc(100% + #{4 * $user-row-spacing});
+    height: calc(100% + #{2 * $user-row-spacing});
+  }
+
+  > .user-row__cell {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+
+    > .user-row__cell {
+      min-width: 0;
+      vertical-align: top;
+
+      &.user-row__cell--type {
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  &:last-child {
+    border-top: 1px solid $kobo-lightgray;
+  }
+
+  &.user-row--deleting {
+    opacity: 0.5;
+  }
+
+  &.user-row--deleted {
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    max-height: 0px;
+    min-height: 0px;
+    padding: 0px;
+    border: none;
+    overflow: hidden;
+  }
+
+  .user-row__cell--user-details {
+    position: relative;
+  }
+
+  .user-row__cell--name {
+    font-size: 14px;
+  }
+
+  .user-row__description,
+  .user-row__cell--date-created .date,
+  .user-row__cell--date-modified .date {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  // default row-icon styles are meant for "--question"
+  .row-icon {
+    vertical-align: middle;
+    border: 1px solid $kobo-teal;
+    font-size: 13px;
+    color: $kobo-teal;
+    width: 36px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+    font-style: normal;
+
+    &.row-icon--block {
+      color: $kobo-white;
+      background: $kobo-teal;
+    }
+
+    &.row-icon--template {
+      border-style: dashed;
+    }
+  }
+
+  .user-row__cell--title .row-icon {
+    float: left;
+    margin-top: -1px;
+    margin-bottom: -1px;
+  }
+
+  .user-row__description {
+    margin-top: $user-row-spacing;
+    display: block;
+    color: $kobo-darkgray;
+    font-size: 13px;
+  }
+
+  .user-row__cell--tags {
+    white-space: normal;
+    margin-top: 0;
+  }
+
+  .user-row__cell--date-created,
+  .user-row__cell--date-modified {
+    font-size: 13px;
+  }
+
+  .user-row__cell--submission-count,
+  .user-row__cell--row-count {
+    text-align: right;
+  }
+
+  // buttons are aligned to the user title regardless of description or tags being present
+  > .user-row__buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $user-row-spacing $user-row-spacing 4px;
+    width: auto;
+    text-align: right;
+    opacity: 0;
+    visibility: hidden;
+    transition: $hover-transition;
+    background: $hover-user-row;
+    box-shadow: -5px 0px 15px 0px $hover-user-row;
+    z-index: 1;
+  }
+
+  .user-row__action-icon,
+  .popover-menu {
+    height: 36px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .user-row__action-icon {
+    margin-left: 0px;
+    font-weight: 400;
+    color: $kobo-darkgray;
+    cursor: pointer;
+
+    &:hover {
+      background-color: transparent;
+      color: $kobo-blue;
+    }
+
+    &.user-row__action-icon--view-collection i {
+      @extend .k-icon, .k-icon-folder;
+    }
+
+    i::before {
+      margin: 0px;
+      font-size: 36px;
+    }
+  }
+
+  &.user-row--display-tags .user-row__action-icon--tagsToggle {
+    background-color: transparent;
+    color: $kobo-blue;
+  }
+
+  &:hover {
+    > .user-row__buttons {
+      opacity: 1;
+      visibility: visible;
+      transition: $hover-transition;
+
+      // make them appear moment after items behind starts to disappear
+      transition-delay: 0.1s;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .user-row:hover > .user-row__buttons {
+    width: 55%;
+  }
+}

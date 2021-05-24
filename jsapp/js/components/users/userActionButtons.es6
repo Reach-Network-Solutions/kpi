@@ -380,7 +380,7 @@
    }
  
    render() {
-     if (!this.props.asset) {
+     if (!this.props.user) {
        return null;
      }
  

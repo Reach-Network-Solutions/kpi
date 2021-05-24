@@ -165,20 +165,18 @@ const usersStore = Reflux.createStore({
   
     onSearchCompleted(response) {
       delete this.abortFetchData;
-      this.data.totalPages = Math.ceil(response.count / this.PAGE_SIZE);
+      this.data.totalPages = Math.ceil(response.length / this.PAGE_SIZE);
       this.data.users = response;
-
-      console.log(response);
       
       // if we didn't fetch metadata, we assume it didn't change so leave current one
       if (response.metadata) {
         this.data.metadata = response.metadata;
       }
-      this.data.totalUsers = response.count;
-      // update total count for the first time and the ones that will get a full count
-      if (this.data.totalUserAssets === null || searchBoxStore.getSearchPhrase() === '') {
-        this.data.totalUsers = this.data.totalSearchAssets;
-      }
+      this.data.totalUsers = response.length;
+      // // update total count for the first time and the ones that will get a full count
+      // if (this.data.totalUserAssets === null || searchBoxStore.getSearchPhrase() === '') {
+      //   this.data.totalUsers = this.data.totalSearchAssets;
+      // }
       this.data.isFetchingData = false;
       this.isInitialised = true;
       this.trigger(this.data);

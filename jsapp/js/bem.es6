@@ -38,6 +38,17 @@ bem.AssetRow__actionIcon  = bem.AssetRow.__('action-icon', '<a>');
 bem.AssetRow__buttons        = bem.AssetRow.__('buttons');
 bem.AssetRow__typeIcon  = bem.AssetRow.__('type-icon', '<span>');
 
+bem.UserRow = BEM('user-row', '<li>');
+bem.UserRow__cell        = bem.UserRow.__('cell');
+bem.UserRow__cellmeta    = bem.UserRow.__('cellmeta');
+bem.UserRow__description = bem.UserRow.__('description', '<span>');
+bem.UserRow__tags        = bem.UserRow.__('tags');
+bem.UserRow__tags__tag   = bem.UserRow.__('tags__tag', '<span>');
+bem.UserRow__tags__notags = bem.UserRow.__('tags__notags', '<span>');
+bem.UserRow__actionIcon  = bem.UserRow.__('action-icon', '<a>');
+bem.UserRow__buttons        = bem.UserRow.__('buttons');
+bem.UserRow__typeIcon  = bem.UserRow.__('type-icon', '<span>');
+
 bem.ServiceRow = BEM('service-row');
 bem.ServiceRow__column = bem.ServiceRow.__('column');
 bem.ServiceRow__actionButton = bem.ServiceRow.__('action-button', '<button>');

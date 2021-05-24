@@ -40,29 +40,41 @@ class UsersSidebar extends Reflux.Component {
     });
   }
 
+  isUsersSelected() {
+    return this.context.router.isActive('users/summary');
+  }
+
   render() {
+    let sidebarModifier = '';
+    if (this.state.isLoading) {
+      sidebarModifier = 'loading';
+    }
+
     return (
       <React.Fragment>
         <bem.KoboButton m={["blue", "fullwidth"]}
         onClick={this.showUsersNewModal}>
           {t("new user")}
         </bem.KoboButton>
-
-        <bem.UsersSidebar>
-          <bem.UsersSidebar__label>
+        
+        <bem.FormSidebar m={sidebarModifier}>
+          <bem.FormSidebar__label
+          m={{selected: this.isUsersSelected()}}
+          href='#/users/summary'>
             <i className="k-icon-users" />
-            <bem.UsersSidebar__labelText>
+            <bem.FormSidebar__labelText>
               {t("Users")}
-            </bem.UsersSidebar__labelText>
-          </bem.UsersSidebar__label>
+            </bem.FormSidebar__labelText>
+            <bem.FormSidebar__labelCount>{this.state.usersCount}</bem.FormSidebar__labelCount>
+          </bem.FormSidebar__label>
 
-          <bem.UsersSidebar__label>
+          <bem.FormSidebar__label>
             <i className="k-icon-group" />
-            <bem.UsersSidebar__labelText>
+            <bem.FormSidebar__labelText>
               {t("Groups")}
-            </bem.UsersSidebar__labelText>
-          </bem.UsersSidebar__label>
-        </bem.UsersSidebar>
+            </bem.FormSidebar__labelText>
+          </bem.FormSidebar__label>
+        </bem.FormSidebar>
       </React.Fragment>
     );
   }
